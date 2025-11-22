@@ -8,27 +8,36 @@
 </head>
 <body>
 
+    <!-- Main Content -->
     <div id="app-container">
         <main id="route-content">
             <!-- JS injects content here -->
         </main>
     </div>
     
+    <!-- Navigation -->
     <nav id="navigation">
         <h3>Navigation</h3>
         <!-- JS injects Part links here -->
         
-        <!-- THE RESUME BUTTON -->
         <button id="resumeBtn" class="resume-btn">
             Resume Run ⏩
         </button>
 
-        <a href="map.html" target="_blank" class="map-btn">
+        <!-- CHANGED: Now a button, not a link -->
+        <button id="mapBtn" class="map-btn">
             View Map 🗺️
-        </a>
+        </button>
 
         <button id="resetBtn" class="reset-btn">Reset Checklist</button>
     </nav>
+
+    <!-- NEW: The Map Modal (Hidden by default) -->
+    <div id="mapModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="mapImage" src="src/map.jpeg" alt="Hollow Knight Map">
+        <div id="caption">Scroll to zoom • Drag to pan (Desktop)</div>
+    </div>
     
     <script src="script.js"></script>
 </body>
