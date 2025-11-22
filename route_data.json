@@ -9,8 +9,8 @@
           "content": [
             { "type": "step", "id": "l01s1", "text": "1. Spike pogo for Fury of the Fallen charm" },
             { "type": "step", "id": "l01s2", "text": "2. Fall into Dirtmouth & enter Crossroads" },
-            { "type": "img", "src": "photos/1.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos/1.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -21,15 +21,15 @@
             { "type": "step", "id": "l01s5", "text": "3. Grub [1/46] in acid room" },
             { "type": "step", "id": "l01s6", "text": "4. Aspid Hunter enemy gauntlet" },
             { "type": "step", "id": "l01s7", "text": "5. Open Forgotten Crossroads stag station [50 Geo]" },
-            { "type": "img", "src": "photos/2.jpg" },
+            { "type": "img", "src": "src/photos/2.jpg" },
             { "type": "step", "id": "l01s8", "text": "6. Collect Grub [2/46] behind breakable wall -> (Optional: Myla encounter in mines section) -> collect 2 Grubs [4/46] (behind Husk Guard, spike pogo)" },
             { "type": "step", "id": "l01s9", "text": "7. Gruz Mother boss [1/17] -> talk to Sly in hut" },
             { "type": "step", "id": "l01s10", "text": "8. False Knight boss [2/17], collect City Crest and Geo chest -> Ancestral Mound -> Vengeful Spirit spell [1/6] -> Soul Catcher charm [2/40] after Elder Baldur mini-boss" },
             { "type": "step", "id": "l01s11", "text": "9. Grubfather visit for Geo" },
             { "type": "step", "id": "l01s12", "text": "10. Return to Dirtmouth and buy Wayward Compass charm [3/40], Quill, and Bench Pin from Iselda's shop [440 Geo]" },
             { "type": "step", "id": "l01s13", "text": "11. Beat Elder Baldur mini-boss for Greenpath entrance" },
-            { "type": "img", "src": "photos/3.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos/3.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -40,21 +40,21 @@
             { "type": "step", "id": "l01s16", "text": "3. Bench [50 Geo]" },
             { "type": "step", "id": "l01s17", "text": "4. Moss Knight mini-boss" },
             { "type": "step", "id": "l01s18", "text": "5. Save Zote from Vengefly King (Alternate path: Don't save Zote and get the \"Neglect\" achievement by coming back at any point after getting Mantis Claw and hitting Zote's skull. Note that not saving Zote locks you out of optional Grey Prince Zote boss)" },
-            { "type": "img", "src": "photos/4.jpg" },
+            { "type": "img", "src": "src/photos/4.jpg" },
             { "type": "step", "id": "l01s19", "text": "6. Grub [7/46] guarded by Moss Knight" },
             { "type": "step", "id": "l01s20", "text": "7. Open Greenpath stag station [140 Geo], sit at bench -> collect Wanderer’s Journal relic behind breakable wall from flower trap -> Hornet boss [3/17] -> Mothwing Cloak ability [1/9]" },
             { "type": "step", "id": "l01s21", "text": "8. (Optional: Head left to Lake of Unn for Quirrel encounter in building)" },
             { "type": "step", "id": "l01s22", "text": "9. Backtrack for Thorns of Agony charm [4/40]" },
-            { "type": "img", "src": "photos/5.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos/5.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
           "title": "Leg 04 - Fog Canyon",
           "content": [
             { "type": "step", "id": "l01s23", "text": "1. Drop straight through two rooms without exploring side passages." },
-            { "type": "img", "src": "photos/6.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos/6.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -65,11 +65,11 @@
             { "type": "step", "id": "l01s26", "text": "3. Buy map from Cornifer [75 Geo]" },
             { "type": "step", "id": "l01s27", "text": "4. Hallownest Seal relic -> Two Shrumal Ogre mini-boss for charm notch [1/8]" },
             { "type": "step", "id": "l01s28", "text": "5. Cloth encounter -> Grub [8/46] in bouncy mushroom room -> open shortcut" },
-            { "type": "img", "src": "photos/7.jpg" },
+            { "type": "img", "src": "src/photos/7.jpg" },
             { "type": "step", "id": "l01s29", "text": "6. Bench in lower right -> Mantis Village -> Mantis Claw ability [2/9]" },
             { "type": "step", "id": "l01s30", "text": "7. Pick up Wanderer’s Journal relic in room above Mantis Village after climbing a vertical shaft with wall jump -> take right path and use City Crest on statue" },
-            { "type": "img", "src": "photos/8.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos/8.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -80,8 +80,8 @@
             { "type": "step", "id": "l01s33", "text": "3. Collect Hallownest Seal relic on scaffolding -> Relic Seeker Lemm visit for Geo" },
             { "type": "step", "id": "l01s34", "text": "4. Grub [9/46] guarded by Winged Sentry -> Bench [150 Geo] & buy map from Cornifer [90 Geo]" },
             { "type": "step", "id": "l01s35", "text": "5. Head left into City Storerooms (If Zote saved in Greenpath: Zote encounter) -> open shortcut -> Pick up Wanderer’s Journal relic -> open City Storerooms stag station [200 Geo] -> travel back to Dirtmouth" },
-            { "type": "img", "src": "photos/9.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos/9.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -93,8 +93,8 @@
             { "type": "step", "id": "l01s39", "text": "4. Use wall jump to get to Brooding Mawlek boss [4/17] -> rewards a Mask Shard [3/16]" },
             { "type": "step", "id": "l01s40", "text": "5. Get Mask Shard [4/16, +1 HP] from Goam challenge under hot spring room" },
             { "type": "step", "id": "l01s41", "text": "6. (Optional: New Myla dialogue) -> Take stag to City Storerooms (Tiso encounter if Tiso talked to in Dirtmouth)" },
-            { "type": "img", "src": "photos/10.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos/10.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -105,7 +105,7 @@
             { "type": "step", "id": "l01s44", "text": "3. Collect Spell Twister charm [7/40] from top of area -> Soul Master boss [5/17] for Desolate Dive spell [2/6]" },
             { "type": "step", "id": "l01s45", "text": "4. Collect Geo chest, Hallownest Seal relic, and the Grub [11/46] along the way out of Soul Sanctum" },
             { "type": "step", "id": "l01s46", "text": "5. Take stag to Dirtmouth" },
-            { "type": "img", "src": "photos/12.jpg" }
+            { "type": "img", "src": "src/photos/12.jpg" }
           ]
         }
       ]
@@ -120,8 +120,8 @@
             { "type": "step", "id": "l02s1", "text": "1. Buy Lumafly Lantern [1800 Geo] from Sly" },
             { "type": "step", "id": "l02s2", "text": "2. Take stag to Crossroads (Tiso encounter) -> Buy charm notch [120 Geo, 2/8] from Salubra" },
             { "type": "step", "id": "l02s3", "text": "3. (Optional: New Myla dialogue) -> Use dive spell on crumbling floor" },
-            { "type": "img", "src": "photos2/1.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos2/1.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -132,15 +132,15 @@
             { "type": "step", "id": "l02s6", "text": "3. Buy map from Cornifer [112 Geo]" },
             { "type": "step", "id": "l02s7", "text": "4. Crystal Guardian boss, gives bench" },
             { "type": "step", "id": "l02s8", "text": "5. Go back to previous room -> find Shopkeeper's Key" },
-            { "type": "img", "src": "photos2/2.jpg" },
+            { "type": "img", "src": "src/photos2/2.jpg" },
             { "type": "step", "id": "l02s9", "text": "6. Climb up further (Quirrel encounter), go right, then drop down -> collect Wanderer’s Journal relic -> Crystal Heart ability [3/9]" },
             { "type": "step", "id": "l02s10", "text": "7. Collect 2 Grubs [14/46] (Crystal Heart room, central crusher room)" },
             { "type": "step", "id": "l02s11", "text": "8. Deep Focus charm [8/40] after laser challenge room" },
             { "type": "step", "id": "l02s12", "text": "9. Grub [15/46] in shortcut passage back to Dirtmouth (behind mimic and breakable wall) -> unlock elevator back to Dirtmouth" },
             { "type": "step", "id": "l02s13", "text": "10. Head back to bench (or reload save to skip some backtracking if you sat at the bench) and go down past crusher room to get Grub [16/46]" },
             { "type": "step", "id": "l02s14", "text": "11. Pass through dark room in bottom right of area and drop into big pit" },
-            { "type": "img", "src": "photos2/3.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos2/3.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -151,8 +151,8 @@
             { "type": "step", "id": "l02s17", "text": "3. Pick up Dreamshield charm [9/40] behind fake wall" },
             { "type": "step", "id": "l02s18", "text": "4. Hit lever to unlock Resting Grounds stag station" },
             { "type": "step", "id": "l02s19", "text": "5. Take stag to City Storerooms" },
-            { "type": "img", "src": "photos2/4.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos2/4.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -161,8 +161,8 @@
             { "type": "step", "id": "l02s20", "text": "1. Whispering Root for 28 Essence [48/2400]; get Simple Key" },
             { "type": "step", "id": "l02s21", "text": "2. Relic Seeker Lemm visit for Geo" },
             { "type": "step", "id": "l02s22", "text": "3. Drop to manhole -> use Simple Key" },
-            { "type": "img", "src": "photos2/5.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos2/5.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -173,13 +173,13 @@
             { "type": "step", "id": "l02s25", "text": "3. Head up and left -> buy map from Cornifer [75 Geo] after Hwurmp enemy gauntlet and open Fungal Wastes shortcut" },
             { "type": "step", "id": "l02s26", "text": "4. Short trip to Fungal Wastes for Dashmaster charm [10/40], rescue Bretta after wall jump challenge behind fake wall" },
             { "type": "step", "id": "l02s27", "text": "5. Drop into water and go all the way left -> Mask Shard [5/16]" },
-            { "type": "img", "src": "photos2/6.jpg" },
+            { "type": "img", "src": "src/photos2/6.jpg" },
             { "type": "step", "id": "l02s28", "text": "6. Collect Grub [17/46] in hidden alcove" },
             { "type": "step", "id": "l02s29", "text": "7. Head right -> Dung Defender boss [6/17] drops Defender's Crest charm [11/40] -> hit pump switch -> Use dive spell under pump switch for secret room with King’s Idol relic -> open shortcut into broken elevator shaft" },
             { "type": "step", "id": "l02s30", "text": "8. Head back and go down right -> super dash -> collect Isma's Tear ability [5/9] after Sentry enemy gauntlet" },
             { "type": "step", "id": "l02s31", "text": "9. Get Grub [18/46] behind Isma -> take shortcut past Eternal Emilitia" },
-            { "type": "img", "src": "photos2/7.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos2/7.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -189,8 +189,8 @@
             { "type": "step", "id": "l02s33", "text": "2. Head right -> Gorgeous Husk for 420 Geo in building with several husk enemies (behind fake wall that’s slightly above ground on right) -> King's Station stag station [300 geo], sit at bench" },
             { "type": "step", "id": "l02s34", "text": "3. Collect Grub [19/46] guarded by Great Husk Sentry in building (quit and load after freeing the Grub to avoid killing the Sentry)" },
             { "type": "step", "id": "l02s35", "text": "4. Take stag to Queen’s Station" },
-            { "type": "img", "src": "photos2/8.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos2/8.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -201,11 +201,11 @@
             { "type": "step", "id": "l02s38", "text": "3. (Optional: Moss Prophet encounter)" },
             { "type": "step", "id": "l02s39", "text": "4. Fall into Deepnest for brief visit, collect Grub [21/46] from mimic room behind breakable wall (real one is 3rd from left)" },
             { "type": "step", "id": "l02s40", "text": "5. Unlock rest of Mantis Village by hitting lever -> bench in bottom right of area" },
-            { "type": "img", "src": "photos2/9.jpg" },
+            { "type": "img", "src": "src/photos2/9.jpg" },
             { "type": "step", "id": "l02s41", "text": "6. Mantis Lords boss [7/17] -> Mark of Pride charm [13/40], Hallownest Seal relic, Geo chest, and bench in unlocked room" },
             { "type": "step", "id": "l02s42", "text": "7. Enter Deepnest past Mantis Lords" },
-            { "type": "img", "src": "photos2/10.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos2/10.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         }
       ]
@@ -222,11 +222,11 @@
             { "type": "step", "id": "l03s3", "text": "3. Super dash -> breakable wall for Grub [22/46] -> Nosk boss [8/17] -> collect Pale Ore [1/6]" },
             { "type": "step", "id": "l03s4", "text": "4. Circle up/left -> collect Grub [23/46] using super dash -> Failed Tramway bench (Cloth encounter)" },
             { "type": "step", "id": "l03s5", "text": "5. Open shortcut back to first part of Deepnest; get Tram Pass from far left of Failed Tramway" },
-            { "type": "img", "src": "photos3/1.jpg" },
+            { "type": "img", "src": "src/photos3/1.jpg" },
             { "type": "step", "id": "l03s6", "text": "6. Corpse Creeper enemy gauntlet -> King’s Idol relic pickup (If Zote saved in Greenpath: rescue Zote)" },
             { "type": "step", "id": "l03s7", "text": "7. Go back down past hot spring (Quirrel encounter) -> Take tram to Ancient Basin" },
-            { "type": "img", "src": "photos3/2.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos3/2.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -237,11 +237,11 @@
             { "type": "step", "id": "l03s10", "text": "3. Go back to room with tram, fall down lit hole -> buy map from Cornifer [112 Geo]" },
             { "type": "step", "id": "l03s11", "text": "4. Bench [150 Geo] -> super dash, collect Simple Key" },
             { "type": "step", "id": "l03s12", "text": "5. Open shortcut, Broken Vessel boss [9/17] -> collect Monarch Wings ability [6/9]" },
-            { "type": "img", "src": "photos3/3.jpg" },
+            { "type": "img", "src": "src/photos3/3.jpg" },
             { "type": "step", "id": "l03s13", "text": "6. Collect Grub [25/46] in passage leading to Broken Vessel requiring double jump" },
             { "type": "step", "id": "l03s14", "text": "7. Double jump up to Palace Grounds, and open up Hidden Station stag station [300 Geo] -> take stag to Dirtmouth" },
-            { "type": "img", "src": "photos3/4.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos3/4.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -251,9 +251,9 @@
             { "type": "step", "id": "l03s16", "text": "2. Take stag to King’s Station; (Optional: collect Hallownest Seal relic using nail pogo on stag station roof spikes) -> Relic Seeker Lemm visit for Geo -> buy Channeled Nail upgrade [800 Geo, 2/4]" },
             { "type": "step", "id": "l03s17", "text": "3. Head back up to Soul Sanctum and use Elegant Key -> get Shade Soul spell upgrade [3/6] after Soul Warrior mini-boss" },
             { "type": "step", "id": "l03s18", "text": "4. Go to City Storerooms and take stag to Hidden Station -> take tram further right to Kingdom's Edge" },
-            { "type": "img", "src": "photos3/5.jpg" },
-            { "type": "img", "src": "photos3/6.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos3/5.jpg" },
+            { "type": "img", "src": "src/photos3/6.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -264,11 +264,11 @@
             { "type": "step", "id": "l03s21", "text": "3. Collect Grub [26/46] using super dash & double jump" },
             { "type": "step", "id": "l03s22", "text": "4. Use Hive Guardian (big bouncing bee) to open wall to Mask Shard [8/16, +1 HP] -> open shortcut" },
             { "type": "step", "id": "l03s23", "text": "5. Hive Knight boss [10/17] (Optional: Hive Queen Vespa spirit) -> Hiveblood charm [14/40]" },
-            { "type": "img", "src": "photos3/7.jpg" },
+            { "type": "img", "src": "src/photos3/7.jpg" },
             { "type": "step", "id": "l03s24", "text": "6. Exit Hive and head up into passage back to Waterways, collect Grub [27/46] with double jump -> (Optional: Open breakable shortcut back to Waterways at end of passage)" },
             { "type": "step", "id": "l03s25", "text": "7. Use dive spell before breakable wall shortcut for Grub [28/46] in Hive sub-section" },
-            { "type": "img", "src": "photos3/8.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos3/8.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -279,17 +279,17 @@
             { "type": "step", "id": "l03s28", "text": "3. Dive spell to access bottom right room of area, Grub [29/46] after Great Hopper spike room" },
             { "type": "step", "id": "l03s29", "text": "4. (Optional: Several dive spells to reach 420 Geo rock)" },
             { "type": "step", "id": "l03s30", "text": "5. Head left and up to collect Quick Slash charm [15/40]" },
-            { "type": "img", "src": "photos3/9.jpg" },
+            { "type": "img", "src": "src/photos3/9.jpg" },
             { "type": "step", "id": "l03s31", "text": "6. Use dive spell to collect Wanderer’s Journal relic -> collect Grub [30/46] on way to bench behind breakable ceiling -> Wanderer’s Journal relic next to bench" },
             { "type": "step", "id": "l03s32", "text": "7. (Optional: In center vertical passage, use double jump to reach Bardoon encounter)" },
             { "type": "step", "id": "l03s33", "text": "8. Whispering Root for 51 Essence [119/2400]" },
             { "type": "step", "id": "l03s34", "text": "9. Open shortcut back to City near Colosseum of Fools and grab Colosseum bench" },
             { "type": "step", "id": "l03s35", "text": "10. King’s Idol relic behind breakable wall with Giant Hopper -> Enter Tower of Love and open shortcut" },
-            { "type": "img", "src": "photos3/10.jpg" },
+            { "type": "img", "src": "src/photos3/10.jpg" },
             { "type": "step", "id": "l03s36", "text": "11. Collect Grub [31/46] in watery passage, head left back to King's Station" },
             { "type": "step", "id": "l03s37", "text": "12. Take stag to Greenpath" },
-            { "type": "img", "src": "photos3/11.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos3/11.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -299,8 +299,8 @@
             { "type": "step", "id": "l03s39", "text": "2. Go past Hornet boss room for Lake of Unn, enter secret passage on left side for Shape of Unn charm [16/40]" },
             { "type": "step", "id": "l03s40", "text": "3. Head up past Vengefly King room (If you didn't save Zote in Greenpath, hit skull for achievement) to right, hit open chest and jump into it for 2 Elder Baldurs mini-boss -> collect Baldur Shell charm [17/40]" },
             { "type": "step", "id": "l03s41", "text": "4. Wall jump up vertical passage, collect Grub [32/46] before entering Howling Cliffs" },
-            { "type": "img", "src": "photos3/12.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos3/12.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -311,8 +311,8 @@
             { "type": "step", "id": "l03s44", "text": "3. Continue past Cornifer into dark room for Joni's Blessing charm [18/40] (Joni spirit)" },
             { "type": "step", "id": "l03s45", "text": "4. Find Nailmaster Mato's hut for Cyclone Slash nail art [3/3]" },
             { "type": "step", "id": "l03s46", "text": "5. Super dash off cliff to return to Dirtmouth" },
-            { "type": "img", "src": "photos3/13.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos3/13.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -323,7 +323,7 @@
             { "type": "step", "id": "l03s49", "text": "3. (Optional: Gravedigger spirit right of well); Grubfather visit for Geo, Rancid Egg, Hallownest Seal relic, Pale Ore [3/6]" },
             { "type": "step", "id": "l03s50", "text": "4. Buy Resting Grounds map [75 Geo], Stagway & Vendor pins [200 Geo] from Iselda" },
             { "type": "step", "id": "l03s51", "text": "5. Take stag to King's Station" },
-            { "type": "img", "src": "photos3/14.jpg" }
+            { "type": "img", "src": "src/photos3/14.jpg" }
           ]
         }
       ]
@@ -339,8 +339,8 @@
             { "type": "step", "id": "l04s2", "text": "2. Relic Seeker Lemm visit for Geo" },
             { "type": "step", "id": "l04s3", "text": "3. Upgrade nail to Coiled Nail [2000 Geo, 3/4]" },
             { "type": "step", "id": "l04s4", "text": "4. Unlock elevator back to Crossroads [150 Geo] and take it up to Crossroads" },
-            { "type": "img", "src": "photos4/1.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos4/1.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -351,12 +351,12 @@
             { "type": "step", "id": "l04s7", "text": "3. (Optional: Check up on Myla) -> go to Crossroads stag station and take stag back to Dirtmouth and buy 3 Mask Shards [2800 Geo, 11/16], 2 Vessel Fragments [1450 Geo, 3/9, +1 Soul Vessel], Stalwart Shell, Sprintmaster, and Heavy Blow charms [950 Geo, 28/40] from Sly" },
             { "type": "step", "id": "l04s8", "text": "4. Enter well -> breakable ceiling in platform room gives Whispering Root for 29 Essence [194/2400]" },
             { "type": "step", "id": "l04s9", "text": "5. Use double jump in Ancestral Mound near lifeblood cocoon to get Whispering Root for 42 Essence [236/2400]" },
-            { "type": "img", "src": "photos4/2.jpg" },
+            { "type": "img", "src": "src/photos4/2.jpg" },
             { "type": "step", "id": "l04s10", "text": "6. (Optional: Use dive spell for Fossilized Goam for Hunter's Journal)" },
             { "type": "step", "id": "l04s11", "text": "7. Visit Leg Eater in Fungal Wastes, pay 86 Geo to see his stuff, and buy the Fragile Heart, Fragile Greed, and Fragile Strength charms [960 Geo, 31/40] with Defender's Crest equipped for the Geo discount\n(BUG: If you have Defender’s Crest equipped when you first talk to Leg Eater and you pay the 86 Geo for him to sell you stuff, prices will be at original level even though he claims he’s giving a discount. You must exit the room and re-enter to actually get the discount.)" },
             { "type": "step", "id": "l04s12", "text": "8. Whispering Root in the connector leading to Fog Canyon gives 20 Essence [256/2400]" },
-            { "type": "img", "src": "photos4/3.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos4/3.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -368,8 +368,8 @@
             { "type": "step", "id": "l04s16", "text": "4. Enter Teacher's Archive (Quirrel encounter outside Archive) and fight Uumuu boss [11/17] -> (Optional: Charged Lumaflys entry for Hunter's Journal) -> put Monomon the Teacher dreamer [1/3] to rest after Quirrel encounter" },
             { "type": "step", "id": "l04s17", "text": "5. Open shortcut back to rest of Fog Canyon, take upper left passage -> Hallownest Seal relic pickup -> complete Squit enemy gauntlet in Overgrown Mound for Howling Wraiths spell [4/6]" },
             { "type": "step", "id": "l04s18", "text": "6. Climb back up to Greenpath" },
-            { "type": "img", "src": "photos4/4.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos4/4.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -379,8 +379,8 @@
             { "type": "step", "id": "l04s20", "text": "2. Collect Geo chest, Grub [34/46], cut down platform, and collect Vessel Fragment [4/9]" },
             { "type": "step", "id": "l04s21", "text": "3. Head right to Stone Sanctuary -> first collect Mask Shard in top right [12/16, +1 HP] -> challenge No Eyes warrior's grave [1/7] for 200 Essence [456/2400]" },
             { "type": "step", "id": "l04s22", "text": "4. Drop back down through Fog Canyon to Queen's Station; collect Hallownest Seal relic by double-jumping next to Willoh -> Take stag to King's Station" },
-            { "type": "img", "src": "photos4/5.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos4/5.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -388,8 +388,8 @@
           "content": [
             { "type": "step", "id": "l04s23", "text": "1. Collect Wanderer’s Journal relic -> Collect Vessel Fragment [5/9] after Sentry enemy gauntlet room above King's Station" },
             { "type": "step", "id": "l04s24", "text": "2. Climb up elevator shaft to Colosseum" },
-            { "type": "img", "src": "photos4/6.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos4/6.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -398,8 +398,8 @@
             { "type": "step", "id": "l04s25", "text": "1. Complete Trial of the Warrior (If Zote saved in Greenpath & Deepnest: fight Zote as final boss - \"Rivalry\" achievement) & Trial of the Conqueror [550 Geo, 2/3] for a charm notch [7/8] and Pale Ore [4/6] respectively" },
             { "type": "step", "id": "l04s26", "text": "2. Descend to bench in tent, head right for Hornet boss [12/17] -> collect King's Brand ability [7/9]" },
             { "type": "step", "id": "l04s27", "text": "3. Wanderer’s Journal relic above breakable planks -> Use King's Station shortcut to go back to City and enter broken elevator shaft" },
-            { "type": "img", "src": "photos4/7.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos4/7.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -407,8 +407,8 @@
           "content": [
             { "type": "step", "id": "l04s28", "text": "1. Pass through Dung Defender's room (Dung Defender encounter) -> use dive spell in room under bench to enter sub-area of Waterways -> beat Flukemarm boss for Flukenest charm [32/40]" },
             { "type": "step", "id": "l04s29", "text": "2. Return to broken elevator shaft to fall down into Ancient Basin; (Optional: Whispering Root for 35 Essence) -> Collect Wanderer’s Journal relic" },
-            { "type": "img", "src": "photos3/8.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos3/8.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         }
       ]
@@ -426,8 +426,8 @@
             { "type": "step", "id": "l05s4", "text": "4. Head right and climb up to top of lighthouse to turn light on" },
             { "type": "step", "id": "l05s5", "text": "5. Continue right and acquire Shade Cloak ability [8/9] -> Arcane Egg relic pickup using Shade Cloak -> (Optional: Void Tendrils entry for Hunter's Journal behind fake ceiling and black barrier)" },
             { "type": "step", "id": "l05s6", "text": "6. Climb back up to top of Abyss (Hornet encounter), call tram (re-equip regular charm set) and go to Deepnest" },
-            { "type": "img", "src": "photos5/1.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos5/1.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -436,8 +436,8 @@
             { "type": "step", "id": "l05s7", "text": "1. Head down to get Sharp Shadow charm [34/40] after shade dash i-frame challenge room; (Optional: Garpede entry for Hunter's journal behind fake wall)" },
             { "type": "step", "id": "l05s8", "text": "2. Head up for garpede nail pogo challenge room to get a Vessel Fragment [6/9, +1 Soul Vessel]" },
             { "type": "step", "id": "l05s9", "text": "3. Take tram back to Ancient Basin -> take stag from Hidden Station to Dirtmouth -> use elevator to get up to Crystal Peak" },
-            { "type": "img", "src": "photos5/2.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos5/2.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -450,8 +450,8 @@
             { "type": "step", "id": "l05s14", "text": "5. Drop all the way down to bottom right and super dash across to Crystallised Mound" },
             { "type": "step", "id": "l05s15", "text": "6. Dive spell to enter mound, collect Grub [36/46] and Descending Dark spell upgrade [6/6]" },
             { "type": "step", "id": "l05s16", "text": "7. Fall into Resting Grounds" },
-            { "type": "img", "src": "photos5/3.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos5/3.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -462,8 +462,8 @@
             { "type": "step", "id": "l05s19", "text": "3. Whispering Root in top right of Glade of Hope behind fake wall gives 34 Essence [611/2400]; King’s Idol relic in hidden room at top of waterfall; (Optional: 19 spirits in Glade of Hope [Warning: Revek will attack you if you Dream Nail them])" },
             { "type": "step", "id": "l05s20", "text": "4. Use dive spell to open up crypts from broken coffin -> collect Soul Eater charm [36/40], Wanderer’s Journal relic, Grub [37/46], and Hallownest Seal relic" },
             { "type": "step", "id": "l05s21", "text": "5. Take elevator down to City" },
-            { "type": "img", "src": "photos5/4.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos5/4.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -474,13 +474,13 @@
             { "type": "step", "id": "l05s24", "text": "3. Kill the Nailsmith (\"Purity\" achievement)\n(Alternate path: Spare the Nailsmith -> visit Nailmaster Sheo's hut in Greenpath, see Leg 21 step #1 to get \"Happy Couple\" achievement)" },
             { "type": "step", "id": "l05s25", "text": "4. Head up middle building under Dreamer using double jump, grab bench," },
             { "type": "step", "id": "l05s26", "text": "5. Complete Lance Sentry/Great Husk sentry room to unlock doors; head up and open shortcut in left passageway to Soul Sanctum building" },
-            { "type": "img", "src": "photos5/5.jpg" },
+            { "type": "img", "src": "src/photos5/5.jpg" },
             { "type": "step", "id": "l05s27", "text": "6. Continue up and grab the Grub [38/46] guarded by the Great Husk Sentry and Lance Sentry" },
             { "type": "step", "id": "l05s28", "text": "7. Fight the Watcher Knight boss [13/17]" },
             { "type": "step", "id": "l05s29", "text": "8. Collect Hallownest Seal relic & Geo chest -> put Lurien the Watcher dreamer [2/3] to rest" },
             { "type": "step", "id": "l05s30", "text": "9. Take stag from King's Station to Queen's Station" },
-            { "type": "img", "src": "photos5/6.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos5/6.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -491,15 +491,15 @@
             { "type": "step", "id": "l05s33", "text": "3. Backtrack and get Whispering Root for 29 Essence [640/2400]" },
             { "type": "step", "id": "l05s33_b", "text": "4. Get bench [150 Geo] -> (Optional: side-trip to Deepnest for Mask Maker encounter, dive spell on Mask Maker for extra dialogue) -> Mantis Traitor/Mantis Petra/Spiny Husk enemy gauntlet -> collect Grub [39/46] behind fake wall" },
             { "type": "step", "id": "l05s34", "text": "5. After room with jumping bugs, head up through hidden passage with many booby-trap plants for Grub [40/46]" },
-            { "type": "img", "src": "photos5/7.jpg" },
+            { "type": "img", "src": "src/photos5/7.jpg" },
             { "type": "step", "id": "l05s36", "text": "6. Hallownest Seal relic pickup -> unlock Queen’s Gardens stag station [200 Geo], hit lever to open shortcut, and use bench" },
             { "type": "step", "id": "l05s37", "text": "7. Challenge Marmu warrior's grave [3/7] for 150 Essence [790/2400]" },
             { "type": "step", "id": "l05s38", "text": "8. Continue up in area -> open shortcut -> get Grub [41/46] after super dash challenge room" },
             { "type": "step", "id": "l05s39", "text": "9. Take a quick side-trip to collect the Whispering Root in Greenpath for 44 Essence [834/2400]" },
             { "type": "step", "id": "l05s40", "text": "10. Backtrack and head left to fight Traitor Lord boss [14/17] (If Cloth saved in Ancient Basin: Cloth joins fight) -> White Lady gives White Fragment [36.5/40]" },
             { "type": "step", "id": "l05s41", "text": "11. Take stag from Queen's Garden to Queen's Station" },
-            { "type": "img", "src": "photos5/8.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos5/8.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -508,8 +508,8 @@
             { "type": "step", "id": "l05s42", "text": "1. Challenge Elder Hu warrior's grave [4/7] on the right side of the area for 100 Essence [934/2400]" },
             { "type": "step", "id": "l05s43", "text": "2. Get the Whispering Root in the room above Mantis Village for 18 Essence [952/2400]" },
             { "type": "step", "id": "l05s44", "text": "3. Use double jump to access Fungal Core, fall all the way down to collect the Mask Shard [14/16] at the entrance to Deepnest" },
-            { "type": "img", "src": "photos5/9.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos5/9.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -520,7 +520,7 @@
             { "type": "step", "id": "l05s47", "text": "3. Head down left to enter big room on the left side of Deepnest -> (Optional: Whispering Root for 45 Essence) -> get the Grub [42/46] -> pick up Weaversong charm [37.5/40] in Weaver's Den (entrance is behind a breakable wall and Stalking Devout)" },
             { "type": "step", "id": "l05s48", "text": "4. Continue left into Distant Village (Optional: side-trip for Mid-Wife encounter) -> complete the Beast's Den for Grub [43/46] and to put Herrah the Beast dreamer [3/3] to rest (Hornet encounter)\n(Note: Must get trapped to access permanently missable Hallownest Seal relic [not required for completion])" },
             { "type": "step", "id": "l05s49", "text": "5. Unlock the Distant Village stag station [250 Geo] and travel to the newly unlocked Stag Nest" },
-            { "type": "img", "src": "photos5/10.jpg" }
+            { "type": "img", "src": "src/photos5/10.jpg" }
           ]
         }
       ]
@@ -535,8 +535,8 @@
             { "type": "step", "id": "l06s1", "text": "1. Collect the Vessel Fragment [7/9]; (Optional: inspect the broken egg shell in top left of Stag Nest)" },
             { "type": "step", "id": "l06s2", "text": "2. Fall down outside Stag Nest and challenge Gorb warrior's grave [6/7] for 100 Essence [1252/2400]" },
             { "type": "step", "id": "l06s3", "text": "3. Super dash to Dirtmouth and take stag to King's Station" },
-            { "type": "img", "src": "photos6/1.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos6/1.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -546,8 +546,8 @@
             { "type": "step", "id": "l06s5", "text": "2. Head right into Kingdom's Edge -> go past a shadow barrier to challenge Markoth warrior's grave [7/7] for 250 Essence [1502/2400]" },
             { "type": "step", "id": "l06s6", "text": "3. Head left back to the City and take the King's Station stagway to Dirtmouth to collect King's Idol relic and Grubberfly's Elegy charm [38.5/40] from the Grubfather" },
             { "type": "step", "id": "l06s7", "text": "4. Take stag to Resting Grounds" },
-            { "type": "img", "src": "photos6/2.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos6/2.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -556,10 +556,10 @@
             { "type": "step", "id": "l06s8", "text": "1. Visit to Seer gives you a Vessel Fragment [8/9], the Dream Gate ability, an Arcane Egg relic, and a Mask Shard [15/16]" },
             { "type": "step", "id": "l06s9", "text": "2. Open breakable ceiling above Geo chest -> Grey Mourner" },
             { "type": "step", "id": "l06s10", "text": "3. Start Delicate Flower quest; 2 suggested routes mapped below - dotted path has fewer environment hazards, but slightly longer (Optional: clear path of enemies without using benches before starting quest to make journey safer) -> (Quirrel encounter at Blue Lake - \"Witness\" achievement; Tiso encounter at Blue Lake if Tiso talked to at both previous encounters; Optional: give flower to Elderbug, but must restart quest) -> place flower at Traitor Lord's child's grave in Queen's Garden and take stag back to Grey Mourner (or reload save if no benches were used during quest) for final Mask Shard [16/16, +1 HP] - \"Solace\" achievement" },
-            { "type": "img", "src": "photos6/3.jpg" },
-            { "type": "img", "src": "photos6/4.jpg" },
+            { "type": "img", "src": "src/photos6/3.jpg" },
+            { "type": "img", "src": "src/photos6/4.jpg" },
             { "type": "step", "id": "l06s11", "text": "4. Use stag to go to Crossroads" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -568,8 +568,8 @@
             { "type": "step", "id": "l06s12", "text": "1. In passage to False Knight boss room, use super dash in passage behind breakable wall and beat Aspid Hunter/Aspid Mother enemy gauntlet for Glowing Womb charm [39.5/40]\n\nNote: At this point you will have exactly 100% completion, so you can visit the Black Egg Temple get the normal ending and 100% completion achievements if you want." },
             { "type": "step", "id": "l06s13", "text": "2. Open breakable wall above False Knight boss room and fight Failed Champion dream boss for 300 Essence [1802/2400]" },
             { "type": "step", "id": "l06s14", "text": "3. Take stag to Resting Grounds and visit Seer to get Awoken Dream Nail ability [9/9] -> take stag to King's Station" },
-            { "type": "img", "src": "photos6/5.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos6/5.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -581,9 +581,9 @@
             { "type": "step", "id": "l06s18", "text": "4. Use Awoken Dream Nail to access White Palace from dead Kingsmould in Palace Grounds -> complete White Palace for other White Fragment to complete Kingsoul charm [40/40]" },
             { "type": "step", "id": "l06s19", "text": "5. (Optional: head into Abyss after equipping Kingsoul to unlock a hidden sub-area; Arcane Egg relic in bottom left of sub-area; use Dream Nail on the cracked black egg at the end of the sub-area to transform Kingsoul into Void Heart for alternate endings; Note: Locks you out of the \"normal\" ending achievement [The Hollow Knight])" },
             { "type": "step", "id": "l06s20", "text": "6. Go to Hidden Station and take stag to Resting Grounds -> talk to Seer for Ascension after collecting 2400 Essence; (Optional: Super dash across Blue Lake to Salubra's shop for Salubra's Blessing [800 Geo; \"Blessed\" achievement] and go to Crossroads stag station) -> take stag to Dirtmouth" },
-            { "type": "img", "src": "photos6/6.jpg" },
-            { "type": "img", "src": "photos6/7.jpg" },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos6/6.jpg" },
+            { "type": "img", "src": "src/photos6/7.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -595,7 +595,7 @@
             { "type": "step", "id": "l06s24", "text": "4. Collect second set of 3 flames (using Dream Gate to get back to Dirtmouth after each one) and fight Grimm boss [16/17] for charm notch [8/8]" },
             { "type": "step", "id": "l06s25", "text": "5. Collect final set of 3 flames (using Dream Gate to get back to Dirtmouth after each one) and fight Nightmare King boss [17/17] - \"Ritual\" achievement\n(Alternate path: Visiting the flame (carried by Brumm) in Deepnest and then going to the Nightmare Lantern in Howling Cliffs allows you to banish the Grimm Troupe [17/17] -> talk to new bug in Dirtmouth (Nymm) who gives you Carefree Melody charm [40/40] to replace the Grimmchild charm you lose by banishing the Troupe - \"Banishment\" achievement)\n\nNote (Fragile charms): Divine disappears if you choose to banish the Grimm Troupe, but you can pick up any Fragile charm she still had from the ground where her tent used to be." },
             { "type": "step", "id": "l06s26", "text": "6. If Zote saved in Greenpath/Deepnest and Zote fought in Colosseum: fight Grey Prince Zote dream boss at least once in Bretta's hut's basement [\"Dark Romance\" achievement]." },
-            { "type": "img", "src": "photos/hr.png" }
+            { "type": "img", "src": "src/photos/hr.png" }
           ]
         },
         {
@@ -603,13 +603,13 @@
           "content": [
             { "type": "step", "id": "l06s27", "text": "1. Take stag to King's Station -> climb up elevator to reach Colosseum (Tiso encounter if Tiso talked to at all 3 previous encounters), complete Trial of the Fool [800 Geo, 3/3]" },
             { "type": "step", "id": "l06s28", "text": "2. (Optional: If you used a Simple Key to open the Pleasure House, collect King's Idol relic -> defeat Pale Lurker for Simple Key)" },
-            { "type": "img", "src": "photos6/8.jpg" },
+            { "type": "img", "src": "src/photos6/8.jpg" },
             { "type": "step", "id": "l06s29", "text": "3. Go to King’s Station -> take stag to City Storerooms; Soul Tyrant dream boss in Soul Sanctum" },
             { "type": "step", "id": "l06s30", "text": "4. Drop down to Royal Waterways -> use Simple Key on coffin in Junk Pit, pick up Godtuner -> Dream nail to enter Godhome and defeat Pantheon of the Master, Pantheon of the Artist, Pantheon of the Sage, and Pantheon of the Knight; (Optional: if have Void Heart, complete Pantheon of Hallownest for Embrace the Void ending)" },
-            { "type": "img", "src": "photos6/9.jpg" },
+            { "type": "img", "src": "src/photos6/9.jpg" },
             { "type": "step", "id": "l06s31", "text": "5. Go to City Storerooms -> take stag to Dirtmouth; (Optional: Extra fights against Grey Prince Zote dream boss; multiple fights gradually change Bretta's impression of Zote)" },
             { "type": "step", "id": "l06s32", "text": "6. Enter Black Egg Temple (If have Void Heart: Hornet encounter) -> final boss(es)" },
-            { "type": "img", "src": "photos6/10.jpg" }
+            { "type": "img", "src": "src/photos6/10.jpg" }
           ]
         }
       ]
