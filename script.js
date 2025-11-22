@@ -1,9 +1,10 @@
-// script.js – Single Page Version
+// script.js – Manual Resume Only
 
 let routeData = [];
 const contentArea = document.getElementById('route-content');
 const navigationContainer = document.getElementById('navigation');
 const resetButton = document.getElementById('resetBtn');
+const resumeButton = document.getElementById('resumeBtn'); // Get reference
 
 // 1. Load Route Data
 async function loadRouteData() {
@@ -16,19 +17,15 @@ async function loadRouteData() {
         const data = await response.json();
         routeData = data.route;
         
-        // Initialize
+        // Initialize UI
         renderNavigation();
-        renderFullRoute(); // <-- This renders EVERYTHING at once
+        renderFullRoute();
         setupResetButton();
-        setupScrollSpy();  // <-- New feature: highlight nav based on scroll
+        setupResumeButton(); // Activate the Resume button
+        setupScrollSpy();
 
-        // Handle initial hash (e.g. loading page with #part3)
-        if (location.hash) {
-            setTimeout(() => {
-                const target = document.querySelector(location.hash);
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-        }
+        // NOTE: Automatic scroll is REMOVED. 
+        // Page will always start at the top.
 
     } catch (error) {
         contentArea.innerHTML = `<h2 style="color:red; text-align:center">Error loading data: ${error.message}</h2>`;
@@ -36,7 +33,52 @@ async function loadRouteData() {
     }
 }
 
-// 2. Render Navigation (Anchor Links)
+// 2. Setup "Resume Run" Button
+function setupResumeButton() {
+    if (resumeButton) {
+        resumeButton.addEventListener('click', () => {
+            restoreProgress();
+        });
+    }
+}
+
+// 3. Logic to find position and scroll
+function restoreProgress() {
+    // Get all checkboxes
+    const checkboxes = Array.from(document.querySelectorAll('.checkbox'));
+    
+    // Check if run has started
+    const hasAnyProgress = checkboxes.some(cb => cb.checked);
+
+    if (!hasAnyProgress) {
+        // Run hasn't started? Just scroll to top.
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+    }
+
+    // Find the first UNCHECKED box
+    const firstUnchecked = checkboxes.find(cb => !cb.checked);
+
+    if (firstUnchecked) {
+        // Scroll the ROW into view, centered
+        const row = document.getElementById(`row-${firstUnchecked.id}`);
+        if (row) {
+            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // visual flash effect
+            row.style.transition = "background 0.5s";
+            row.style.backgroundColor = "rgba(240, 192, 90, 0.2)";
+            setTimeout(() => {
+                row.style.backgroundColor = "transparent";
+            }, 1000);
+        }
+    } else {
+        // Everything checked? Scroll to bottom
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+}
+
+// 4. Render Navigation (Sidebar)
 function renderNavigation() {
     if (navigationContainer.querySelector('#dynamic-links')) {
         navigationContainer.querySelector('#dynamic-links').remove();
@@ -47,17 +89,19 @@ function renderNavigation() {
 
     routeData.forEach(part => {
         const link = document.createElement('a');
-        link.href = `#${part.id}`; // Links to ID on same page
-        link.textContent = part.title.split(':')[0].trim(); // "Part 1", "Part 2"
+        link.href = `#${part.id}`;
+        link.textContent = part.title.split(':')[0].trim();
         link.classList.add('nav-link');
         
-        // Smooth scroll event
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const targetId = part.id;
             const targetSection = document.getElementById(targetId);
             if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+                // Fix offset for sticky header on mobile vs desktop
+                const yOffset = window.innerWidth < 1500 ? -160 : -20; 
+                const y = targetSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({top: y, behavior: 'smooth'});
                 history.pushState(null, '', `#${targetId}`);
             }
         });
@@ -65,20 +109,15 @@ function renderNavigation() {
         dynamicLinksDiv.appendChild(link);
     });
 
-    const mapLink = navigationContainer.querySelector('a[href="map.html"]');
-    if (mapLink) {
-        navigationContainer.insertBefore(dynamicLinksDiv, mapLink);
-    } else {
-        navigationContainer.prepend(dynamicLinksDiv);
-    }
+    // Insert links before the Resume button
+    navigationContainer.insertBefore(dynamicLinksDiv, resumeButton);
 }
 
-// 3. Render EVERYTHING (The Long List)
+// 5. Render Full Route
 function renderFullRoute() {
     let html = '';
 
     routeData.forEach(part => {
-        // Create a section for each Part
         html += `<section id="${part.id}" class="route-part-section">`;
         html += `<h1 class="part-title">${part.title}</h1>`;
 
@@ -89,13 +128,13 @@ function renderFullRoute() {
                     <div class="checklist">
             `;
 
-            // Render mixed content (Steps + Images)
             leg.content.forEach(item => {
                 if (item.type === 'step') {
                     const isChecked = localStorage.getItem(item.id) === 'true';
                     const completedClass = isChecked ? 'completed' : '';
+                    // Add ID to the row div for easier scrolling
                     html += `
-                        <div class="checklist-item ${completedClass}">
+                        <div class="checklist-item ${completedClass}" id="row-${item.id}">
                             <input type="checkbox" class="checkbox" id="${item.id}" ${isChecked ? 'checked' : ''}>
                             <span class="step-description">${item.text}</span>
                         </div>
@@ -114,15 +153,14 @@ function renderFullRoute() {
             });
 
             html += `   </div>
-                </div>`; // End leg
+                </div>`;
         });
 
-        html += `</section>`; // End part
+        html += `</section>`;
     });
 
     contentArea.innerHTML = html;
 
-    // Attach Checkbox Logic
     document.querySelectorAll('.checkbox').forEach(cb => {
         cb.addEventListener('change', function () {
             localStorage.setItem(this.id, this.checked);
@@ -131,18 +169,16 @@ function renderFullRoute() {
     });
 }
 
-// 4. Scroll Spy (Highlights the active button in the menu)
+// 6. Scroll Spy
 function setupScrollSpy() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const id = entry.target.id;
-                // Remove active class from all links
                 document.querySelectorAll('.nav-link').forEach(link => {
                     link.setAttribute('aria-current', 'false');
                     link.classList.remove('active-nav');
                 });
-                // Add to current
                 const activeLink = document.querySelector(`a[href="#${id}"]`);
                 if (activeLink) {
                     activeLink.setAttribute('aria-current', 'page');
@@ -150,16 +186,14 @@ function setupScrollSpy() {
                 }
             }
         });
-    }, {
-        rootMargin: '-20% 0px -70% 0px' // Triggers when section is near top of screen
-    });
+    }, { rootMargin: '-20% 0px -70% 0px' });
 
     document.querySelectorAll('section.route-part-section').forEach(section => {
         observer.observe(section);
     });
 }
 
-// 5. Reset Button
+// 7. Reset Button
 function setupResetButton() {
     resetButton.addEventListener('click', () => {
         if (confirm('Reset ALL 112% progress?')) {
