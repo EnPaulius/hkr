@@ -13,7 +13,7 @@ This is an interactive, mobile-friendly web application designed to track progre
 All credit for the routing logic, step-by-step instructions, and original photography goes entirely to **blanket** on Steam.
 
 *   **Original Guide:** [Hollow Knight 112% Completion Guide](https://steamcommunity.com/sharedfiles/filedetails/?id=936948247)
-*   **Author:** [wataniyob]
+*   **Author:** [wataniyob](https://steamcommunity.com/id/wataniyob/myworkshopfiles/?section=guides&appid=367520)
 
 This project is simply a quality-of-life tool to make following that specific guide easier on a second monitor or mobile device.
 
