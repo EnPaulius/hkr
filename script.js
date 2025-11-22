@@ -1,10 +1,14 @@
+// script.js – Final Version: Single Page, Resume Button, Advanced Map
+
 let routeData = [];
 const contentArea = document.getElementById('route-content');
 const navigationContainer = document.getElementById('navigation');
 const resetButton = document.getElementById('resetBtn');
 const resumeButton = document.getElementById('resumeBtn');
 
-// 1. Load Route Data
+// ---------------------------------------------------------
+// 1. INITIALIZATION
+// ---------------------------------------------------------
 async function loadRouteData() {
     const jsonPath = './route_data.json';
 
@@ -15,12 +19,14 @@ async function loadRouteData() {
         const data = await response.json();
         routeData = data.route;
         
-        // Initialize UI
+        // Render Interface
         renderNavigation();
         renderFullRoute();
+        
+        // Setup Logic
         setupResetButton();
         setupResumeButton();
-        setupMapModal(); // <--- NEW FUNCTION CALL
+        setupMapModal();     // <--- New Advanced Map Logic
         setupScrollSpy();
 
     } catch (error) {
@@ -29,78 +35,148 @@ async function loadRouteData() {
     }
 }
 
-// --- NEW: Map Modal Logic ---
+// ---------------------------------------------------------
+// 2. ADVANCED MAP MODAL (Pan, Zoom, Save)
+// ---------------------------------------------------------
 function setupMapModal() {
     const modal = document.getElementById("mapModal");
-    const btn = document.getElementById("mapBtn"); // The nav button
-    const span = document.getElementsByClassName("close-modal")[0]; // The X button
+    const openBtn = document.getElementById("mapBtn");      // Sidebar button
+    const closeBtn = document.getElementById("closeMapBtn"); // Back button
+    
+    const viewport = document.getElementById("mapViewport");
+    const img = document.getElementById("mapImage");
+    
+    const slider = document.getElementById("zoomSlider");
+    const label = document.getElementById("zoomLabel");
+    const zoomIn = document.getElementById("zoomInBtn");
+    const zoomOut = document.getElementById("zoomOutBtn");
 
-    if (!btn || !modal) return;
+    if (!modal || !img) return;
 
-    // Open Modal
-    btn.addEventListener('click', () => {
-        modal.style.display = "block";
-        document.body.style.overflow = "hidden"; // Prevent background scrolling
-    });
+    // State Variables
+    let scale = 0.5; // Default 50%
+    let pointX = 0;
+    let pointY = 0;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
 
-    // Close Modal (X button)
-    span.addEventListener('click', () => {
+    // A. Apply CSS Transforms & Save State
+    function updateTransform() {
+        img.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
+        
+        // Update Controls
+        if (slider) slider.value = scale;
+        if (label) label.textContent = Math.round(scale * 100) + "%";
+        
+        // Save to LocalStorage
+        const mapState = { scale, pointX, pointY };
+        localStorage.setItem("hkMapState", JSON.stringify(mapState));
+    }
+
+    // B. Load Saved State
+    function loadMapState() {
+        const saved = localStorage.getItem("hkMapState");
+        if (saved) {
+            try {
+                const state = JSON.parse(saved);
+                scale = state.scale || 0.5;
+                pointX = state.pointX || 0;
+                pointY = state.pointY || 0;
+            } catch (e) { console.error("Map state parse error", e); }
+        } else {
+            // Defaults if no save found
+            scale = 0.5;
+            pointX = 0;
+            pointY = 0;
+        }
+        updateTransform();
+    }
+
+    // C. Open/Close Logic
+    if (openBtn) {
+        openBtn.addEventListener("click", () => {
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden"; // Freeze background scroll
+            loadMapState(); 
+        });
+    }
+
+    function closeMap() {
         modal.style.display = "none";
-        document.body.style.overflow = "auto"; // Re-enable scrolling
+        document.body.style.overflow = "auto"; // Unfreeze background scroll
+    }
+
+    if (closeBtn) closeBtn.addEventListener("click", closeMap);
+    
+    // Close on Escape Key
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.style.display === "block") closeMap();
     });
 
-    // Close Modal (Click outside image)
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-    });
+    // D. Panning Logic (Mouse Drag)
+    if (viewport) {
+        viewport.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            startX = e.clientX - pointX;
+            startY = e.clientY - pointY;
+            viewport.style.cursor = "grabbing";
+        });
 
-    // Close Modal (Escape Key)
-    document.addEventListener('keydown', (e) => {
-        if (e.key === "Escape" && modal.style.display === "block") {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-    });
-}
+        window.addEventListener("mouseup", () => {
+            isDragging = false;
+            if (viewport) viewport.style.cursor = "grab";
+        });
 
-// 2. Setup "Resume Run" Button
-function setupResumeButton() {
-    if (resumeButton) {
-        resumeButton.addEventListener('click', () => {
-            restoreProgress();
+        window.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            pointX = e.clientX - startX;
+            pointY = e.clientY - startY;
+            updateTransform();
+        });
+
+        // E. Zoom Logic (Mouse Wheel)
+        viewport.addEventListener("wheel", (e) => {
+            e.preventDefault();
+            const delta = -Math.sign(e.deltaY);
+            const step = 0.1;
+            
+            let newScale = scale + (delta * step);
+            // Clamp zoom between 0.1x and 3.0x
+            newScale = Math.min(Math.max(0.1, newScale), 3); 
+            
+            scale = newScale;
+            updateTransform();
+        });
+    }
+
+    // F. Zoom Controls (Slider & Buttons)
+    if (slider) {
+        slider.addEventListener("input", (e) => {
+            scale = parseFloat(e.target.value);
+            updateTransform();
+        });
+    }
+
+    if (zoomIn) {
+        zoomIn.addEventListener("click", () => {
+            scale = Math.min(scale + 0.1, 3);
+            updateTransform();
+        });
+    }
+
+    if (zoomOut) {
+        zoomOut.addEventListener("click", () => {
+            scale = Math.max(scale - 0.1, 0.1);
+            updateTransform();
         });
     }
 }
 
-// 3. Logic to find position and scroll
-function restoreProgress() {
-    const checkboxes = Array.from(document.querySelectorAll('.checkbox'));
-    const hasAnyProgress = checkboxes.some(cb => cb.checked);
-
-    if (!hasAnyProgress) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        return;
-    }
-
-    const firstUnchecked = checkboxes.find(cb => !cb.checked);
-
-    if (firstUnchecked) {
-        const row = document.getElementById(`row-${firstUnchecked.id}`);
-        if (row) {
-            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            row.style.transition = "background 0.5s";
-            row.style.backgroundColor = "rgba(240, 192, 90, 0.2)";
-            setTimeout(() => { row.style.backgroundColor = "transparent"; }, 1000);
-        }
-    } else {
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
-}
-
-// 4. Render Navigation (Sidebar)
+// ---------------------------------------------------------
+// 3. RENDER NAVIGATION (Sidebar)
+// ---------------------------------------------------------
 function renderNavigation() {
     if (navigationContainer.querySelector('#dynamic-links')) {
         navigationContainer.querySelector('#dynamic-links').remove();
@@ -120,7 +196,8 @@ function renderNavigation() {
             const targetId = part.id;
             const targetSection = document.getElementById(targetId);
             if (targetSection) {
-                const yOffset = window.innerWidth < 1280 ? -110 : -20; // Adjusted for new sticky height
+                // Adjust for sticky header on mobile/laptops
+                const yOffset = window.innerWidth < 1280 ? -110 : -20; 
                 const y = targetSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
                 window.scrollTo({top: y, behavior: 'smooth'});
                 history.pushState(null, '', `#${targetId}`);
@@ -130,12 +207,17 @@ function renderNavigation() {
         dynamicLinksDiv.appendChild(link);
     });
 
-    // Ensure buttons stay in order
-    const resumeBtn = document.getElementById('resumeBtn');
-    navigationContainer.insertBefore(dynamicLinksDiv, resumeBtn);
+    // Insert links before the Resume button
+    if (resumeButton) {
+        navigationContainer.insertBefore(dynamicLinksDiv, resumeButton);
+    } else {
+        navigationContainer.prepend(dynamicLinksDiv);
+    }
 }
 
-// 5. Render Full Route
+// ---------------------------------------------------------
+// 4. RENDER FULL ROUTE (Main Content)
+// ---------------------------------------------------------
 function renderFullRoute() {
     let html = '';
 
@@ -154,6 +236,7 @@ function renderFullRoute() {
                 if (item.type === 'step') {
                     const isChecked = localStorage.getItem(item.id) === 'true';
                     const completedClass = isChecked ? 'completed' : '';
+                    // We add ID="row-..." to the DIV so we can scroll to it easily
                     html += `
                         <div class="checklist-item ${completedClass}" id="row-${item.id}">
                             <input type="checkbox" class="checkbox" id="${item.id}" ${isChecked ? 'checked' : ''}>
@@ -182,6 +265,7 @@ function renderFullRoute() {
 
     contentArea.innerHTML = html;
 
+    // Attach Checkbox Listeners
     document.querySelectorAll('.checkbox').forEach(cb => {
         cb.addEventListener('change', function () {
             localStorage.setItem(this.id, this.checked);
@@ -190,7 +274,49 @@ function renderFullRoute() {
     });
 }
 
-// 6. Scroll Spy
+// ---------------------------------------------------------
+// 5. RESUME BUTTON LOGIC
+// ---------------------------------------------------------
+function setupResumeButton() {
+    if (resumeButton) {
+        resumeButton.addEventListener('click', () => {
+            restoreProgress();
+        });
+    }
+}
+
+function restoreProgress() {
+    const checkboxes = Array.from(document.querySelectorAll('.checkbox'));
+    const hasAnyProgress = checkboxes.some(cb => cb.checked);
+
+    if (!hasAnyProgress) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+    }
+
+    const firstUnchecked = checkboxes.find(cb => !cb.checked);
+
+    if (firstUnchecked) {
+        const row = document.getElementById(`row-${firstUnchecked.id}`);
+        if (row) {
+            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Visual Flash
+            row.style.transition = "background 0.5s";
+            row.style.backgroundColor = "rgba(240, 192, 90, 0.2)";
+            setTimeout(() => {
+                row.style.backgroundColor = "transparent";
+            }, 1000);
+        }
+    } else {
+        // All checked? Scroll to bottom
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+}
+
+// ---------------------------------------------------------
+// 6. SCROLL SPY (Highlights Sidebar)
+// ---------------------------------------------------------
 function setupScrollSpy() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -214,14 +340,19 @@ function setupScrollSpy() {
     });
 }
 
-// 7. Reset Button
+// ---------------------------------------------------------
+// 7. RESET BUTTON
+// ---------------------------------------------------------
 function setupResetButton() {
-    resetButton.addEventListener('click', () => {
-        if (confirm('Reset ALL 112% progress?')) {
-            localStorage.clear();
-            location.reload();
-        }
-    });
+    if (resetButton) {
+        resetButton.addEventListener('click', () => {
+            if (confirm('Reset ALL 112% progress? This cannot be undone!')) {
+                localStorage.clear();
+                location.reload();
+            }
+        });
+    }
 }
 
+// Start App
 document.addEventListener('DOMContentLoaded', loadRouteData);
