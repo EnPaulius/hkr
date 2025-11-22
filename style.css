@@ -306,3 +306,32 @@ h1.part-title {
         margin-top: 5px;
     }
 }
+
+/* Add this section near the bottom with your other button styles */
+
+.resume-btn {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: var(--color-success); /* Green */
+    color: #121212;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 800;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.resume-btn:hover {
+    background-color: #2eb82e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(50, 205, 50, 0.4);
+}
+
+/* Adjust the map button to sit nicely below the new resume button */
+.map-btn {
+    margin-top: 10px;
+}
