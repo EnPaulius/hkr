@@ -243,138 +243,128 @@ h1.part-title {
     transform: scale(1.1);
 }
 
-/* Mobile Adjustment: Make them slightly smaller/compact if needed */
+/* -------------------------------------- */
+/* 5. RESPONSIVE LOGIC (Optimized) */
+/* -------------------------------------- */
+
+/* Laptop/Tablet Mode */
 @media (max-width: 1280px) {
-    .theme-switcher {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: none;
-        margin-right: 10px; /* Spacing from links */
+    #app-container {
+        /* Add padding to top so content isn't hidden behind nav */
+        padding: 180px 20px 40px 20px; 
     }
-    
-    .theme-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
-    }
-}
 
-/* -------------------------------------- */
-/* 4. Content Styling */
-/* -------------------------------------- */
-.leg-section {
-    background-color: var(--color-bg-card);
-    padding: 25px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-    border: 1px solid var(--color-border);
-    transition: background-color 0.3s;
-}
-
-.leg-section h3 {
-    color: var(--color-accent);
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-}
-
-.checklist-item {
-    display: flex;
-    align-items: flex-start;
-    padding: 10px;
-    border-bottom: 1px dashed var(--color-border);
-    transition: background 0.2s;
-}
-.checklist-item:last-child { border-bottom: none; }
-.checklist-item:hover { background-color: var(--color-hover-bg); }
-
-.checklist-item.completed .step-description {
-    color: var(--color-text-muted);
-    text-decoration: line-through;
-}
-
-.checkbox {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    margin-right: 15px;
-    accent-color: var(--color-success);
-    cursor: pointer;
-    margin-top: 4px;
-}
-
-.step-description { flex: 1; font-size: 1rem; }
-.image-gallery { margin-top: 15px; }
-.image-gallery img { max-width: 100%; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.5); }
-.hr-divider { height: 1px; background: var(--color-border); margin: 20px 0; }
-
-/* -------------------------------------- */
-/* 5. RESPONSIVE LOGIC */
-/* -------------------------------------- */
-@media (max-width: 1280px) {
-    #app-container { padding: 80px 20px 40px 20px; }
-    .route-part-section { scroll-margin-top: 90px; }
+    /* Anchor scrolling offset */
+    .route-part-section { scroll-margin-top: 190px; }
 
     #navigation {
+        position: fixed;
         top: 0; left: 0; right: 0; bottom: auto;
         transform: none;
         width: 100%;
         height: auto;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 8px 15px;
+        
+        /* Layout: Stack vertical but compact */
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        
+        padding: 10px 15px;
         border-radius: 0;
         border: none;
-        border-bottom: 1px solid var(--color-accent);
+        border-bottom: 1px solid var(--color-border);
         background-color: var(--color-bg-nav);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
+    /* Hide the big "Navigation" title on mobile to save space */
     #navigation h3 { display: none; }
-    
-    /* Dropdown tweak for top bar */
-    .theme-select { width: auto; margin-bottom: 0; padding: 5px; }
 
-    #dynamic-links { flexDirection: row; gap: 5px; }
-    
-    .nav-link { padding: 6px 12px; font-size: 0.85rem; width: auto; display: inline-block; }
-    .nav-link:hover { transform: none; }
+    /* --- GRID FOR PART LINKS (The 2-row fix) --- */
+    #dynamic-links {
+        display: grid;
+        /* 3 columns = Part 1, 2, 3 on top, Part 4, 5, 6 on bottom */
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 6px;
+        width: 100%;
+    }
 
-    .resume-btn, .map-btn, .reset-btn { width: auto; padding: 6px 12px; font-size: 0.8rem; margin: 0; display: inline-block; }
+    .nav-link {
+        padding: 8px 4px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: auto;
+        margin: 0;
+    }
+
+    /* --- FLEX ROW FOR ACTIONS (Resume, Map, Reset) --- */
+    .nav-actions {
+        display: flex;
+        gap: 6px;
+        width: 100%;
+    }
+
+    .resume-btn, .map-btn, .reset-btn {
+        flex: 1; /* Share width equally */
+        margin: 0;
+        padding: 8px 4px;
+        font-size: 0.85rem;
+    }
+
+    /* Progress Bar */
+    .progress-container {
+        width: 100%;
+        height: 12px; /* Slimmer on mobile */
+        margin-top: 0;
+        order: 0; /* Keep it where it is in HTML */
+    }
+    #progressText { font-size: 0.7rem; line-height: 12px; }
+
+    /* --- COMPACT THEMES (At Bottom) --- */
+    .theme-switcher {
+        margin: 0;
+        padding: 0;
+        border: none;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .theme-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+        background-color: rgba(0,0,0,0.2);
+    }
 }
 
-@media (max-width: 850px) {
-    #app-container { padding-top: 160px; }
-    .route-part-section { scroll-margin-top: 170px; }
-    #navigation { justify-content: center; padding: 10px; }
-    #dynamic-links { justify-content: center; flex-wrap: wrap; }
-    .nav-link { flex-grow: 1; text-align: center; min-width: 60px; }
-    .resume-btn { width: 100%; order: -1; margin-bottom: 5px; }
-    .theme-select { width: 100%; margin-bottom: 5px; text-align: center; }
+/* Small Phones (Extra Tweak) */
+@media (max-width: 400px) {
+    #dynamic-links {
+        /* On very small screens, font needs to be tiny or columns reduced */
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .nav-link { font-size: 0.7rem; }
+    .resume-btn, .map-btn, .reset-btn { font-size: 0.75rem; }
 }
 
 /* -------------------------------------- */
-/* 6. Advanced Map Modal & Progress Bar */
+/* 6. Advanced Map Modal Styling */
 /* -------------------------------------- */
 .map-modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
+    display: none; 
+    position: fixed; top: 0; left: 0;
     width: 100vw; height: 100vh;
     background-color: #050505;
-    z-index: 2000;
-    overflow: hidden;
+    z-index: 2000; overflow: hidden;
 }
 
 .map-viewport {
     width: 100%; height: 100%;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: grab;
-    touch-action: none; /* VITAL FOR MOBILE */
+    display: flex; align-items: center; justify-content: center;
+    cursor: grab; touch-action: none; /* VITAL FOR MOBILE */
 }
 .map-viewport:active { cursor: grabbing; }
 
@@ -391,7 +381,7 @@ h1.part-title {
     color: white;
     border: 1px solid #444;
     padding: 10px 20px; border-radius: 30px;
-    cursor: pointer; font-weight: bold;
+    cursor: pointer; font-weight: bold; font-size: 1rem;
     backdrop-filter: blur(4px); transition: all 0.2s;
 }
 .close-map-btn:hover { background-color: var(--color-accent); color: #121212; }
@@ -413,13 +403,16 @@ h1.part-title {
 #zoomSlider { width: 150px; accent-color: var(--color-accent); cursor: pointer; }
 #zoomLabel { color: #fff; font-family: monospace; min-width: 45px; text-align: right; }
 
+/* -------------------------------------- */
+/* 7. Progress Bar & Theme Switcher Desktop Defaults */
+/* -------------------------------------- */
 .progress-container {
-    margin-top: 15px; width: 100%; height: 24px;
+    margin-top: 10px; width: 100%; height: 20px;
     background-color: rgba(0,0,0,0.3);
     border-radius: 6px; overflow: hidden; position: relative;
     border: 1px solid var(--color-border);
 }
-.progress-fill { height: 100%; width: 0%; transition: width 0.4s ease, background-color 0.4s; }
+.progress-fill { height: 100%; width: 0%; transition: width 0.4s ease; }
 .progress-fill.yellow { background-color: var(--color-accent); }
 .progress-fill.green  { background-color: var(--color-success); }
 .progress-fill.blue   { background-color: #4db8ff; }
@@ -429,6 +422,25 @@ h1.part-title {
     font-size: 0.8rem; font-weight: bold; color: #fff;
     text-shadow: 0 1px 2px rgba(0,0,0,0.8); pointer-events: none;
 }
-@media (max-width: 1280px) {
-    .progress-container { order: 99; margin-top: 5px; flex-basis: 100%; }
+
+/* Theme Switcher Desktop Styles */
+.theme-switcher {
+    display: flex; justify-content: center; gap: 10px;
+    margin-top: 15px; padding-top: 10px;
+    border-top: 1px solid var(--color-border);
+}
+.theme-btn {
+    background-color: var(--color-bg-main);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-main);
+    width: 36px; height: 36px;
+    border-radius: 50%; font-size: 1.1rem;
+    cursor: pointer; transition: all 0.2s ease;
+    display: flex; align-items: center; justify-content: center;
+}
+.theme-btn:hover { transform: scale(1.1); border-color: var(--color-accent); background-color: var(--color-hover-bg); }
+.theme-btn.active {
+    background-color: var(--color-accent); color: var(--color-bg-main);
+    border-color: var(--color-accent); box-shadow: 0 0 8px var(--color-accent);
+    transform: scale(1.1);
 }
