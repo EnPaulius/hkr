@@ -17,27 +17,27 @@
     
     <!-- Navigation -->
     <nav id="navigation">
-        <!-- Title only shows on Desktop -->
         <h3>Navigation</h3>
 
-        <!-- 1. Theme Icons -->
-        <div class="theme-switcher">
-            <button class="theme-btn" data-theme="theme-default" title="Abyss (Default)">🌑</button>
-            <button class="theme-btn" data-theme="theme-steam" title="Steam Guide">🎮</button>
-            <button class="theme-btn" data-theme="theme-paper" title="Cornifer">📜</button>
+        <!-- 1. TOP ICONS ROW (Theme, Map, Eye) -->
+        <div class="top-icons">
+            <!-- Theme Toggle: Icons change via JS -->
+            <button id="btnThemeToggle" class="icon-btn" title="Switch Theme (Default/Steam)">🎮</button>
+            
+            <!-- Map Toggle -->
+            <button id="btnMapIcon" class="icon-btn" title="Open World Map">🗺️</button>
+            
+            <!-- Hide/Show Completed Toggle -->
+            <button id="btnEyeToggle" class="icon-btn" title="Toggle Completed Items">👁️</button>
         </div>
 
-        <!-- 2. Part Links (Injected by JS here) -->
-        <!-- <div id="dynamic-links"></div> -->
-
-        <!-- 3. Action Buttons Wrapper -->
+        <!-- 2. Action Buttons (Resume & Reset only) -->
         <div class="nav-actions">
-            <button id="resumeBtn" class="resume-btn">Resume ⏩</button>
-            <button id="mapBtn" class="map-btn">Map 🗺️</button>
-            <button id="resetBtn" class="reset-btn">Reset</button>
+            <button id="resumeBtn" class="resume-btn" title="Jump to first unchecked item">Resume ⏩</button>
+            <button id="resetBtn" class="reset-btn" title="Reset all progress">Reset</button>
         </div>
 
-        <!-- 4. Progress Bar -->
+        <!-- 3. Progress Bar -->
         <div class="progress-container" title="Checklist Progress">
             <div id="progressBar" class="progress-fill yellow"></div>
             <span id="progressText">0%</span>
