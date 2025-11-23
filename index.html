@@ -18,24 +18,31 @@
     <!-- Navigation -->
     <nav id="navigation">
         <h3>Navigation</h3>
+        
+        <!-- NEW: Theme Selector -->
+        <select id="themeSelect" class="theme-select" aria-label="Select Theme">
+            <option value="theme-default">Theme: Default (Abyss)</option>
+            <option value="theme-steam">Theme: Steam Guide</option>
+            <option value="theme-paper">Theme: Cornifer (Light)</option>
+        </select>
+
         <!-- JS injects Part links here -->
         
         <button id="resumeBtn" class="resume-btn">
             Resume Run ⏩
         </button>
 
-        <!-- CHANGED: Now a button, not a link -->
         <button id="mapBtn" class="map-btn">
             View Map 🗺️
         </button>
 
         <button id="resetBtn" class="reset-btn">Reset Checklist</button>
-        <!-- NEW: Progress Bar -->
+        
+        <!-- Progress Bar -->
         <div class="progress-container" title="Checklist Progress">
             <div id="progressBar" class="progress-fill yellow"></div>
             <span id="progressText">0%</span>
         </div>
-        
     </nav>
 
     <!-- Advanced Map Modal -->
