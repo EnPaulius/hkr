@@ -47,27 +47,40 @@ async function loadRouteData() {
 }
 
 // ---------------------------------------------------------
-// 2. THEME MANAGER
+// 7. THEME MANAGER (Icon Version)
 // ---------------------------------------------------------
 function setupTheme() {
-    const themeSelect = document.getElementById('themeSelect');
-    if (!themeSelect) return;
-
+    const themeButtons = document.querySelectorAll('.theme-btn');
+    
     // 1. Load Saved Theme
     const savedTheme = localStorage.getItem('hkTheme') || 'theme-default';
-    
-    // 2. Apply to Body
-    document.body.className = savedTheme;
-    
-    // 3. Sync Dropdown
-    themeSelect.value = savedTheme;
+    applyTheme(savedTheme);
 
-    // 4. Listen for Changes
-    themeSelect.addEventListener('change', (e) => {
-        const newTheme = e.target.value;
-        document.body.className = newTheme;
-        localStorage.setItem('hkTheme', newTheme);
+    // 2. Add Click Listeners
+    themeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const newTheme = btn.getAttribute('data-theme');
+            applyTheme(newTheme);
+        });
     });
+
+    // Helper Function
+    function applyTheme(themeName) {
+        // A. Set Body Class
+        document.body.className = themeName;
+        
+        // B. Save to Storage
+        localStorage.setItem('hkTheme', themeName);
+
+        // C. Update Active Button State
+        themeButtons.forEach(btn => {
+            if (btn.getAttribute('data-theme') === themeName) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
 }
 
 // ---------------------------------------------------------
