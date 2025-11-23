@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Hollow Knight 112% Route</title>
-    <link rel="stylesheet" href="style.css" />
+    <!-- CHANGED: Pointing to src folder -->
+    <link rel="stylesheet" href="src/style.css" />
 </head>
 <body class="theme-default">
 
@@ -19,23 +20,20 @@
     <nav id="navigation">
         <h3>Navigation</h3>
 
-        <!-- 1. TOP ICONS ROW (Transparent Now) -->
+        <!-- 1. TOP ICONS ROW -->
         <div class="top-icons">
             <button id="btnThemeToggle" class="icon-btn" title="Switch Theme">🎮</button>
             <button id="btnMapIcon" class="icon-btn" title="Open Map">🗺️</button>
             <button id="btnEyeToggle" class="icon-btn" title="Auto-Collapse Completed Legs">👁️</button>
         </div>
 
-        <!-- 2. Part Links (Injected by JS) -->
-        <!-- <div id="dynamic-links"></div> -->
-
-        <!-- 3. Action Buttons -->
+        <!-- 2. Action Buttons -->
         <div class="nav-actions">
             <button id="resumeBtn" class="resume-btn" title="Jump to progress">Resume ⏩</button>
             <button id="resetBtn" class="reset-btn" title="Reset checklist">Reset</button>
         </div>
 
-        <!-- 4. Progress Bar -->
+        <!-- 3. Progress Bar -->
         <div class="progress-container" title="Checklist Progress">
             <div id="progressBar" class="progress-fill yellow"></div>
             <span id="progressText">0%</span>
@@ -46,6 +44,7 @@
     <div id="mapModal" class="map-modal">
         <button id="closeMapBtn" class="close-map-btn">← Back</button>
         <div id="mapViewport" class="map-viewport">
+            <!-- Map image path remains src/... because index.html is in root -->
             <img id="mapImage" src="src/map.jpeg" alt="Hollow Knight Map">
         </div>
         <div class="map-controls">
@@ -56,6 +55,7 @@
         </div>
     </div>
     
-    <script src="script.js"></script>
+    <!-- CHANGED: Pointing to src folder -->
+    <script src="src/script.js"></script>
 </body>
 </html>
