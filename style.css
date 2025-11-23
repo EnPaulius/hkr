@@ -247,15 +247,19 @@ h1.part-title {
 /* 5. RESPONSIVE LOGIC (Optimized) */
 /* -------------------------------------- */
 
-/* Laptop/Tablet Mode */
+/* -------------------------------------- */
+/* 5. RESPONSIVE LOGIC (Mobile & Tablet) */
+/* -------------------------------------- */
+
+/* Laptop/Tablet/Mobile Mode */
 @media (max-width: 1280px) {
     #app-container {
         /* Add padding to top so content isn't hidden behind nav */
-        padding: 180px 20px 40px 20px; 
+        padding: 200px 15px 40px 15px; 
     }
 
     /* Anchor scrolling offset */
-    .route-part-section { scroll-margin-top: 190px; }
+    .route-part-section { scroll-margin-top: 210px; }
 
     #navigation {
         position: fixed;
@@ -264,65 +268,69 @@ h1.part-title {
         width: 100%;
         height: auto;
         
-        /* Layout: Stack vertical but compact */
+        /* Layout: Stack vertical */
         display: flex;
         flex-direction: column;
         gap: 8px;
         
-        padding: 10px 15px;
+        padding: 10px;
         border-radius: 0;
         border: none;
-        border-bottom: 1px solid var(--color-border);
+        border-bottom: 2px solid var(--color-accent);
         background-color: var(--color-bg-nav);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
 
-    /* Hide the big "Navigation" title on mobile to save space */
+    /* Hide the big "Navigation" title on mobile */
     #navigation h3 { display: none; }
 
-    /* --- GRID FOR PART LINKS (The 2-row fix) --- */
+    /* --- 1. PARTS GRID (Part 1 - Part 6) --- */
     #dynamic-links {
         display: grid;
-        /* 3 columns = Part 1, 2, 3 on top, Part 4, 5, 6 on bottom */
+        /* Force exactly 3 columns. If text is long, it shrinks. */
         grid-template-columns: repeat(3, 1fr); 
-        gap: 6px;
+        gap: 5px;
         width: 100%;
     }
 
     .nav-link {
-        padding: 8px 4px;
-        font-size: 0.8rem;
+        padding: 8px 2px; /* Less padding to fit text */
+        font-size: 0.75rem; /* Smaller font */
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        width: auto;
+        text-align: center;
+        width: 100%;
         margin: 0;
     }
 
-    /* --- FLEX ROW FOR ACTIONS (Resume, Map, Reset) --- */
+    /* --- 2. ACTION BUTTONS (Resume, Map, Reset) --- */
     .nav-actions {
         display: flex;
-        gap: 6px;
+        flex-direction: row; /* Force row */
+        justify-content: space-between;
+        gap: 5px;
         width: 100%;
     }
 
     .resume-btn, .map-btn, .reset-btn {
-        flex: 1; /* Share width equally */
+        flex: 1; /* All buttons take equal width */
+        width: auto; /* Override 100% width */
         margin: 0;
         padding: 8px 4px;
-        font-size: 0.85rem;
+        font-size: 0.75rem; /* Smaller text to fit "Reset" */
+        white-space: nowrap;
     }
 
-    /* Progress Bar */
+    /* --- 3. PROGRESS BAR --- */
     .progress-container {
         width: 100%;
-        height: 12px; /* Slimmer on mobile */
-        margin-top: 0;
-        order: 0; /* Keep it where it is in HTML */
+        height: 10px;
+        margin-top: 2px;
     }
-    #progressText { font-size: 0.7rem; line-height: 12px; }
+    #progressText { font-size: 0.65rem; line-height: 10px; }
 
-    /* --- COMPACT THEMES (At Bottom) --- */
+    /* --- 4. THEMES (At Bottom) --- */
     .theme-switcher {
         margin: 0;
         padding: 0;
@@ -332,76 +340,12 @@ h1.part-title {
     }
     
     .theme-btn {
-        width: 30px;
-        height: 30px;
-        font-size: 0.9rem;
-        background-color: rgba(0,0,0,0.2);
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        background-color: rgba(0,0,0,0.3); /* Darker bg for visibility */
     }
 }
-
-/* Small Phones (Extra Tweak) */
-@media (max-width: 400px) {
-    #dynamic-links {
-        /* On very small screens, font needs to be tiny or columns reduced */
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .nav-link { font-size: 0.7rem; }
-    .resume-btn, .map-btn, .reset-btn { font-size: 0.75rem; }
-}
-
-/* -------------------------------------- */
-/* 6. Advanced Map Modal Styling */
-/* -------------------------------------- */
-.map-modal {
-    display: none; 
-    position: fixed; top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background-color: #050505;
-    z-index: 2000; overflow: hidden;
-}
-
-.map-viewport {
-    width: 100%; height: 100%;
-    overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-    cursor: grab; touch-action: none; /* VITAL FOR MOBILE */
-}
-.map-viewport:active { cursor: grabbing; }
-
-#mapImage {
-    transform-origin: center center; 
-    transition: transform 0.1s linear;
-    max-width: none; max-height: none;
-    pointer-events: none; user-select: none;
-}
-
-.close-map-btn {
-    position: absolute; top: 20px; left: 20px; z-index: 2010;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    border: 1px solid #444;
-    padding: 10px 20px; border-radius: 30px;
-    cursor: pointer; font-weight: bold; font-size: 1rem;
-    backdrop-filter: blur(4px); transition: all 0.2s;
-}
-.close-map-btn:hover { background-color: var(--color-accent); color: #121212; }
-
-.map-controls {
-    position: absolute; bottom: 30px; left: 50%;
-    transform: translateX(-50%); z-index: 2010;
-    display: flex; align-items: center; gap: 15px;
-    background-color: rgba(20, 20, 20, 0.9);
-    padding: 10px 20px; border-radius: 50px;
-    border: 1px solid #444;
-}
-.map-controls button {
-    background: #333; color: #fff; border: none;
-    width: 30px; height: 30px; border-radius: 50%;
-    font-size: 1.2rem; cursor: pointer;
-}
-.map-controls button:hover { background: var(--color-accent); color: #000; }
-#zoomSlider { width: 150px; accent-color: var(--color-accent); cursor: pointer; }
-#zoomLabel { color: #fff; font-family: monospace; min-width: 45px; text-align: right; }
 
 /* -------------------------------------- */
 /* 7. Progress Bar & Theme Switcher Desktop Defaults */
