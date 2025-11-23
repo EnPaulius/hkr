@@ -65,10 +65,23 @@ body {
     line-height: 1.6;
     transition: background-color 0.3s, color 0.3s;
 }
+/* --- COMPLETED STATE FIX --- */
+/* When the item has class 'completed', change text color and line-through */
+.checklist-item.completed .step-description {
+    color: #666 !important; /* Force grey color */
+    text-decoration: line-through !important; /* Force strikethrough */
+    opacity: 0.7;
+}
 
+/* Make sure the checkbox stays visible */
+.checklist-item.completed .checkbox {
+    opacity: 0.5;
+}
 /* -------------------------------------- */
 /* 2. Layout */
 /* -------------------------------------- */
+
+
 #app-container {
     max-width: 1200px;
     margin: 0 auto;
