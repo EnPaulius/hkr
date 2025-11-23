@@ -3,14 +3,13 @@
 let routeData = [];
 const contentArea = document.getElementById('route-content');
 const navigationContainer = document.getElementById('navigation');
-const resetButton = document.getElementById('resetBtn');
-const resumeButton = document.getElementById('resumeBtn');
 const progressBar = document.getElementById('progressBar');
 const progressText = document.getElementById('progressText');
 
 // 1. Initialization
 document.addEventListener('DOMContentLoaded', () => {
     setupTheme();
+    setupEyeToggle(); // New Eye Logic
     loadRouteData();
 });
 
@@ -27,7 +26,7 @@ async function loadRouteData() {
         setupGlobalEventListeners();
         setupResetButton();
         setupResumeButton();
-        setupMapModal();
+        setupMapModal(); // Map is now top icon
         setupScrollSpy();
         updateProgressBar(); 
     } catch (error) {
@@ -35,27 +34,75 @@ async function loadRouteData() {
     }
 }
 
-// 2. Theme Manager (Fixed Checkbox Colors)
+// 2. Theme Manager (One Button Toggle)
 function setupTheme() {
-    const themeButtons = document.querySelectorAll('.theme-btn');
-    const savedTheme = localStorage.getItem('hkTheme') || 'theme-default';
-    applyTheme(savedTheme);
+    const btnTheme = document.getElementById('btnThemeToggle');
+    if(!btnTheme) return;
 
-    themeButtons.forEach(btn => {
-        btn.addEventListener('click', () => applyTheme(btn.getAttribute('data-theme')));
+    // Default is default. 
+    const savedTheme = localStorage.getItem('hkTheme') || 'theme-default';
+    updateThemeUI(savedTheme);
+
+    btnTheme.addEventListener('click', () => {
+        const current = document.body.classList.contains('theme-steam') ? 'theme-steam' : 'theme-default';
+        // Toggle logic
+        const newTheme = (current === 'theme-default') ? 'theme-steam' : 'theme-default';
+        updateThemeUI(newTheme);
     });
 
-    function applyTheme(themeName) {
-        document.body.className = themeName;
+    function updateThemeUI(themeName) {
+        document.body.className = ''; // Clear all classes
+        document.body.classList.add(themeName);
+        
+        // Re-add hide-completed class if it was active (since we cleared classes)
+        if(localStorage.getItem('hideCompleted') === 'true') {
+            document.body.classList.add('hide-completed');
+        }
+
         localStorage.setItem('hkTheme', themeName);
-        themeButtons.forEach(btn => {
-            if (btn.getAttribute('data-theme') === themeName) btn.classList.add('active');
-            else btn.classList.remove('active');
-        });
+
+        // Update Icon: Default = shows Controller(switch to steam), Steam = shows Moon(switch to default)
+        if (themeName === 'theme-default') {
+            btnTheme.textContent = '🎮'; 
+            btnTheme.title = "Switch to Steam Guide Theme";
+        } else {
+            btnTheme.textContent = '🌑';
+            btnTheme.title = "Switch to Default Theme";
+        }
     }
 }
 
-// 3. Navigation Render (Fixed Mobile Grid & Position)
+// 3. Eye Toggle (Hide/Show Completed)
+function setupEyeToggle() {
+    const btnEye = document.getElementById('btnEyeToggle');
+    if(!btnEye) return;
+
+    // Load Saved State
+    const isHidden = localStorage.getItem('hideCompleted') === 'true';
+    if(isHidden) document.body.classList.add('hide-completed');
+    updateEyeIcon(isHidden);
+
+    btnEye.addEventListener('click', () => {
+        const currentlyHidden = document.body.classList.contains('hide-completed');
+        if(currentlyHidden) {
+            document.body.classList.remove('hide-completed');
+            localStorage.setItem('hideCompleted', 'false');
+            updateEyeIcon(false);
+        } else {
+            document.body.classList.add('hide-completed');
+            localStorage.setItem('hideCompleted', 'true');
+            updateEyeIcon(true);
+        }
+    });
+
+    function updateEyeIcon(hidden) {
+        // If hidden, show closed eye. If visible, show open eye.
+        btnEye.textContent = hidden ? '🔒' : '👁️'; 
+        btnEye.title = hidden ? "Show Completed Items" : "Hide Completed Items";
+    }
+}
+
+// 4. Navigation Render (Fixed for new Layout)
 function renderNavigation() {
     const existingLinks = document.getElementById('dynamic-links');
     if (existingLinks) existingLinks.remove();
@@ -72,7 +119,6 @@ function renderNavigation() {
             e.preventDefault();
             const target = document.getElementById(part.id);
             if (target) {
-                // Adjust offset based on mobile/desktop
                 const offset = window.innerWidth < 1280 ? -180 : -20;
                 const y = target.getBoundingClientRect().top + window.pageYOffset + offset;
                 window.scrollTo({top: y, behavior: 'smooth'});
@@ -81,7 +127,7 @@ function renderNavigation() {
         dynamicLinksDiv.appendChild(link);
     });
 
-    // Insert Links BEFORE the buttons (.nav-actions)
+    // Insert Links BEFORE the Action Buttons
     const actionsContainer = document.querySelector('.nav-actions');
     if (actionsContainer && actionsContainer.parentNode === navigationContainer) {
         navigationContainer.insertBefore(dynamicLinksDiv, actionsContainer);
@@ -90,48 +136,38 @@ function renderNavigation() {
     }
 }
 
-// ---------------------------------------------------------
-// 4. RENDER LOGIC (Main Content + Collapsible Feature)
-// ---------------------------------------------------------
+// 5. Content Render
 function renderFullRoute() {
     let html = '';
-
     routeData.forEach(part => {
         html += `<section id="${part.id}" class="route-part-section">`;
         html += `<h1 class="part-title">${part.title}</h1>`;
-
         part.legs.forEach(leg => {
-            // CHANGED LINE BELOW: Added onclick to toggle 'collapsed' class
-            html += `
-                <div class="leg-section">
-                    <h3 onclick="this.parentElement.classList.toggle('collapsed')">${leg.title}</h3>
-                    <div class="checklist">
-            `;
-            
+            html += `<div class="leg-section">
+                        <h3 onclick="this.parentElement.classList.toggle('collapsed')">${leg.title}</h3>
+                        <div class="checklist">`;
             leg.content.forEach(item => {
                 if (item.type === 'step') {
                     const isChecked = localStorage.getItem(item.id) === 'true';
-                    const completedClass = isChecked ? 'completed' : '';
                     html += `
-                        <div class="checklist-item ${completedClass}" id="row-${item.id}">
+                        <div class="checklist-item ${isChecked ? 'completed' : ''}" id="row-${item.id}">
                             <input type="checkbox" class="checkbox" id="${item.id}" ${isChecked ? 'checked' : ''}>
                             <span class="step-description">${item.text}</span>
                         </div>
                     `;
                 } else if (item.type === 'img') {
                     if (item.src.includes('hr.png')) html += `<div class="hr-divider"></div>`;
-                    else html += `<div class="image-gallery single-image"><img src="${item.src}" alt="Reference" loading="lazy"></div>`;
+                    else html += `<div class="image-gallery"><img src="${item.src}" loading="lazy"></div>`;
                 }
             });
             html += `</div></div>`;
         });
         html += `</section>`;
     });
-
     contentArea.innerHTML = html;
 }
 
-// 5. Event Listeners & Progress
+// 6. Event Listeners & Progress
 function setupGlobalEventListeners() {
     contentArea.addEventListener('change', (e) => {
         if (e.target.classList.contains('checkbox')) {
@@ -157,10 +193,10 @@ function updateProgressBar() {
     progressText.textContent = `${percent}% Completed`;
 }
 
-// 6. Map Modal (Fixed z-index & Mobile Pinch)
+// 7. Map Modal (Top Icon Trigger)
 function setupMapModal() {
     const modal = document.getElementById("mapModal");
-    const openBtn = document.getElementById("mapBtn");
+    const openBtn = document.getElementById("btnMapIcon"); // NEW ID
     const closeBtn = document.getElementById("closeMapBtn");
     const viewport = document.getElementById("mapViewport");
     const img = document.getElementById("mapImage");
@@ -195,9 +231,14 @@ function setupMapModal() {
 
     if (closeBtn) closeBtn.addEventListener("click", closeMap);
 
-    // Mouse & Touch Logic
     if (viewport) {
-        // Mouse
+        viewport.addEventListener("wheel", (e) => {
+            e.preventDefault();
+            const delta = -Math.sign(e.deltaY) * 0.2;
+            scale = Math.min(Math.max(0.1, scale + delta), 3);
+            updateTransform();
+        }, { passive: false });
+
         viewport.addEventListener("mousedown", (e) => {
             e.preventDefault(); isDragging = true;
             startX = e.clientX - pointX; startY = e.clientY - pointY;
@@ -212,7 +253,6 @@ function setupMapModal() {
             updateTransform();
         });
 
-        // Touch
         viewport.addEventListener("touchstart", (e) => {
             if (e.touches.length === 2) {
                 e.preventDefault(); isDragging = false;
@@ -251,12 +291,24 @@ function setupMapModal() {
     if(zoomOut) zoomOut.addEventListener("click", () => { scale -= 0.1; updateTransform(); });
 }
 
+// 8. Resume & Reset
 function setupResumeButton() {
-    if (!resumeButton) return;
-    resumeButton.addEventListener('click', () => {
-        const unchecked = document.querySelector('.checkbox:not(:checked)');
+    const btn = document.getElementById('resumeBtn');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+        // Logic to skip hidden items if Eye is closed
+        let selector = '.checkbox:not(:checked)';
+        const unchecked = document.querySelector(selector);
+        
         if (unchecked) {
-            unchecked.closest('.checklist-item').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            const row = unchecked.closest('.checklist-item');
+            // If hidden, temporarily unhide to scroll? 
+            // CSS handles display:none, so scrollIntoView might not work if hidden.
+            // But usually resume is for what you need to do next.
+            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            row.classList.remove('row-highlight');
+            void row.offsetWidth;
+            row.classList.add('row-highlight');
         } else {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
@@ -277,8 +329,9 @@ function setupScrollSpy() {
 }
 
 function setupResetButton() {
-    if (!resetButton) return;
-    resetButton.addEventListener('click', () => {
+    const btn = document.getElementById('resetBtn');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
         if (confirm('Reset ALL progress?')) {
             localStorage.clear();
             location.reload();
