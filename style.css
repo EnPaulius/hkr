@@ -8,54 +8,35 @@
     --color-bg-nav: #1c1c1c;
     --color-text-main: #e0e0e0;
     --color-text-muted: #aaaaaa;
-    --color-accent: #f0c05a;       /* Gold Headers */
-    --color-checkbox: #32cd32;     /* Green Checks */
+    --color-accent: #f0c05a;       /* Gold */
+    --color-checkbox: #32cd32;     /* Green */
+    --color-highlight: rgba(50, 205, 50, 0.3);
     --color-border: #333333;
-    --color-btn-map: #637b98;
     --color-hover-bg: rgba(255,255,255,0.05);
     --color-nav-link: #252525;
+    --color-nav-border: transparent; /* Default has no link border */
     --nav-width: 220px;
     --font-main: 'Inter', sans-serif;
 }
 
-/* --- THEME: STEAM GUIDE (Exact Replica Style) --- */
+/* --- THEME: STEAM GUIDE --- */
 body.theme-steam {
-    --color-bg-main: #000000;      /* Deep Black background */
-    --color-bg-card: #000000;      /* Transparent/Black cards */
-    --color-bg-nav: #1b2838;       /* Steam Header Blue */
-    --color-text-main: #acb2b8;    /* Steam Grey Text */
+    --color-bg-main: #000000;
+    --color-bg-card: #000000;
+    --color-bg-nav: #1b2838;
+    --color-text-main: #acb2b8;
     --color-text-muted: #70757a;
-    --color-accent: #66c0f4;       /* Steam Blue Headers */
-    --color-checkbox: #66c0f4;     /* Blue Checks */
-    --color-border: #3c434d;       /* Subtle borders */
-    --color-btn-map: #2a475e;
+    --color-accent: #66c0f4;       /* Blue */
+    --color-checkbox: #66c0f4;     /* Blue */
+    --color-highlight: rgba(102, 192, 244, 0.3);
+    --color-border: #3c434d;
     --color-hover-bg: #16202d;
     --color-nav-link: #1b2838;
-    --font-main: Arial, Helvetica, sans-serif; /* Steam Font */
+    --color-nav-border: #58636e;   /* Visible border for Steam links */
+    --font-main: Arial, Helvetica, sans-serif;
 }
 
-/* --- THEME: CORNIFER (Paper) --- */
-body.theme-paper {
-    --color-bg-main: #e6dfcc;
-    --color-bg-card: #f4f0e6;
-    --color-bg-nav: #dcd0b3;
-    --color-text-main: #3b3228;
-    --color-text-muted: #6b5d4f;
-    --color-accent: #8f3f3f;       /* Red Headers */
-    --color-checkbox: #d32f2f;     /* Red Checks */
-    --color-border: #c2b59b;
-    --color-btn-map: #5d7275;
-    --color-hover-bg: rgba(0,0,0,0.05);
-    --color-nav-link: #e6dfcc;
-    --font-main: 'Georgia', serif;
-}
-
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
 body {
@@ -66,21 +47,22 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
+/* HIDE COMPLETED LOGIC */
+body.hide-completed .checklist-item.completed {
+    display: none !important;
+}
+
 /* -------------------------------------- */
 /* 2. Layout */
 /* -------------------------------------- */
 #app-container {
-    max-width: 1000px; /* Slightly narrower like Steam guides */
+    max-width: 1000px;
     margin: 0 auto;
     padding: 40px 260px 100px 20px;
 }
 
-.route-part-section {
-    margin-bottom: 50px;
-    scroll-margin-top: 20px;
-}
+.route-part-section { margin-bottom: 50px; scroll-margin-top: 20px; }
 
-/* Steam Theme Specific: Headers with lines */
 body.theme-steam .part-title {
     text-align: left;
     border-bottom: 1px solid #363c44;
@@ -101,146 +83,76 @@ body:not(.theme-steam) h1.part-title {
 }
 
 /* -------------------------------------- */
-/* 3. Navigation (Desktop Default) */
+/* 3. Navigation */
 /* -------------------------------------- */
 #navigation {
-    position: fixed;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: fixed; right: 30px; top: 50%; transform: translateY(-50%);
     width: var(--nav-width);
     background-color: var(--color-bg-nav);
-    padding: 20px;
-    border-radius: 8px;
+    padding: 20px; border-radius: 8px;
     border: 1px solid var(--color-border);
     box-shadow: 0 5px 20px rgba(0,0,0,0.5);
     z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display: flex; flex-direction: column; gap: 10px;
 }
 
 #navigation h3 {
-    text-align: center;
-    color: var(--color-text-main);
+    text-align: center; color: var(--color-text-main);
     border-bottom: 1px solid var(--color-border);
-    padding-bottom: 10px;
-    margin-bottom: 5px;
+    padding-bottom: 10px; margin-bottom: 5px;
 }
 
-/* Links */
-#dynamic-links {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+/* TOP ICONS (Theme, Map, Eye) */
+.top-icons {
+    display: flex; justify-content: space-between; 
+    gap: 5px; margin-bottom: 5px;
 }
 
-.nav-link {
-    display: block;
-    padding: 8px 12px;
-    background-color: var(--color-nav-link);
-    color: var(--color-text-muted);
-    text-decoration: none;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 0.9rem;
-    border: 1px solid transparent;
-}
-.nav-link:hover {
-    background-color: var(--color-border);
-    color: var(--color-text-main);
-}
-.nav-link.active-nav {
-    background-color: var(--color-accent);
-    color: var(--color-bg-main);
-    font-weight: bold;
-}
-
-/* Actions */
-.nav-actions { display: flex; flex-direction: column; gap: 5px; }
-
-.resume-btn, .map-btn, .reset-btn {
-    width: 100%;
-    padding: 8px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    border: none;
-    font-size: 0.85rem;
-}
-.resume-btn { background-color: #32cd32; color: #121212; }
-.map-btn { background-color: var(--color-btn-map); color: #fff; }
-.reset-btn { background-color: #d9534f; color: white; }
-
-/* -------------------------------------- */
-/* 4. Content Cards */
-/* -------------------------------------- */
-.leg-section {
-    background-color: var(--color-bg-card);
-    padding: 20px;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    border: 1px solid var(--color-border);
-}
-
-.leg-section h3 {
-    color: var(--color-accent);
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-
-.checklist-item {
-    display: flex;
-    padding: 8px 0;
-    border-bottom: 1px dashed var(--color-border);
-}
-.checklist-item:hover { background-color: var(--color-hover-bg); }
-
-/* CHECKBOX COLORING logic */
-.checkbox {
-    width: 18px; height: 18px; min-width: 18px;
-    margin-right: 12px; margin-top: 4px;
-    cursor: pointer;
-    accent-color: var(--color-checkbox); /* HERE IS THE COLOR MAGIC */
-}
-
-.step-description { flex: 1; }
-
-.checklist-item.completed .step-description {
-    color: #555 !important;
-    text-decoration: line-through !important;
-    opacity: 0.6;
-}
-
-.image-gallery img { max-width: 100%; border-radius: 4px; margin-top: 10px; }
-.hr-divider { height: 1px; background: var(--color-border); margin: 20px 0; }
-
-/* -------------------------------------- */
-/* 5. Theme Icons & Progress */
-/* -------------------------------------- */
-.theme-switcher {
-    display: flex; justify-content: center; gap: 10px;
-    margin-bottom: 10px;
-}
-.theme-btn {
+.icon-btn {
+    flex: 1;
     background: var(--color-bg-main);
     border: 1px solid var(--color-border);
     color: var(--color-text-main);
-    width: 36px; height: 36px;
-    border-radius: 50%; font-size: 1.1rem;
-    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    height: 36px; border-radius: 6px;
+    font-size: 1.2rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
 }
-.theme-btn.active {
+.icon-btn:hover {
+    background: var(--color-hover-bg);
     border-color: var(--color-accent);
-    box-shadow: 0 0 5px var(--color-accent);
 }
 
+/* LINKS */
+#dynamic-links { display: flex; flex-direction: column; gap: 5px; }
+
+.nav-link {
+    display: block; padding: 8px 12px;
+    background-color: var(--color-nav-link);
+    color: var(--color-text-muted);
+    text-decoration: none; border-radius: 4px;
+    text-align: center; font-size: 0.9rem;
+    /* Specific border for Steam theme visibility */
+    border: 1px solid var(--color-nav-border);
+}
+.nav-link:hover { background-color: var(--color-border); color: var(--color-text-main); }
+.nav-link.active-nav { background-color: var(--color-accent); color: var(--color-bg-main); font-weight: bold; }
+
+/* ACTION BUTTONS */
+.nav-actions { display: flex; flex-direction: column; gap: 5px; }
+
+.resume-btn, .reset-btn {
+    width: 100%; padding: 8px; border-radius: 4px;
+    cursor: pointer; font-weight: bold; text-transform: uppercase;
+    border: none; font-size: 0.85rem;
+}
+.resume-btn { background-color: #32cd32; color: #121212; }
+.reset-btn { background-color: #d9534f; color: white; }
+
+/* PROGRESS */
 .progress-container {
-    width: 100%; height: 20px;
-    background: rgba(0,0,0,0.3);
-    border-radius: 4px; position: relative;
-    border: 1px solid var(--color-border);
+    width: 100%; height: 20px; background: rgba(0,0,0,0.3);
+    border-radius: 4px; position: relative; border: 1px solid var(--color-border);
 }
 .progress-fill { height: 100%; width: 0%; transition: width 0.4s; background: var(--color-checkbox); }
 #progressText {
@@ -250,152 +162,133 @@ body:not(.theme-steam) h1.part-title {
 }
 
 /* -------------------------------------- */
-/* 6. MOBILE NAVIGATION (Fixed) */
+/* 4. Content Cards */
+/* -------------------------------------- */
+.leg-section {
+    background-color: var(--color-bg-card);
+    padding: 20px; border-radius: 4px;
+    margin-bottom: 20px; border: 1px solid var(--color-border);
+}
+
+.leg-section h3 {
+    color: var(--color-accent); margin-bottom: 15px; font-size: 1.3rem;
+    cursor: pointer; position: relative; padding-right: 30px; user-select: none;
+}
+.leg-section h3::after {
+    content: '▼'; position: absolute; right: 0; top: 50%;
+    transform: translateY(-50%); font-size: 0.8em; opacity: 0.5;
+    transition: transform 0.3s ease;
+}
+.leg-section.collapsed .checklist { display: none; }
+.leg-section.collapsed h3::after { transform: translateY(-50%) rotate(-90deg); }
+
+/* Desktop: No Collapse */
+@media (min-width: 1281px) {
+    .leg-section h3 { pointer-events: none; padding-right: 0; cursor: default; }
+    .leg-section h3::after { display: none; }
+    .leg-section.collapsed .checklist { display: block !important; }
+}
+
+.checklist-item {
+    display: flex; padding: 8px 0;
+    border-bottom: 1px dashed var(--color-border);
+    transition: background 0.3s;
+}
+.checklist-item:hover { background-color: var(--color-hover-bg); }
+
+/* Highlight Animation */
+.row-highlight { animation: highlightPulse 1.5s ease-out; }
+@keyframes highlightPulse {
+    0% { background-color: var(--color-highlight); }
+    100% { background-color: transparent; }
+}
+
+.checkbox {
+    width: 18px; height: 18px; min-width: 18px;
+    margin-right: 12px; margin-top: 4px;
+    cursor: pointer; accent-color: var(--color-checkbox);
+}
+
+.step-description { flex: 1; }
+.checklist-item.completed .step-description {
+    color: #555 !important; text-decoration: line-through !important; opacity: 0.6;
+}
+
+.image-gallery img { max-width: 100%; border-radius: 4px; margin-top: 10px; }
+.hr-divider { height: 1px; background: var(--color-border); margin: 20px 0; }
+
+/* -------------------------------------- */
+/* 5. MOBILE NAVIGATION */
 /* -------------------------------------- */
 @media (max-width: 1280px) {
-    #app-container {
-        padding: 170px 15px 40px 15px; /* Push content down */
-    }
-    
+    #app-container { padding: 170px 15px 40px 15px; }
     .route-part-section { scroll-margin-top: 180px; }
 
     #navigation {
-        /* Force Full Width & Top Position */
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: auto;
-        width: 100%;
-        height: auto;
-        transform: none;
-        
-        display: flex;
-        flex-direction: column;
-        padding: 8px;
-        border-radius: 0;
-        border: none;
+        position: fixed; top: 0; left: 0; right: 0; bottom: auto;
+        width: 100%; height: auto; transform: none;
+        display: flex; flex-direction: column;
+        padding: 8px; border-radius: 0; border: none;
         border-bottom: 2px solid var(--color-accent);
         box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        z-index: 5000; /* High z-index */
+        z-index: 5000;
     }
 
     #navigation h3 { display: none; }
 
-    /* Theme Icons Row */
-    .theme-switcher { margin: 0 0 5px 0; }
-    .theme-btn { width: 30px; height: 30px; font-size: 0.9rem; }
+    .top-icons { margin-bottom: 5px; }
+    .icon-btn { height: 32px; font-size: 1rem; }
 
-    /* Links Grid (3 columns) */
     #dynamic-links {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5px;
-        width: 100%;
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        gap: 5px; width: 100%;
     }
     .nav-link {
-        padding: 6px 2px;
-        font-size: 0.75rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 100%;
+        padding: 6px 2px; font-size: 0.75rem;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;
     }
 
-    /* Buttons Row */
     .nav-actions {
-        flex-direction: row;
-        justify-content: space-between;
-        margin-top: 5px;
-        gap: 5px;
+        flex-direction: row; justify-content: space-between;
+        margin-top: 5px; gap: 5px;
     }
-    .resume-btn, .map-btn, .reset-btn {
-        flex: 1; margin: 0; padding: 6px; font-size: 0.75rem;
-    }
+    .resume-btn, .reset-btn { flex: 1; margin: 0; padding: 6px; font-size: 0.75rem; }
 
     .progress-container { margin-top: 5px; height: 12px; }
     #progressText { font-size: 0.65rem; line-height: 12px; }
 }
 
 /* -------------------------------------- */
-/* 7. MAP MODAL (Fix for "End of Website") */
+/* 6. MAP MODAL */
 /* -------------------------------------- */
 .map-modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* FIXED is crucial */
-    top: 0; left: 0;
+    display: none; position: fixed; top: 0; left: 0;
     width: 100vw; height: 100vh;
-    background-color: #050505;
-    z-index: 9999; /* Higher than everything */
-    overflow: hidden;
+    background-color: #050505; z-index: 9999; overflow: hidden;
 }
-
 .map-viewport {
-    width: 100%; height: 100%;
-    overflow: hidden;
+    width: 100%; height: 100%; overflow: hidden;
     display: flex; align-items: center; justify-content: center;
-    cursor: grab;
-    touch-action: none; /* Mobile Drag Fix */
+    cursor: grab; touch-action: none;
 }
 .map-viewport:active { cursor: grabbing; }
-
 #mapImage {
-    transform-origin: center center;
-    transition: transform 0.1s linear;
-    max-width: none;
-    pointer-events: none;
+    transform-origin: center center; transition: transform 0.1s linear;
+    max-width: none; pointer-events: none;
 }
-
 .close-map-btn {
     position: absolute; top: 15px; left: 15px;
     background: rgba(0,0,0,0.8); color: #fff;
     border: 1px solid #555; padding: 8px 16px;
     border-radius: 20px; z-index: 10000;
 }
-
 .map-controls {
-    position: absolute; bottom: 20px; left: 50%;
-    transform: translateX(-50%);
-    background: rgba(20,20,20,0.9);
-    padding: 8px 15px; border-radius: 30px;
+    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: rgba(20,20,20,0.9); padding: 8px 15px; border-radius: 30px;
     display: flex; gap: 10px; align-items: center;
     border: 1px solid #555; z-index: 10000;
 }
 .map-controls button {
     background: #333; color: #fff; border: none;
     width: 28px; height: 28px; border-radius: 50%;
-}
-
-/* -------------------------------------- */
-/* 8. COLLAPSIBLE SECTIONS (New Feature) */
-/* -------------------------------------- */
-.leg-section h3 {
-    cursor: pointer;
-    position: relative;
-    padding-right: 30px; /* Make room for arrow */
-    user-select: none;   /* Don't highlight text on double click */
-    transition: color 0.2s;
-}
-
-.leg-section h3:hover {
-    opacity: 0.8;
-}
-
-/* The Arrow Icon */
-.leg-section h3::after {
-    content: '▼'; 
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 0.8em;
-    transition: transform 0.3s ease;
-    opacity: 0.5;
-}
-
-/* State: Collapsed */
-.leg-section.collapsed .checklist {
-    display: none; /* Hides steps & images */
-}
-
-/* Rotate arrow when collapsed */
-.leg-section.collapsed h3::after {
-    transform: translateY(-50%) rotate(-90deg); 
 }
