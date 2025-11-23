@@ -86,7 +86,7 @@ function updateProgressBar() {
 }
 
 // ---------------------------------------------------------
-// 3. ADVANCED MAP MODAL
+// 3. ADVANCED MAP MODAL (Updated for Mobile Touch)
 // ---------------------------------------------------------
 function setupMapModal() {
     const modal = document.getElementById("mapModal");
@@ -117,7 +117,9 @@ function setupMapModal() {
         if (saved) {
             try {
                 const state = JSON.parse(saved);
-                scale = state.scale || 0.5; pointX = state.pointX || 0; pointY = state.pointY || 0;
+                scale = state.scale || 0.5; 
+                pointX = state.pointX || 0; 
+                pointY = state.pointY || 0;
             } catch (e) {}
         }
         updateTransform();
@@ -126,28 +128,66 @@ function setupMapModal() {
     if (openBtn) {
         openBtn.addEventListener("click", () => {
             modal.style.display = "block";
-            document.body.style.overflow = "hidden";
+            document.body.style.overflow = "hidden"; // Stop background scrolling
             loadMapState(); 
         });
     }
 
     function closeMap() {
         modal.style.display = "none";
-        document.body.style.overflow = "auto";
+        document.body.style.overflow = "auto"; // Restore background scrolling
     }
 
     if (closeBtn) closeBtn.addEventListener("click", closeMap);
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.style.display === "block") closeMap(); });
 
     if (viewport) {
+        // --- MOUSE EVENTS (Desktop) ---
         viewport.addEventListener("mousedown", (e) => {
-            isDragging = true; startX = e.clientX - pointX; startY = e.clientY - pointY; viewport.style.cursor = "grabbing";
+            e.preventDefault();
+            isDragging = true; 
+            startX = e.clientX - pointX; 
+            startY = e.clientY - pointY; 
+            viewport.style.cursor = "grabbing";
         });
-        window.addEventListener("mouseup", () => { isDragging = false; if (viewport) viewport.style.cursor = "grab"; });
+
+        window.addEventListener("mouseup", () => { 
+            isDragging = false; 
+            if (viewport) viewport.style.cursor = "grab"; 
+        });
+
         window.addEventListener("mousemove", (e) => {
-            if (!isDragging) return; e.preventDefault();
-            pointX = e.clientX - startX; pointY = e.clientY - startY; updateTransform();
+            if (!isDragging) return; 
+            e.preventDefault();
+            pointX = e.clientX - startX; 
+            pointY = e.clientY - startY; 
+            updateTransform();
         });
+
+        // --- TOUCH EVENTS (Mobile) ---
+        viewport.addEventListener("touchstart", (e) => {
+            // Use the first finger that touched the screen
+            if (e.touches.length === 1) {
+                isDragging = true;
+                startX = e.touches[0].clientX - pointX;
+                startY = e.touches[0].clientY - pointY;
+            }
+        }, { passive: false });
+
+        window.addEventListener("touchend", () => {
+            isDragging = false;
+        });
+
+        window.addEventListener("touchmove", (e) => {
+            if (!isDragging) return;
+            // Prevent the default behavior (scrolling the webpage)
+            e.preventDefault(); 
+            pointX = e.touches[0].clientX - startX;
+            pointY = e.touches[0].clientY - startY;
+            updateTransform();
+        }, { passive: false });
+
+        // --- ZOOM WHEEL ---
         viewport.addEventListener("wheel", (e) => {
             e.preventDefault();
             const delta = -Math.sign(e.deltaY);
@@ -155,6 +195,8 @@ function setupMapModal() {
             updateTransform();
         });
     }
+
+    // Zoom Controls
     if (slider) slider.addEventListener("input", (e) => { scale = parseFloat(e.target.value); updateTransform(); });
     if (zoomIn) zoomIn.addEventListener("click", () => { scale = Math.min(scale + 0.1, 3); updateTransform(); });
     if (zoomOut) zoomOut.addEventListener("click", () => { scale = Math.max(scale - 0.1, 0.1); updateTransform(); });
