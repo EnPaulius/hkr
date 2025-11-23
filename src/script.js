@@ -1,4 +1,4 @@
-// script.js – Final Version
+// script.js – Final Version (Src Folder Path)
 
 let routeData = [];
 const contentArea = document.getElementById('route-content');
@@ -14,8 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function loadRouteData() {
+    // CHANGED: Path now points to src folder relative to index.html
+    const jsonPath = 'src/route_data.json'; 
+
     try {
-        const response = await fetch('./route_data.json', { cache: "no-cache" });
+        const response = await fetch(jsonPath, { cache: "no-cache" });
         if (!response.ok) throw new Error(`Status: ${response.status}`);
         const data = await response.json();
         routeData = data.route;
@@ -35,10 +38,10 @@ async function loadRouteData() {
             checkAndCollapseLegs(true);
         }
 
-        // AUTO-JUMP ON LOAD (New Request)
+        // Auto-Jump
         setTimeout(() => {
             jumpToProgress();
-        }, 100); // Small delay to ensure rendering is done
+        }, 100);
 
     } catch (error) {
         contentArea.innerHTML = `<h2 style="color:red; text-align:center">Error: ${error.message}</h2>`;
@@ -162,7 +165,6 @@ function renderFullRoute() {
         html += `<section id="${part.id}" class="route-part-section">`;
         html += `<h1 class="part-title">${part.title}</h1>`;
         part.legs.forEach(leg => {
-            // h3 onclick still exists, but CSS disables pointer-events on desktop
             html += `<div class="leg-section">
                         <h3 onclick="this.parentElement.classList.toggle('collapsed')">${leg.title}</h3>
                         <div class="checklist">`;
@@ -319,25 +321,21 @@ function setupMapModal() {
     if(zoomOut) zoomOut.addEventListener("click", () => { scale -= 0.1; updateTransform(); });
 }
 
-// 8. Resume (Common Logic)
+// 8. Resume
 function jumpToProgress() {
     const unchecked = document.querySelector('.checkbox:not(:checked)');
     if (unchecked) {
         const row = unchecked.closest('.checklist-item');
         const leg = row.closest('.leg-section');
         
-        // Ensure it's open so we can scroll to it
         if(leg && leg.classList.contains('collapsed')) {
             leg.classList.remove('collapsed');
         }
         
         row.scrollIntoView({ behavior: 'smooth', block: 'center' });
         row.classList.remove('row-highlight');
-        void row.offsetWidth; // Trigger Reflow
+        void row.offsetWidth; 
         row.classList.add('row-highlight');
-    } else {
-        // If everything is checked, maybe scroll bottom? Or do nothing.
-        // window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
 }
 
