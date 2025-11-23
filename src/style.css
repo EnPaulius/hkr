@@ -176,7 +176,7 @@ body:not(.theme-steam) h1.part-title {
     transition: transform 0.3s ease;
 }
 
-/* COLLAPSED LOGIC (Applies to Desktop AND Mobile now) */
+/* COLLAPSED LOGIC */
 .leg-section.collapsed .checklist { display: none; }
 .leg-section.collapsed h3::after { transform: translateY(-50%) rotate(-90deg); }
 
