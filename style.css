@@ -176,23 +176,9 @@ body:not(.theme-steam) h1.part-title {
     transition: transform 0.3s ease;
 }
 
-/* COLLAPSED LOGIC */
+/* COLLAPSED LOGIC (Applies to Desktop AND Mobile now) */
 .leg-section.collapsed .checklist { display: none; }
 .leg-section.collapsed h3::after { transform: translateY(-50%) rotate(-90deg); }
-
-/* DESKTOP OVERRIDE: Disable manual collapsing, but allow Eye toggle */
-@media (min-width: 1281px) {
-    .leg-section h3 { 
-        pointer-events: none; /* Disable clicking */
-        cursor: default; 
-        padding-right: 0; 
-    }
-    .leg-section h3::after { 
-        display: none; /* Hide arrow on desktop */
-    }
-    /* Note: We DO NOT force display:block here anymore. 
-       This allows the Eye toggle to add .collapsed class and hide items if user wants. */
-}
 
 .checklist-item {
     display: flex; padding: 8px 0;
