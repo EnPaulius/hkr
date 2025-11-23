@@ -333,7 +333,7 @@ h1.part-title {
     overflow: hidden; /* Prevent scrolling the page */
 }
 
-/* The Viewport - Clips the image */
+/* Update this class in your style.css */
 .map-viewport {
     width: 100%;
     height: 100%;
@@ -341,7 +341,10 @@ h1.part-title {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: grab; /* Hand icon */
+    cursor: grab;
+    
+    /* NEW: This is crucial for mobile smoothness */
+    touch-action: none; 
 }
 
 .map-viewport:active {
