@@ -616,18 +616,4 @@
     }
   ]
 }
-
-async function loadRouteData() {
-    // ... existing code ...
-        
-        // Setup
-        setupTheme(); // <--- ADD THIS HERE
-        setupResetButton();
-        setupResumeButton();
-        setupMapModal();
-        setupScrollSpy();
-        
-        updateProgressBar(); 
-
-    // ... existing code ...
 }
