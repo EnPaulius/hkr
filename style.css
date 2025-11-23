@@ -12,9 +12,10 @@
     --color-checkbox: #32cd32;     /* Green */
     --color-highlight: rgba(50, 205, 50, 0.3);
     --color-border: #333333;
+    --color-btn-map: #637b98;
     --color-hover-bg: rgba(255,255,255,0.05);
     --color-nav-link: #252525;
-    --color-nav-border: transparent; /* Default has no link border */
+    --color-nav-border: transparent;
     --nav-width: 220px;
     --font-main: 'Inter', sans-serif;
 }
@@ -32,7 +33,7 @@ body.theme-steam {
     --color-border: #3c434d;
     --color-hover-bg: #16202d;
     --color-nav-link: #1b2838;
-    --color-nav-border: #58636e;   /* Visible border for Steam links */
+    --color-nav-border: #58636e;
     --font-main: Arial, Helvetica, sans-serif;
 }
 
@@ -45,11 +46,6 @@ body {
     color: var(--color-text-main);
     line-height: 1.6;
     transition: background 0.3s, color 0.3s;
-}
-
-/* HIDE COMPLETED LOGIC */
-body.hide-completed .checklist-item.completed {
-    display: none !important;
 }
 
 /* -------------------------------------- */
@@ -102,7 +98,7 @@ body:not(.theme-steam) h1.part-title {
     padding-bottom: 10px; margin-bottom: 5px;
 }
 
-/* TOP ICONS (Theme, Map, Eye) */
+/* TOP ICONS - TRANSPARENT FIX */
 .top-icons {
     display: flex; justify-content: space-between; 
     gap: 5px; margin-bottom: 5px;
@@ -110,17 +106,18 @@ body:not(.theme-steam) h1.part-title {
 
 .icon-btn {
     flex: 1;
-    background: var(--color-bg-main);
-    border: 1px solid var(--color-border);
+    background: transparent; /* Removed black background */
+    border: 1px solid transparent; /* Removed default border */
     color: var(--color-text-main);
     height: 36px; border-radius: 6px;
-    font-size: 1.2rem; cursor: pointer;
+    font-size: 1.3rem; cursor: pointer;
     display: flex; align-items: center; justify-content: center;
     transition: all 0.2s;
 }
 .icon-btn:hover {
     background: var(--color-hover-bg);
     border-color: var(--color-accent);
+    transform: scale(1.1);
 }
 
 /* LINKS */
@@ -132,7 +129,6 @@ body:not(.theme-steam) h1.part-title {
     color: var(--color-text-muted);
     text-decoration: none; border-radius: 4px;
     text-align: center; font-size: 0.9rem;
-    /* Specific border for Steam theme visibility */
     border: 1px solid var(--color-nav-border);
 }
 .nav-link:hover { background-color: var(--color-border); color: var(--color-text-main); }
@@ -162,7 +158,7 @@ body:not(.theme-steam) h1.part-title {
 }
 
 /* -------------------------------------- */
-/* 4. Content Cards */
+/* 4. Content Cards & Logic */
 /* -------------------------------------- */
 .leg-section {
     background-color: var(--color-bg-card);
@@ -179,15 +175,10 @@ body:not(.theme-steam) h1.part-title {
     transform: translateY(-50%); font-size: 0.8em; opacity: 0.5;
     transition: transform 0.3s ease;
 }
+
+/* COLLAPSED LOGIC */
 .leg-section.collapsed .checklist { display: none; }
 .leg-section.collapsed h3::after { transform: translateY(-50%) rotate(-90deg); }
-
-/* Desktop: No Collapse */
-@media (min-width: 1281px) {
-    .leg-section h3 { pointer-events: none; padding-right: 0; cursor: default; }
-    .leg-section h3::after { display: none; }
-    .leg-section.collapsed .checklist { display: block !important; }
-}
 
 .checklist-item {
     display: flex; padding: 8px 0;
@@ -196,7 +187,6 @@ body:not(.theme-steam) h1.part-title {
 }
 .checklist-item:hover { background-color: var(--color-hover-bg); }
 
-/* Highlight Animation */
 .row-highlight { animation: highlightPulse 1.5s ease-out; }
 @keyframes highlightPulse {
     0% { background-color: var(--color-highlight); }
@@ -237,7 +227,7 @@ body:not(.theme-steam) h1.part-title {
     #navigation h3 { display: none; }
 
     .top-icons { margin-bottom: 5px; }
-    .icon-btn { height: 32px; font-size: 1rem; }
+    .icon-btn { height: 32px; font-size: 1.2rem; } /* Slightly bigger icons */
 
     #dynamic-links {
         display: grid; grid-template-columns: repeat(3, 1fr);
