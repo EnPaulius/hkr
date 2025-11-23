@@ -19,42 +19,32 @@
     <nav id="navigation">
         <h3>Navigation</h3>
 
-        <!-- NEW: Icon Theme Switcher -->
-        <div class="theme-switcher">
-            <button class="theme-btn" data-theme="theme-default" title="Abyss (Default)">
-                🌑
-            </button>
-            <button class="theme-btn" data-theme="theme-steam" title="Steam Guide Style">
-                🎮
-            </button>
-            <button class="theme-btn" data-theme="theme-paper" title="Cornifer (Light)">
-                📜
-            </button>
-        </div>
-        <!-- END NEW -->
+        <!-- 1. PART LINKS (Injected by JS) -->
+        <!-- We add a container ID for CSS targeting if not already present in JS -->
+        <!-- The JS creates <div id="dynamic-links">...</div> automatically -->
 
-        <!-- JS injects Part links here -->
-        <div id="dynamic-links"></div> <!-- (Optional: Placeholder for JS) -->
-        
-        <button id="resumeBtn" class="resume-btn">Resume Run ⏩</button>
-        <button id="mapBtn" class="map-btn">View Map 🗺️</button>
-        <button id="resetBtn" class="reset-btn">Reset Checklist</button>
-        
+        <!-- 2. ACTION BUTTONS (Grouped for better mobile layout) -->
+        <div class="nav-actions">
+            <button id="resumeBtn" class="resume-btn">Resume ⏩</button>
+            <button id="mapBtn" class="map-btn">Map 🗺️</button>
+            <button id="resetBtn" class="reset-btn">Reset</button>
+        </div>
+
+        <!-- 3. PROGRESS BAR -->
         <div class="progress-container" title="Checklist Progress">
             <div id="progressBar" class="progress-fill yellow"></div>
             <span id="progressText">0%</span>
         </div>
-    </nav>
-        
-        <button id="resetBtn" class="reset-btn">Reset Checklist</button>
-        <!-- NEW: Progress Bar -->
-        <div class="progress-container" title="Checklist Progress">
-            <div id="progressBar" class="progress-fill yellow"></div>
-            <span id="progressText">0%</span>
+
+        <!-- 4. THEMES (Moved to Bottom) -->
+        <div class="theme-switcher">
+            <button class="theme-btn" data-theme="theme-default" title="Abyss (Default)">🌑</button>
+            <button class="theme-btn" data-theme="theme-steam" title="Steam Guide">🎮</button>
+            <button class="theme-btn" data-theme="theme-paper" title="Cornifer">📜</button>
         </div>
         
     </nav>
-                
+                       
     <!-- Advanced Map Modal -->
     <div id="mapModal" class="map-modal">
         
