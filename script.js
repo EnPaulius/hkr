@@ -30,10 +30,15 @@ async function loadRouteData() {
         setupScrollSpy();
         updateProgressBar();
         
-        // Apply collapse state on load if Eye is active
+        // Apply collapse state on load
         if (localStorage.getItem('hideCompleted') === 'true') {
             checkAndCollapseLegs(true);
         }
+
+        // AUTO-JUMP ON LOAD (New Request)
+        setTimeout(() => {
+            jumpToProgress();
+        }, 100); // Small delay to ensure rendering is done
 
     } catch (error) {
         contentArea.innerHTML = `<h2 style="color:red; text-align:center">Error: ${error.message}</h2>`;
@@ -55,7 +60,6 @@ function setupTheme() {
     });
 
     function updateThemeUI(themeName) {
-        // Keep hideCompleted state safe
         const isHidden = document.body.classList.contains('hide-completed');
         document.body.className = themeName;
         if(isHidden) document.body.classList.add('hide-completed');
@@ -72,7 +76,7 @@ function setupTheme() {
     }
 }
 
-// 3. Eye Toggle (Collapse Completed Legs)
+// 3. Eye Toggle
 function setupEyeToggle() {
     const btnEye = document.getElementById('btnEyeToggle');
     if(!btnEye) return;
@@ -87,10 +91,10 @@ function setupEyeToggle() {
         
         if(newState) {
             document.body.classList.add('hide-completed');
-            checkAndCollapseLegs(true); // Collapse all finished
+            checkAndCollapseLegs(true);
         } else {
             document.body.classList.remove('hide-completed');
-            checkAndCollapseLegs(false); // Expand all
+            checkAndCollapseLegs(false);
         }
         
         localStorage.setItem('hideCompleted', newState);
@@ -103,21 +107,15 @@ function setupEyeToggle() {
     }
 }
 
-// NEW LOGIC: Iterate all legs and collapse if 100% done
 function checkAndCollapseLegs(shouldCollapse) {
     const legs = document.querySelectorAll('.leg-section');
-    
     legs.forEach(leg => {
-        // If we are expanding everything (Eye Open)
         if (!shouldCollapse) {
             leg.classList.remove('collapsed');
             return;
         }
-
-        // If we are collapsing (Eye Closed): Check if all boxes in this leg are checked
         const allBoxes = leg.querySelectorAll('.checkbox');
         const checkedBoxes = leg.querySelectorAll('.checkbox:checked');
-        
         if (allBoxes.length > 0 && allBoxes.length === checkedBoxes.length) {
             leg.classList.add('collapsed');
         }
@@ -164,6 +162,7 @@ function renderFullRoute() {
         html += `<section id="${part.id}" class="route-part-section">`;
         html += `<h1 class="part-title">${part.title}</h1>`;
         part.legs.forEach(leg => {
+            // h3 onclick still exists, but CSS disables pointer-events on desktop
             html += `<div class="leg-section">
                         <h3 onclick="this.parentElement.classList.toggle('collapsed')">${leg.title}</h3>
                         <div class="checklist">`;
@@ -188,7 +187,7 @@ function renderFullRoute() {
     contentArea.innerHTML = html;
 }
 
-// 6. Event Listeners & Progress
+// 6. Event Listeners
 function setupGlobalEventListeners() {
     contentArea.addEventListener('change', (e) => {
         if (e.target.classList.contains('checkbox')) {
@@ -201,20 +200,12 @@ function setupGlobalEventListeners() {
             
             updateProgressBar();
 
-            // AUTO-COLLAPSE CHECK
-            // If Eye is ON (hide-completed class exists), check if we should collapse this leg
             if (document.body.classList.contains('hide-completed')) {
-                // We only need to check the parent leg of this specific checkbox
                 const leg = row.closest('.leg-section');
                 if(leg) {
                     const all = leg.querySelectorAll('.checkbox');
                     const checked = leg.querySelectorAll('.checkbox:checked');
-                    if (all.length === checked.length) {
-                        leg.classList.add('collapsed');
-                    } else {
-                        // Optional: Auto-expand if you uncheck something? 
-                        // leg.classList.remove('collapsed'); 
-                    }
+                    if (all.length === checked.length) leg.classList.add('collapsed');
                 }
             }
         }
@@ -225,7 +216,6 @@ function updateProgressBar() {
     const all = document.querySelectorAll('.checkbox');
     const checked = document.querySelectorAll('.checkbox:checked');
     if (all.length === 0) return;
-    
     const percent = Math.round((checked.length / all.length) * 100);
     progressBar.style.width = `${percent}%`;
     progressText.textContent = `${percent}% Completed`;
@@ -329,28 +319,32 @@ function setupMapModal() {
     if(zoomOut) zoomOut.addEventListener("click", () => { scale -= 0.1; updateTransform(); });
 }
 
-// 8. Resume & Reset
+// 8. Resume (Common Logic)
+function jumpToProgress() {
+    const unchecked = document.querySelector('.checkbox:not(:checked)');
+    if (unchecked) {
+        const row = unchecked.closest('.checklist-item');
+        const leg = row.closest('.leg-section');
+        
+        // Ensure it's open so we can scroll to it
+        if(leg && leg.classList.contains('collapsed')) {
+            leg.classList.remove('collapsed');
+        }
+        
+        row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        row.classList.remove('row-highlight');
+        void row.offsetWidth; // Trigger Reflow
+        row.classList.add('row-highlight');
+    } else {
+        // If everything is checked, maybe scroll bottom? Or do nothing.
+        // window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+}
+
 function setupResumeButton() {
     const btn = document.getElementById('resumeBtn');
     if (!btn) return;
-    btn.addEventListener('click', () => {
-        const unchecked = document.querySelector('.checkbox:not(:checked)');
-        if (unchecked) {
-            const row = unchecked.closest('.checklist-item');
-            // If leg is collapsed, open it first
-            const leg = row.closest('.leg-section');
-            if(leg && leg.classList.contains('collapsed')) {
-                leg.classList.remove('collapsed');
-            }
-            
-            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            row.classList.remove('row-highlight');
-            void row.offsetWidth;
-            row.classList.add('row-highlight');
-        } else {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        }
-    });
+    btn.addEventListener('click', jumpToProgress);
 }
 
 function setupScrollSpy() {
