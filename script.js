@@ -9,7 +9,7 @@ const progressText = document.getElementById('progressText');
 // 1. Initialization
 document.addEventListener('DOMContentLoaded', () => {
     setupTheme();
-    setupEyeToggle(); // New Eye Logic
+    setupEyeToggle();
     loadRouteData();
 });
 
@@ -26,42 +26,42 @@ async function loadRouteData() {
         setupGlobalEventListeners();
         setupResetButton();
         setupResumeButton();
-        setupMapModal(); // Map is now top icon
+        setupMapModal();
         setupScrollSpy();
-        updateProgressBar(); 
+        updateProgressBar();
+        
+        // Apply collapse state on load if Eye is active
+        if (localStorage.getItem('hideCompleted') === 'true') {
+            checkAndCollapseLegs(true);
+        }
+
     } catch (error) {
         contentArea.innerHTML = `<h2 style="color:red; text-align:center">Error: ${error.message}</h2>`;
     }
 }
 
-// 2. Theme Manager (One Button Toggle)
+// 2. Theme Manager
 function setupTheme() {
     const btnTheme = document.getElementById('btnThemeToggle');
     if(!btnTheme) return;
 
-    // Default is default. 
     const savedTheme = localStorage.getItem('hkTheme') || 'theme-default';
     updateThemeUI(savedTheme);
 
     btnTheme.addEventListener('click', () => {
         const current = document.body.classList.contains('theme-steam') ? 'theme-steam' : 'theme-default';
-        // Toggle logic
         const newTheme = (current === 'theme-default') ? 'theme-steam' : 'theme-default';
         updateThemeUI(newTheme);
     });
 
     function updateThemeUI(themeName) {
-        document.body.className = ''; // Clear all classes
-        document.body.classList.add(themeName);
-        
-        // Re-add hide-completed class if it was active (since we cleared classes)
-        if(localStorage.getItem('hideCompleted') === 'true') {
-            document.body.classList.add('hide-completed');
-        }
+        // Keep hideCompleted state safe
+        const isHidden = document.body.classList.contains('hide-completed');
+        document.body.className = themeName;
+        if(isHidden) document.body.classList.add('hide-completed');
 
         localStorage.setItem('hkTheme', themeName);
 
-        // Update Icon: Default = shows Controller(switch to steam), Steam = shows Moon(switch to default)
         if (themeName === 'theme-default') {
             btnTheme.textContent = '🎮'; 
             btnTheme.title = "Switch to Steam Guide Theme";
@@ -72,37 +72,59 @@ function setupTheme() {
     }
 }
 
-// 3. Eye Toggle (Hide/Show Completed)
+// 3. Eye Toggle (Collapse Completed Legs)
 function setupEyeToggle() {
     const btnEye = document.getElementById('btnEyeToggle');
     if(!btnEye) return;
 
-    // Load Saved State
     const isHidden = localStorage.getItem('hideCompleted') === 'true';
     if(isHidden) document.body.classList.add('hide-completed');
     updateEyeIcon(isHidden);
 
     btnEye.addEventListener('click', () => {
         const currentlyHidden = document.body.classList.contains('hide-completed');
-        if(currentlyHidden) {
-            document.body.classList.remove('hide-completed');
-            localStorage.setItem('hideCompleted', 'false');
-            updateEyeIcon(false);
-        } else {
+        const newState = !currentlyHidden;
+        
+        if(newState) {
             document.body.classList.add('hide-completed');
-            localStorage.setItem('hideCompleted', 'true');
-            updateEyeIcon(true);
+            checkAndCollapseLegs(true); // Collapse all finished
+        } else {
+            document.body.classList.remove('hide-completed');
+            checkAndCollapseLegs(false); // Expand all
         }
+        
+        localStorage.setItem('hideCompleted', newState);
+        updateEyeIcon(newState);
     });
 
     function updateEyeIcon(hidden) {
-        // If hidden, show closed eye. If visible, show open eye.
-        btnEye.textContent = hidden ? '🔒' : '👁️'; 
-        btnEye.title = hidden ? "Show Completed Items" : "Hide Completed Items";
+        btnEye.textContent = hidden ? '🔒' : '👁️';
+        btnEye.title = hidden ? "Auto-Collapse is ON" : "Auto-Collapse is OFF";
     }
 }
 
-// 4. Navigation Render (Fixed for new Layout)
+// NEW LOGIC: Iterate all legs and collapse if 100% done
+function checkAndCollapseLegs(shouldCollapse) {
+    const legs = document.querySelectorAll('.leg-section');
+    
+    legs.forEach(leg => {
+        // If we are expanding everything (Eye Open)
+        if (!shouldCollapse) {
+            leg.classList.remove('collapsed');
+            return;
+        }
+
+        // If we are collapsing (Eye Closed): Check if all boxes in this leg are checked
+        const allBoxes = leg.querySelectorAll('.checkbox');
+        const checkedBoxes = leg.querySelectorAll('.checkbox:checked');
+        
+        if (allBoxes.length > 0 && allBoxes.length === checkedBoxes.length) {
+            leg.classList.add('collapsed');
+        }
+    });
+}
+
+// 4. Navigation Render
 function renderNavigation() {
     const existingLinks = document.getElementById('dynamic-links');
     if (existingLinks) existingLinks.remove();
@@ -127,7 +149,6 @@ function renderNavigation() {
         dynamicLinksDiv.appendChild(link);
     });
 
-    // Insert Links BEFORE the Action Buttons
     const actionsContainer = document.querySelector('.nav-actions');
     if (actionsContainer && actionsContainer.parentNode === navigationContainer) {
         navigationContainer.insertBefore(dynamicLinksDiv, actionsContainer);
@@ -179,6 +200,23 @@ function setupGlobalEventListeners() {
             else row.classList.remove('completed');
             
             updateProgressBar();
+
+            // AUTO-COLLAPSE CHECK
+            // If Eye is ON (hide-completed class exists), check if we should collapse this leg
+            if (document.body.classList.contains('hide-completed')) {
+                // We only need to check the parent leg of this specific checkbox
+                const leg = row.closest('.leg-section');
+                if(leg) {
+                    const all = leg.querySelectorAll('.checkbox');
+                    const checked = leg.querySelectorAll('.checkbox:checked');
+                    if (all.length === checked.length) {
+                        leg.classList.add('collapsed');
+                    } else {
+                        // Optional: Auto-expand if you uncheck something? 
+                        // leg.classList.remove('collapsed'); 
+                    }
+                }
+            }
         }
     });
 }
@@ -193,10 +231,10 @@ function updateProgressBar() {
     progressText.textContent = `${percent}% Completed`;
 }
 
-// 7. Map Modal (Top Icon Trigger)
+// 7. Map Modal
 function setupMapModal() {
     const modal = document.getElementById("mapModal");
-    const openBtn = document.getElementById("btnMapIcon"); // NEW ID
+    const openBtn = document.getElementById("btnMapIcon");
     const closeBtn = document.getElementById("closeMapBtn");
     const viewport = document.getElementById("mapViewport");
     const img = document.getElementById("mapImage");
@@ -296,15 +334,15 @@ function setupResumeButton() {
     const btn = document.getElementById('resumeBtn');
     if (!btn) return;
     btn.addEventListener('click', () => {
-        // Logic to skip hidden items if Eye is closed
-        let selector = '.checkbox:not(:checked)';
-        const unchecked = document.querySelector(selector);
-        
+        const unchecked = document.querySelector('.checkbox:not(:checked)');
         if (unchecked) {
             const row = unchecked.closest('.checklist-item');
-            // If hidden, temporarily unhide to scroll? 
-            // CSS handles display:none, so scrollIntoView might not work if hidden.
-            // But usually resume is for what you need to do next.
+            // If leg is collapsed, open it first
+            const leg = row.closest('.leg-section');
+            if(leg && leg.classList.contains('collapsed')) {
+                leg.classList.remove('collapsed');
+            }
+            
             row.scrollIntoView({ behavior: 'smooth', block: 'center' });
             row.classList.remove('row-highlight');
             void row.offsetWidth;
