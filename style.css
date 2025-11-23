@@ -362,3 +362,40 @@ body:not(.theme-steam) h1.part-title {
     background: #333; color: #fff; border: none;
     width: 28px; height: 28px; border-radius: 50%;
 }
+
+/* -------------------------------------- */
+/* 8. COLLAPSIBLE SECTIONS (New Feature) */
+/* -------------------------------------- */
+.leg-section h3 {
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px; /* Make room for arrow */
+    user-select: none;   /* Don't highlight text on double click */
+    transition: color 0.2s;
+}
+
+.leg-section h3:hover {
+    opacity: 0.8;
+}
+
+/* The Arrow Icon */
+.leg-section h3::after {
+    content: '▼'; 
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+    opacity: 0.5;
+}
+
+/* State: Collapsed */
+.leg-section.collapsed .checklist {
+    display: none; /* Hides steps & images */
+}
+
+/* Rotate arrow when collapsed */
+.leg-section.collapsed h3::after {
+    transform: translateY(-50%) rotate(-90deg); 
+}
