@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadRouteData() {
     // CHANGED: Path now points to src folder relative to index.html
-    const jsonPath = 'src/route_data.json'; 
+    const jsonPath = 'src/hk/route_data.json'; 
 
     try {
         const response = await fetch(jsonPath, { cache: "no-cache" });
