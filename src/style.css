@@ -282,3 +282,35 @@ body:not(.theme-steam) h1.part-title {
     background: #333; color: #fff; border: none;
     width: 28px; height: 28px; border-radius: 50%;
 }
+
+/* Game Switcher Button */
+.game-switch-btn {
+    display: block;
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.game-switch-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Specific Styles */
+.silksong-btn {
+    background: linear-gradient(45deg, #7c1010, #b32d2d);
+    color: #ffd700; /* Gold text */
+    border: 1px solid #ff4d4d;
+}
+
+.hk-btn {
+    background: linear-gradient(45deg, #1e2530, #354254);
+    color: #e0e0e0;
+    border: 1px solid #637b98;
+}
