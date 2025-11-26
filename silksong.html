@@ -4,17 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Silksong 100% Route</title>
-    <!-- Silksong Style -->
     <link rel="stylesheet" href="src/ss/silksong_style.css" />
 </head>
 <body class="theme-pharloom">
 
     <!-- Main Content -->
     <div id="app-container">
-        <!-- Header Image or Title -->
         <div style="text-align:center; margin-bottom: 20px;">
-            <h1 style="color:var(--color-accent); font-size: 2.5rem;">HOLLOW KNIGHT: SILKSONG</h1>
-            <p style="color:var(--color-text-muted);">100% Completion Guide </p>
+            <h1 class="part-title">HOLLOW KNIGHT: SILKSONG</h1>
+            <p style="color:var(--color-text-muted);">100% Completion Guide</p>
         </div>
 
         <main id="route-content">
@@ -24,9 +22,11 @@
     
     <!-- Navigation -->
     <nav id="navigation">
-         <a href="index.html" class="game-switch-btn hk-btn">
-        🪲 Back to Hollow Knight
-    </a>
+        <!-- Link back to Hollow Knight -->
+        <a href="index.html" class="game-switch-btn hk-btn">
+            🪲 Back to Hollow Knight
+        </a>
+
         <h3>Navigation</h3>
 
         <div class="top-icons">
@@ -46,12 +46,12 @@
         </div>
     </nav>
 
-    <!-- Map Modal -->
+    <!-- Map Modal (Reverted to Simple Version) -->
     <div id="mapModal" class="map-modal">
         <button id="closeMapBtn" class="close-map-btn">← Back</button>
         <div id="mapViewport" class="map-viewport">
-            <!-- Place your Pharloom map image in src/silksong_map.jpg -->
-            <img id="mapImage" src="src/ss/silksong_map.png" alt="Pharloom Map">
+            <!-- Just the image, no pins, no wrappers -->
+            <img id="mapImage" src="src/ss/silksong_map.jpg" alt="Pharloom Map">
         </div>
         <div class="map-controls">
             <button id="zoomOutBtn">−</button>
@@ -61,7 +61,6 @@
         </div>
     </div>
     
-    <!-- Silksong Script -->
     <script src="src/ss/silksong_script.js"></script>
 </body>
 </html>
