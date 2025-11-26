@@ -2,14 +2,14 @@
 /* 1. Global Variables & Themes */
 /* -------------------------------------- */
 :root {
-    /* --- PHARLOOM THEME (Red/Black) --- */
+    /* --- DEFAULT / PHARLOOM THEME (Red/Black) --- */
     --color-bg-main: #100a0a;
     --color-bg-card: #1a1111;
     --color-bg-nav: #1a1111;
     --color-text-main: #f0e6e6;
     --color-text-muted: #a08080;
     --color-accent: #ff4d4d;       /* Hornet Red */
-    --color-checkbox: #ffd700;     /* Gold (Silk/Rosaries) */
+    --color-checkbox: #ffd700;     /* Gold */
     --color-highlight: rgba(255, 77, 77, 0.2);
     --color-border: #442222;
     --color-btn-map: #986363;
@@ -20,14 +20,14 @@
     --font-main: 'Inter', sans-serif;
 }
 
-/* --- THEME: STEAM (OLED Friendly) --- */
+/* --- THEME: STEAM (Blue/Black - OLED Friendly) --- */
 body.theme-steam {
-    --color-bg-main: #000000;       /* True Black for OLED */
-    --color-bg-card: #0b0b0b;       /* Almost Black */
-    --color-bg-nav: #1b2838;        /* Steam Navy Blue */
-    --color-text-main: #c6d4df;     /* Steam Light Blue/Grey */
+    --color-bg-main: #000000;       
+    --color-bg-card: #0b0b0b;       
+    --color-bg-nav: #1b2838;        
+    --color-text-main: #c6d4df;     
     --color-text-muted: #6d7880;
-    --color-accent: #66c0f4;        /* Steam Bright Blue */
+    --color-accent: #66c0f4;        
     --color-checkbox: #66c0f4;
     --color-highlight: rgba(102, 192, 244, 0.15);
     --color-border: #3c434d;
@@ -35,20 +35,25 @@ body.theme-steam {
     --color-hover-bg: #16202d;
     --color-nav-link: #1b2838;
     --color-nav-border: #58636e;
-}
-
-/* Optional: Change font for Steam theme to look authentic */
-body.theme-steam h1.part-title {
-    color: #66c0f4;
-    text-shadow: none;
-    font-family: "Motiva Sans", Sans-serif;
-    font-weight: 300;
-    text-align: left; /* Steam guides usually left align */
-    padding-left: 10px;
+    --font-main: "Motiva Sans", Arial, sans-serif;
 }
 
 /* -------------------------------------- */
-/* 2. Layout */
+/* 2. Global Styles */
+/* -------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* -------------------------------------- */
+/* 3. Layout */
 /* -------------------------------------- */
 #app-container {
     max-width: 1000px;
@@ -68,8 +73,17 @@ h1.part-title {
     text-shadow: 0 0 10px rgba(255, 77, 77, 0.3);
 }
 
+/* Steam Theme Title Override */
+body.theme-steam h1.part-title {
+    color: #66c0f4;
+    text-shadow: none;
+    text-transform: none;
+    text-align: left;
+    padding-left: 10px;
+}
+
 /* -------------------------------------- */
-/* 3. Navigation */
+/* 4. Navigation */
 /* -------------------------------------- */
 #navigation {
     position: fixed; right: 30px; top: 50%; transform: translateY(-50%);
@@ -88,15 +102,11 @@ h1.part-title {
     padding-bottom: 10px; margin-bottom: 5px;
 }
 
-/* TOP ICONS */
-.top-icons {
-    display: flex; justify-content: space-between; 
-    gap: 5px; margin-bottom: 5px;
-}
+/* Top Icons */
+.top-icons { display: flex; justify-content: space-between; gap: 5px; margin-bottom: 5px; }
 
 .icon-btn {
-    flex: 1;
-    background: transparent;
+    flex: 1; background: transparent;
     border: 1px solid var(--color-border);
     color: var(--color-text-main);
     height: 36px; border-radius: 6px;
@@ -110,7 +120,7 @@ h1.part-title {
     transform: scale(1.05);
 }
 
-/* LINKS */
+/* Links */
 #dynamic-links { display: flex; flex-direction: column; gap: 5px; }
 
 .nav-link {
@@ -125,9 +135,8 @@ h1.part-title {
 .nav-link:hover { background-color: var(--color-border); color: var(--color-text-main); border-color: var(--color-accent); }
 .nav-link.active-nav { background-color: var(--color-accent); color: #fff; font-weight: bold; border-color: var(--color-accent); }
 
-/* ACTION BUTTONS */
+/* Buttons */
 .nav-actions { display: flex; flex-direction: column; gap: 5px; }
-
 .resume-btn, .reset-btn {
     width: 100%; padding: 8px; border-radius: 4px;
     cursor: pointer; font-weight: bold; text-transform: uppercase;
@@ -136,7 +145,19 @@ h1.part-title {
 .resume-btn { background-color: var(--color-checkbox); color: #000; }
 .reset-btn { background-color: #d9534f; color: white; }
 
-/* PROGRESS */
+/* Game Switcher */
+.game-switch-btn {
+    display: block; padding: 10px; margin-bottom: 15px;
+    text-align: center; text-decoration: none;
+    border-radius: 6px; font-weight: bold; font-size: 0.9rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.game-switch-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+.silksong-btn { background: linear-gradient(45deg, #7c1010, #b32d2d); color: #ffd700; border: 1px solid #ff4d4d; }
+.hk-btn { background: linear-gradient(45deg, #1e2530, #354254); color: #e0e0e0; border: 1px solid #637b98; }
+
+/* Progress */
 .progress-container {
     width: 100%; height: 20px; background: rgba(0,0,0,0.3);
     border-radius: 4px; position: relative; border: 1px solid var(--color-border);
@@ -149,7 +170,7 @@ h1.part-title {
 }
 
 /* -------------------------------------- */
-/* 4. Content Cards */
+/* 5. Content Cards */
 /* -------------------------------------- */
 .leg-section {
     background-color: var(--color-bg-card);
@@ -167,7 +188,6 @@ h1.part-title {
     transform: translateY(-50%); font-size: 0.8em; opacity: 0.5;
     transition: transform 0.3s ease;
 }
-
 .leg-section.collapsed .checklist { display: none; }
 .leg-section.collapsed h3::after { transform: translateY(-50%) rotate(-90deg); }
 
@@ -177,19 +197,14 @@ h1.part-title {
     transition: background 0.3s;
 }
 .checklist-item:hover { background-color: var(--color-hover-bg); }
-
 .row-highlight { animation: highlightPulse 1.5s ease-out; }
-@keyframes highlightPulse {
-    0% { background-color: var(--color-highlight); }
-    100% { background-color: transparent; }
-}
+@keyframes highlightPulse { 0% { background-color: var(--color-highlight); } 100% { background-color: transparent; } }
 
 .checkbox {
     width: 20px; height: 20px; min-width: 20px;
     margin-right: 15px; margin-top: 4px;
     cursor: pointer; accent-color: var(--color-accent);
 }
-
 .step-description { flex: 1; font-size: 1.05rem; }
 .checklist-item.completed .step-description {
     color: var(--color-text-muted) !important; text-decoration: line-through !important; opacity: 0.6;
@@ -198,8 +213,72 @@ h1.part-title {
 .image-gallery img { max-width: 100%; border-radius: 4px; margin-top: 15px; border: 1px solid var(--color-border); }
 .hr-divider { height: 1px; background: var(--color-border); margin: 20px 0; }
 
+/* --- NOTE TEXT (No Checkbox) --- */
+.route-note {
+    padding: 10px 15px; margin: 5px 0 15px 0;
+    color: var(--color-text-muted);
+    font-size: 0.95rem; line-height: 1.6;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 4px 4px 0;
+}
+.route-note b { color: var(--color-text-main); }
+
 /* -------------------------------------- */
-/* 5. Mobile & Map Modal (Same as original) */
+/* 6. Map Modal */
+/* -------------------------------------- */
+.map-modal {
+    display: none; position: fixed; top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: #050505; z-index: 9999; overflow: hidden;
+}
+.map-viewport {
+    width: 100%; height: 100%; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    cursor: grab; touch-action: none;
+}
+.map-viewport:active { cursor: grabbing; }
+.close-map-btn {
+    position: absolute; top: 15px; left: 15px;
+    background: rgba(0,0,0,0.8); color: #fff;
+    border: 1px solid #555; padding: 8px 16px; border-radius: 20px; z-index: 10000;
+}
+.map-controls {
+    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: rgba(20,20,20,0.9); padding: 8px 15px; border-radius: 30px;
+    display: flex; gap: 10px; align-items: center;
+    border: 1px solid #555; z-index: 10000;
+}
+.map-controls button { background: #333; color: #fff; border: none; width: 28px; height: 28px; border-radius: 50%; }
+
+/* --- INTERACTIVE PINS --- */
+#mapWrapper { transition: transform 0.1s linear; display: inline-block; }
+#mapImage { display: block; max-width: none; pointer-events: none; }
+
+.map-pin {
+    position: absolute; width: 24px; height: 24px;
+    background-color: #ff4d4d; border: 2px solid white; border-radius: 50%;
+    transform: translate(-50%, -50%); cursor: pointer; z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    display: flex; align-items: center; justify-content: center;
+}
+.map-pin:hover { transform: translate(-50%, -50%) scale(1.3); z-index: 100; }
+
+.map-tooltip {
+    display: none; position: absolute; bottom: 35px; left: 50%;
+    transform: translateX(-50%); background: rgba(0, 0, 0, 0.9);
+    color: white; padding: 8px 12px; border-radius: 5px;
+    white-space: nowrap; border: 1px solid var(--color-accent);
+    pointer-events: none; font-size: 0.85rem;
+}
+.map-pin:hover .map-tooltip { display: block; }
+
+.pin-bench { background-color: #32cd32; }
+.pin-boss { background-color: #ff4d4d; }
+.pin-item { background-color: #ffd700; }
+
+/* -------------------------------------- */
+/* 7. Mobile Responsiveness */
 /* -------------------------------------- */
 @media (max-width: 1280px) {
     #app-container { padding: 170px 15px 40px 15px; }
@@ -216,144 +295,10 @@ h1.part-title {
     #navigation h3 { display: none; }
     .top-icons { margin-bottom: 5px; }
     .icon-btn { height: 32px; font-size: 1.2rem; }
-    #dynamic-links {
-        display: grid; grid-template-columns: repeat(3, 1fr);
-        gap: 5px; width: 100%;
-    }
+    #dynamic-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; width: 100%; }
     .nav-link { padding: 6px 2px; font-size: 0.75rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; }
     .nav-actions { flex-direction: row; justify-content: space-between; margin-top: 5px; gap: 5px; }
     .resume-btn, .reset-btn { flex: 1; margin: 0; padding: 6px; font-size: 0.75rem; }
     .progress-container { margin-top: 5px; height: 12px; }
     #progressText { font-size: 0.65rem; line-height: 12px; }
 }
-
-.map-modal {
-    display: none; position: fixed; top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background-color: #050505; z-index: 9999; overflow: hidden;
-}
-.map-viewport {
-    width: 100%; height: 100%; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-    cursor: grab; touch-action: none;
-}
-.map-viewport:active { cursor: grabbing; }
-#mapImage { transform-origin: center center; transition: transform 0.1s linear; max-width: none; pointer-events: none; }
-.close-map-btn {
-    position: absolute; top: 15px; left: 15px;
-    background: rgba(0,0,0,0.8); color: #fff;
-    border: 1px solid #555; padding: 8px 16px; border-radius: 20px; z-index: 10000;
-}
-.map-controls {
-    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-    background: rgba(20,20,20,0.9); padding: 8px 15px; border-radius: 30px;
-    display: flex; gap: 10px; align-items: center;
-    border: 1px solid #555; z-index: 10000;
-}
-.map-controls button { background: #333; color: #fff; border: none; width: 28px; height: 28px; border-radius: 50%; }
-
-/* Game Switcher Button */
-.game-switch-btn {
-    display: block;
-    padding: 10px;
-    margin-bottom: 15px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.game-switch-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-
-/* Specific Styles */
-.silksong-btn {
-    background: linear-gradient(45deg, #7c1010, #b32d2d);
-    color: #ffd700; /* Gold text */
-    border: 1px solid #ff4d4d;
-}
-
-.hk-btn {
-    background: linear-gradient(45deg, #1e2530, #354254);
-    color: #e0e0e0;
-    border: 1px solid #637b98;
-}
-
-
-/* -------------------------------------- */
-/* 7. Note Text (No Checkbox) */
-/* -------------------------------------- */
-.route-note {
-    padding: 10px 15px;
-    margin: 5px 0 15px 0;
-    color: var(--color-text-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    background: rgba(255, 255, 255, 0.03);
-    border-left: 3px solid var(--color-accent);
-    border-radius: 0 4px 4px 0;
-}
-
-.route-note b {
-    color: var(--color-text-main);
-}
-
-/* -------------------------------------- */
-/* 8. Interactive Map Pins */
-/* -------------------------------------- */
-#mapWrapper {
-    transition: transform 0.1s linear;
-    display: inline-block; 
-}
-
-.map-pin {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    background-color: #ff4d4d;
-    border: 2px solid white;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    z-index: 10;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-}
-
-.map-pin:hover {
-    transform: translate(-50%, -50%) scale(1.3);
-    z-index: 100;
-}
-
-.map-tooltip {
-    display: none;
-    position: absolute;
-    bottom: 35px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    white-space: nowrap;
-    border: 1px solid var(--color-accent);
-    pointer-events: none;
-    font-size: 0.85rem;
-}
-
-.map-pin:hover .map-tooltip {
-    display: block;
-}
-
-/* Pin Colors */
-.pin-bench { background-color: #32cd32; }
-.pin-boss { background-color: #ff4d4d; }
-.pin-item { background-color: #ffd700; }
