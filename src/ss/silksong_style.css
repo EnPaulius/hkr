@@ -283,3 +283,77 @@ h1.part-title {
     color: #e0e0e0;
     border: 1px solid #637b98;
 }
+
+
+/* -------------------------------------- */
+/* 7. Note Text (No Checkbox) */
+/* -------------------------------------- */
+.route-note {
+    padding: 10px 15px;
+    margin: 5px 0 15px 0;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 4px 4px 0;
+}
+
+.route-note b {
+    color: var(--color-text-main);
+}
+
+/* -------------------------------------- */
+/* 8. Interactive Map Pins */
+/* -------------------------------------- */
+#mapWrapper {
+    transition: transform 0.1s linear;
+    display: inline-block; 
+}
+
+.map-pin {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: #ff4d4d;
+    border: 2px solid white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.map-pin:hover {
+    transform: translate(-50%, -50%) scale(1.3);
+    z-index: 100;
+}
+
+.map-tooltip {
+    display: none;
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+    border: 1px solid var(--color-accent);
+    pointer-events: none;
+    font-size: 0.85rem;
+}
+
+.map-pin:hover .map-tooltip {
+    display: block;
+}
+
+/* Pin Colors */
+.pin-bench { background-color: #32cd32; }
+.pin-boss { background-color: #ff4d4d; }
+.pin-item { background-color: #ffd700; }
