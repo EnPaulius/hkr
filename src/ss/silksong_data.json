@@ -212,12 +212,152 @@
       "title": "Act 2 (Part 1)",
       "legs": [
         {
-          "title": "Leg 13 - [INSERT TITLE HERE]",
+          "title": "Leg 13 - Underworks",
           "content": [
-            { "type": "step", "id": "ss_a2p1_l1_s1", "text": "1. [INSERT TEXT HERE]" }
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s2", "text": "2. Hit the bottom of the platforms to reach Spool Fragment at the top [4/18]" },
+            { "type": "step", "id": "ss_l02s3", "text": "3. Use the elevator, drop down and reach the Underworks, pay 15 rosaries for single use bench" },
+            { "type": "step", "id": "ss_l02s4", "text": "4. Collect Underwoks Map and (optional) Bone scroll behind a breakable wall" },
+            { "type": "step", "id": "ss_l02s5", "text": "5. (optional) Loam encounter and rosary farming spot, Unlock Vermania Station (80 Rosaries)" },
+            { "type": "step", "id": "ss_l02s6", "text": "6. Spool fragment [5/18] after Arena Battle" },
+            { "type": "step", "id": "ss_l02s7", "text": "7. Get bench (15 Rosaries for single use), go to the top of the room and find passage to Memory Locket [6/20]" },
+            { "type": "step", "id": "ss_l02s8", "text": "8. Complete Arena Battle → Hit lever to gain acces to lower section → Collect Delvers Drill charm [13/51]" },
+            { "type": "step", "id": "ss_l02s9", "text": "9. Acces Choral Chambers" },
+            { "type": "img", "src": "src/ss/photos/19.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 14 - Choral chambers",
+          "content": [
+            { "type": "step", "id": "ss_l02s10", "text": "1. Unlock shortcut to Grand Gate → Unlock path → Buy Choral Chambers map (70 Rosaries)" },
+            { "type": "step", "id": "ss_l02s11", "text": "2. Lace encounter → Open door to unlock shortcut → Unlock Grand Bellway station and Ventrica station (80 + 80 Rosaries)" },
+            { "type": "step", "id": "ss_l02s12", "text": "3. Enter First Shrine and ring the bell" },
+            { "type": "step", "id": "ss_l02s13", "text": "4. Grab White Key at right part of Songclave → Unlock Songclave Ventrica Station (80 Rosaries)" },
+            { "type": "step", "id": "ss_l02s14", "text": "5. Open door for shortcut → Fight Cogwork dancers" },
+            { "type": "img", "src": "src/ss/photos/20.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 15 - Whispering Vaults",
+          "content": [
+            { "type": "step", "id": "ss_l02s15", "text": "1. Enter the room with a bench→ Collectthe Cogwork Core map at the room above the bench" },
+            { "type": "step", "id": "ss_l02s16", "text": "2. Open the two doors in the room for shortcuts → Complete Arena Battle → Open shortcut to Songclave" },
+            { "type": "step", "id": "ss_l02s17", "text": "3. Collect Psalm Cylinder → Unlock Bench at the top of the room→ Vaultkeeper Cardinus encounter" },
+            { "type": "step", "id": "ss_l02s18", "text": "4. Break ceiling to open path to Mask Shard [7/20]" },
+            { "type": "step", "id": "ss_l02s19", "text": "5. Collect Cogheart piece [1/3]" },
+            { "type": "step", "id": "ss_l02s20", "text": "6. Use the moving blocks to reach Lost Flea [10/30]" },
+            { "type": "step", "id": "ss_l02s21", "text": "7. Collect Pale Oil" },
+            { "type": "step", "id": "ss_l02s22", "text": "8. Open shortcut to stage" },
+            { "type": "step", "id": "ss_l02s23", "text": "9. Travel to Bellheart and talk to Pinmaster Plinney to complete Pinmaster's Oil wish, upgrade needle → Get wishes from billboard →Travel to Greymoor Bellway Station" },
+            { "type": "img", "src": "src/ss/photos/21.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 16 - Greymoor",
+          "content": [
+            { "type": "step", "id": "ss_l02s24", "text": "1. Rest at Halfway home --> Get Spool fragment [6/18] → break two walls for shortcut to Sinner's road; Quit out to return to Halfway home" },
+            { "type": "step", "id": "ss_l02s25", "text": "2. At Halfway Home, farm the craws on the ceiling to complete Crawbug Clearing wish and obtain Tool Pounch Update [2/4]; talk to Nuu and complete bugs of Pharloom (if possible) for Crafting Kit Upgrade [2/4] " },
+            { "type": "step", "id": "ss_l02s26", "text": "3. Rescue Lost Flee [11/30" },
+            { "type": "step", "id": "ss_l02s27", "text": "4. Use craftmetal to obtain Pimpillo [14/51]" },
+            { "type": "step", "id": "ss_l02s28", "text": "5. Rescue Kratt [12/30]" },
+            { "type": "step", "id": "ss_l02s29", "text": "6. Enter Sinner's road" },
+            { "type": "img", "src": "src/ss/photos/22.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 17 - Sinner's road",
+          "content": [
+            { "type": "step", "id": "ss_l02s30", "text": "1. Use Simple Key to rescue Green Prince" },
+            { "type": "step", "id": "ss_l02s31", "text": "2. Talk to Crull and Benjin and get Roach Guts wish" },
+            { "type": "step", "id": "ss_l02s32", "text": "3. Rescue Pill to complete Missing Brother wish" },
+            { "type": "step", "id": "ss_l02s33", "text": "4. Unlock shortcut to the bench → Buy map from Shaka (90 Rosaries) → Do platform challenge to repair the bench" },
+            { "type": "step", "id": "ss_l02s34", "text": "5. Breakable wall for shortcut to Bilewater → Unlock a bench after defeating two Muckroaches; Styx encounter" },
+            { "type": "step", "id": "ss_l02s35", "text": "6. Rescue Lost Flea [13/30]" },
+            { "type": "step", "id": "ss_l02s36", "text": "7. Get Simple Key after defeating a roachkeeper" },
+            { "type": "step", "id": "ss_l02s37", "text": "8. Breakable wall to open the path to Bilewater " },
+            { "type": "img", "src": "src/ss/photos/23.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 18 - Bilewater",
+          "content": [
+            { "type": "step", "id": "ss_l02s38", "text": "1. Enter room after nnedolin door and interact with the tablet at the end to unlock exit →Get Ruined Tool [15/51]" },
+            { "type": "step", "id": "ss_l02s39", "text": "2. Break wall and rescue Lost Flea [14/30]" },
+            { "type": "step", "id": "ss_l02s40", "text": "3. Unlock bench and Bilewater Bellway Station (60 + 80 Rosaries)" },
+            { "type": "step", "id": "ss_l02s41", "text": "4. Enter The Mist (the order of rooms is random, play the needolin on butterflies groups and they will guide you to the correct exit. At the end of The Mist Area, you will arrive at Exhaust Organ) → Inside the Exhaust Organ, there is a room with a silk refill spindle. Go left from there to rescue Lost Flea [15/30]" },
+            { "type": "step", "id": "ss_l02s42", "text": "5. Defeat the Phantom to obtain Cross Stitch skill [3/6]" },
+            { "type": "step", "id": "ss_l02s43", "text": "6. Jump onto the elevator and enter the Grand Bellway → Get Memory Locket [7/20] behind breakable wall before dropping to Bellway station" },
+            { "type": "img", "src": "src/ss/photos/24.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 19 - Underworks",
+          "content": [
+            { "type": "step", "id": "ss_l02s44", "text": "1. Defeat Trobbio and obtain Claw Mirror [16/51]" },
+            { "type": "step", "id": "ss_l02s45", "text": "2. Enter the Underworks and obtain the Spool Fragment [7/18] behind the breakable wall" },
+            { "type": "step", "id": "ss_l02s46", "text": "3. Rest at the bench (Note: equip Magma Bell for easier time) → Rescue the Lost Flea [16/30]" },
+            { "type": "step", "id": "ss_l02s47", "text": "4. Obtain Craftmetal [5/8]" },
+            { "type": "step", "id": "ss_l02s48", "text": "5. Obtain Clawline [4/6]" },
+            { "type": "step", "id": "ss_l02s49", "text": "6. Complete arena battle to open shortcut to Twelfth Architect → Go to Whispering Vaults" },
+            { "type": "img", "src": "src/ss/photos/25.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 13 - Underworks",
+          "content": [
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "img", "src": "src/ss/photos/19.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 13 - Underworks",
+          "content": [
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "img", "src": "src/ss/photos/19.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 13 - Underworks",
+          "content": [
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "step", "id": "ss_l02s1", "text": "1. Buy the Grand Gate map (40 Rosaries)" },
+            { "type": "img", "src": "src/ss/photos/19.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
           ]
         }
-      ]
+              ]
     },
     {
       "id": "act2_part2",
