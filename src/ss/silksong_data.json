@@ -34,11 +34,93 @@
             { "type": "img", "src": "src/ss/photos/3.png" },
             { "type": "img", "src": "src/ss/photos/0.png" }
           ]
-        }
+        },
+        {
+          "title": "Leg 03 - Deep Docks:",
+          "content": [
+            { "type": "step", "id": "ss_l01s17", "text": "1. Buy Deep Docks Map (50 Rosaries) from Shakra" },
+            { "type": "step", "id": "ss_l01s18", "text": "2. Unlock Deep Docks Bellway (40 Rosaries) → travel to Bone Bottom and accept all wishes at the Objective Board and complete Bone Bottom Repairs wish" },
+            { "type": "step", "id": "ss_l01s19", "text": "3. Rescue Lost Flea [1/30] behind breakable wall" },
+            { "type": "step", "id": "ss_l01s20", "text": "4. Get bench (30 Rosaries) → Complete Skarr Arena Battle" },
+            { "type": "step", "id": "ss_l01s21", "text": "5. Obtain Swift Step [1/6]" },
+            { "type": "step", "id": "ss_l01s22", "text": "6. Get Lost Flea [2/30] → after flicking a lever, open the gate to the bench (30 Rosaries)" },
+            { "type": "img", "src": "src/ss/photos/4.png" },
+            { "type": "step", "id": "ss_l01s23", "text": "1. Obtain Spool Fragment [1/18] at lava-filled room" },
+            { "type": "step", "id": "ss_l01s24", "text": "2. Complete the Arena Battle → Buy Magma Bell [5/51] from the Forge daughter (110 Rosaries + craftmetal)" },
+            { "type": "step", "id": "ss_l01s25", "text": "3. Lace boss fight" },
+            { "type": "step", "id": "ss_l01s26", "text": "4. Ring Second Bell and enter Far Fields" },
+            { "type": "img", "src": "src/ss/photos/5.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 04 - Far Fields:",
+          "content": [
+            { "type": "step", "id": "ss_l01s27", "text": "1. Rescue Lost Flea [3/30] behind breakable wall" },
+            { "type": "step", "id": "ss_l01s28", "text": "2. Hit glowing orb for access to lower part of the room → Unlock Bench and Far Fields Bellway (30+50 Rosaries)" },
+            { "type": "step", "id": "ss_l01s29", "text": "3. Buy the Far Fields map from Shakra (50 Rosaries)" },
+            { "type": "step", "id": "ss_l01s30", "text": "4. Get Warding Bell [6/51] → Get craftmetal [2/8] from the chest at the end of room" },
+            { "type": "step", "id": "ss_l01s31", "text": "5. Seamstress encounter; Accept Flexile Spines wish" },
+            { "type": "img", "src": "src/ss/photos/6.png" },
+            { "type": "step", "id": "ss_l01s32", "text": "1. Break fallen spikes from Honker enemies in the room at the right (they respawn after reentering the room) → Collect Bone scroll → Return to Seamstress and obtain Drifter's Cloak as reward" },
+            { "type": "step", "id": "ss_l01s33", "text": "2. Use Drifter's Cloak to reack upper left room; explode glowing orb to reveal Mask shard [1/20]" },
+            { "type": "step", "id": "ss_l01s34", "text": "3. Fourth Chorus boss fight" },
+            { "type": "step", "id": "ss_l01s35", "text": "4. Use Drifter's Cloak to ascend the room; Sherma 2nd encounter (don't enter Mort's shop, we'll come back later)" },
+            { "type": "step", "id": "ss_l01s36", "text": "5. Hit the lever to open the platform, keep ascending until you reach Greymoor" },
+            { "type": "img", "src": "src/ss/photos/7.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+
+        {
+          "title": "Leg 05 - Greymoor:",
+          "content": [
+            { "type": "step", "id": "ss_l01s37", "text": "1. Buy the greymoor map from Shakra (70 Rosaries)" },
+            { "type": "step", "id": "ss_l01s38", "text": "2. Enter the craw nest and beat the craw arena; activate the mechanism inside" },
+            { "type": "step", "id": "ss_l01s39", "text": "3. Rescue Lost Flea [4/30]" },
+            { "type": "step", "id": "ss_l01s40", "text": "4. Pick Three Fold Pin [7/51] tool in secret room" },
+            { "type": "step", "id": "ss_l01s41", "text": "5. Get Thread storm skill [2/6]" },
+            { "type": "step", "id": "ss_l01s42", "text": "6. Hit the lever to open the door to the left room → Ring the bell and open the shortcut to the bench" },
+            { "type": "step", "id": "ss_l01s43", "text": "7. Enter secret room and Pick up Bone scroll → Enter Halfway home, Nuu encounter → get Hunter's journal and Bugs of Pharloom wish" },
+            { "type": "img", "src": "src/ss/photos/8.png" },
+            { "type": "step", "id": "ss_l01s44", "text": "1. Arena Battle → Unlock Greymoor Bellway (60 Rosaries)" },
+            { "type": "step", "id": "ss_l01s45", "text": "2. Go to the bottom left room and get Memory Locket [1/20]" },
+            { "type": "step", "id": "ss_l01s46", "text": "3. Garmond and Gaza encounter" },
+            { "type": "step", "id": "ss_l01s47", "text": "4. Proceed to next room and enter the Chapel of the reaper, get Reaper Crest [1/6] after arena battle" },
+            { "type": "step", "id": "ss_l01s47", "text": "5. Hit the lever to unlock the shortcut to Halfway Home; Garmond and Gaza's second encounter (Note: Garmond only appears after discovering Moorwing and reloading the area or dying to the boss. (Optional) Garmond can be asked for assistance in the fight)" },
+            { "type": "step", "id": "ss_l01s47", "text": "6. Break the rope for shortcut → Proceed to Moorwing boss fight" },
+            { "type": "step", "id": "ss_l01s47", "text": "7. Enter Bellheart and unlock the Bellway Station (60 Rosaries)" },
+            { "type": "img", "src": "src/ss/photos/9.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+
+        {
+          "title": "Leg 06 - Shellwood:",
+          "content": [
+            { "type": "step", "id": "ss_l01s48", "text": "1. In Bellheart, go to the left and you will arrive at Shellwood → Break Purple nest and get Longpin [8/51]" },
+            { "type": "step", "id": "ss_l01s49", "text": "2. Ascend until you reach the Arena Battle → rest at bench (40 Rosaries)" },
+            { "type": "step", "id": "ss_l01s50", "text": "3. Take the elevator and descend → Press the button to open shortcut → Talk to Greyroot to obtain Rite of the Pollip wish" },
+            { "type": "step", "id": "ss_l01s51", "text": "4. Buy Bellheart and Shellwood maps from Shakra (40 + 70 Rosaries)" },
+            { "type": "step", "id": "ss_l01s52", "text": "5. Rescue Lost Flea [5/30]" },
+            { "type": "step", "id": "ss_l01s53", "text": "6. Unlock Shellwood Bellway Station (40 Rosaries)" },
+            { "type": "step", "id": "ss_l01s54", "text": "7. Get Mask shard after flower jumping challenge [2/20] → (Optional) Quit out to avoid Phacia trap" },
+            { "type": "step", "id": "ss_l01s55", "text": "8. Pogo the flower to reach the first Pollip heart [1/6] → Take the elevator and rest at the bench" },
+            { "type": "img", "src": "src/ss/photos/10.png" },
+            { "type": "step", "id": "ss_l01s56", "text": "1. Sister splinter boss fight" },
+            { "type": "step", "id": "ss_l01s57", "text": "2. get Pollip Heart [2/6] at the left side of the room → Obtain Cling grip [2/6]" },
+            { "type": "step", "id": "ss_l01s58", "text": "3. Collect Pollip Heart [3/6] at top of the room → Break wall to acces te upper part of Bellheart → Free the Lost Flea [6/30] at the top part of the first room" },
+            { "type": "step", "id": "ss_l01s59", "text": "4. Break the wall and return to Shellwood to pick the Pollip Heart [4/6] behind breakable roots → Pick the Pollip Heart [5/6] in the room to the right of the bench room → Pick the last Pollip Heart [6/6] → Return to Greyroot to turn in the Pollip Hearts to obtain Pollip Pouch [9/51]" },
+            { "type": "step", "id": "ss_l01s60", "text": "5. Ring the Bell and rest at the bench" },
+            { "type": "step", "id": "ss_l01s61", "text": "6. Go to the left until you reach the vertical section in Mosslands " },
+            { "type": "img", "src": "src/ss/photos/11.png" }
+           ]
+        },
+        
       ]
     },
     {
-      "id": "part2",
+      "id": "Act 1 (Part 2)",
       "title": "Act 1: Deep Docks",
       "legs": [
         {
