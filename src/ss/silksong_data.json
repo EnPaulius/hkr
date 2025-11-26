@@ -32,7 +32,7 @@
             { "type": "step", "id": "ss_l01s15", "text": "4. Break the door and collect Straight pin [4/51], Grindle encounter " },
             { "type": "step", "id": "ss_l01s16", "text": "5. Activate the elevator for shortcut → Enter Deep Docks" },
             { "type": "img", "src": "src/ss/photos/3.png" },
-            { "type": "img", "src": "src/photos/hr.png" }
+            { "type": "img", "src": "src/ss/photos/0.png" }
           ]
         }
       ]
