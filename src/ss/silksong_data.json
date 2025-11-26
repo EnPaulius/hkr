@@ -2,25 +2,36 @@
   "route": [
     {
       "id": "part1",
-      "title": "Act 1: Moss Grotto",
+      "title": "100% Route - Act 1 (Part 1) ",
       "legs": [
         {
-          "title": "Leg 01 – The Descent",
+          "title": "Leg 01 - Moss Groto:",
           "content": [
-            { "type": "step", "id": "ss_l01s1", "text": "1. Wake up in Moss Grotto (Tutorial Area)." },
-            { "type": "step", "id": "ss_l01s2", "text": "2. Break the webs to proceed. Collect Rosaries [10]." },
-            { "type": "step", "id": "ss_l01s3", "text": "3. Learn the Bind ability (Heal using Silk)." },
-            { "type": "img", "src": "src/silksong_photos/1.jpg" },
-            { "type": "img", "src": "src/photos/hr.png" }
+            { "type": "step", "id": "ss_l01s1", "text": "1. Collect Mossberry → Pogo on top of the Mossmir enemy to reach Mossberry → Defeat Moss Mother boss" },
+            { "type": "step", "id": "ss_l01s2", "text": "2. Chapel Maid encounter" },
+            { "type": "step", "id": "ss_l01s3", "text": "3. Continue right to Bone Bottom" },
+            { "type": "img", "src": "src/ss/photos/1.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
           ]
         },
         {
-          "title": "Leg 02 - Moss Mother",
+          "title": "Leg 02 - The Marrow:",
           "content": [
-            { "type": "step", "id": "ss_l01s4", "text": "1. Proceed upwards to the bell tower." },
-            { "type": "step", "id": "ss_l01s5", "text": "2. Fight Moss Mother boss [1/???]." },
-            { "type": "step", "id": "ss_l01s6", "text": "3. Rescue the captured bug." },
-            { "type": "img", "src": "src/silksong_photos/2.jpg" },
+            { "type": "step", "id": "ss_l01s4", "text": "1. [Optional] Sherma encounter" },
+            { "type": "step", "id": "ss_l01s5", "text": "2. Continue through the room for Skull Brute Arena Battle" },
+            { "type": "step", "id": "ss_l01s6", "text": "3. Hit the lever to unlock the door to Bone Bottom → Unlock the bench [30 Rosaries] " },
+            { "type": "step", "id": "ss_l01s7", "text": "4. Collect Shard Pendant [1/51]" },
+            { "type": "step", "id": "ss_l01s8", "text": "5. hit the two levers in the long room for shortcuts → Buy Quill and Compass [2/51] from Shakra (50+70=120 Rosaries)" },
+            { "type": "step", "id": "ss_l01s9", "text": "6. Unlock trapdor at Mosshome and collect the Choral Commandment → Obtain Silkspear Skill [1/6]" },
+            { "type": "step", "id": "ss_l01s10", "text": "7. Use Silkspear to unlock Druid's home → collect the third Mossberry at the secret room below Moss Druid → Go up again for Moss Druid encounter; Complete Berry picking Wish, Get Druid's eye [3/51] as reward" },
+            { "type": "step", "id": "ss_l01s11", "text": "8. Open the door, buy The Marrow and Mosslands maps (50+40 Rosaries) from Shakra" },
+            { "type": "img", "src": "src/ss/photos/2.png" },
+            { "type": "step", "id": "ss_l01s12", "text": "1. Use Silkspear to free Bell Beast and defeat it for Silk Heart [1/3]; Unlock Marrow Bellway" },
+            { "type": "step", "id": "ss_l01s13", "text": "2. Ring the First Bell" },
+            { "type": "step", "id": "ss_l01s14", "text": "3. Open trapdoor → Get the Craftmetal [1/8] Behind glowing orb secret door" },
+            { "type": "step", "id": "ss_l01s15", "text": "4. Break the door and collect Straight pin [4/51], Grindle encounter " },
+            { "type": "step", "id": "ss_l01s16", "text": "5. Activate the elevator for shortcut → Enter Deep Docks" },
+            { "type": "img", "src": "src/ss/photos/3.png" },
             { "type": "img", "src": "src/photos/hr.png" }
           ]
         }
