@@ -354,19 +354,120 @@
               ]
     },
     {
-      "id": "part4",
+      "id": "part3",
       "title": "Act 2 (Part 2)",
       "legs": [
         {
-          "title": "Leg 01 - [INSERT TITLE HERE]",
+          "title": "Leg 23 - Wormways",
           "content": [
-            { "type": "step", "id": "ss_a2p2_l1_s1", "text": "1. [INSERT TEXT HERE]" }
+            { "type": "step", "id": "ss_l03s1", "text": "1. Donate 440 Shell Shards to complete Icon of Hope wish, make sure that all Bone Bottom wishes are completed →Use the elevator to reach Wormways" },
+            { "type": "step", "id": "ss_l03s2", "text": "2. Use a simple key to open the locked door" },
+            { "type": "step", "id": "ss_l03s3", "text": "3. Open Needolin door and obtain Sharpdart skill [4/6]" },
+            { "type": "step", "id": "ss_l03s4", "text": "4. Talk to alchemist Zylotol and accept Alchemist's assistant wish; equip Plasmium Phial at bench" },
+            { "type": "step", "id": "ss_l03s5", "text": "5. Use Plasmium Phial to obtain Plasmium [1/3] → Collect Plasmium [2/3] behind breakable wall → Get Memory Locket [8/20]" },
+            { "type": "step", "id": "ss_l03s6", "text": "6. Collect Plasmium [3/3] → Open shortcut to Bonegrave → Return to Zylotol for Plasmium Phial [18/51]" },
+            { "type": "step", "id": "ss_l03s7", "text": "7. Go to Moss Druid to obtain Moss stew for Great Taste of Pharloom wish, turn in mossberries for rosaries" },
+            { "type": "step", "id": "ss_l03s8", "text": "8. (optional) Go back to Bone Bottom and fight the Skull Tyrant (reload area if it doesn't spawn); travel to Bellway station and buy Spool Fragment [8/18] and Memory Locket [9/20]; Travel to Blasted steps" },
+            { "type": "img", "src": "src/ss/photos/29.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 24 - Blasted steps",
+          "content": [
+            { "type": "step", "id": "ss_l03s9", "text": "1. Rest at the Station bench, drop down and go to the left to reach the platform below the mask shard. Reaching the platform requires running, clawline, double jump, dash → complete the room and obtain Mask shard [10/20], quit out to return to the station" },
+            { "type": "step", "id": "ss_l03s10", "text": "2. Collect Magnetic Dice [19/51]" },
+            { "type": "step", "id": "ss_l03s11", "text": "3. Great Coachflies boss fight" },
+            { "type": "step", "id": "ss_l03s12", "text": "4. Speak to Pinstress to learn Needle Strike [5/6]" },
+            { "type": "step", "id": "ss_l03s13", "text": "5. Enter Sands of Karak" },
+            { "type": "img", "src": "src/ss/photos/30.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 25 - Sands of Karak",
+          "content": [
+            { "type": "step", "id": "ss_l03s14", "text": "1. Collect Memory Locket [10/20]" },
+            { "type": "step", "id": "ss_l03s15", "text": "2. Drop stalagmite to open acces to Blasted Steps → Rescue lost Flea [21/30] " },
+            { "type": "step", "id": "ss_l03s16", "text": "3. Buy the Sands of Karak map from Shaka (90 Rosaries)" },
+            { "type": "step", "id": "ss_l03s17", "text": "4. Open breakable walls to collect Crestnut at the end of the room for Great Taste of Pharloom quest" },
+            { "type": "step", "id": "ss_l03s18", "text": "5. Rescue Lost Flea [22/30]" },
+            { "type": "step", "id": "ss_l03s19", "text": "6. Use elevator and open shortcut to Blasted steps → Collect Simple Key" },
+            { "type": "step", "id": "ss_l03s20", "text": "7. Drop the stalegmite to open shortcut → Use Clawline and double jump to acces Voltnest; grab Volt Filament [20/51] after Voltvyrm boss fight" },
+            { "type": "step", "id": "ss_l03s21", "text": "8. Return to Blasted steps station and travel to Greymoor" },
+            { "type": "img", "src": "src/ss/photos/31.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 26 - Sinner's Road",
+          "content": [
+            { "type": "step", "id": "ss_l03s22", "text": "1. From Greywood station go to Halfway home; Complete Bugs of Pharloom wish for Tool Pouch Upgrade [2/4]; Pay 480 rosaries to access to Vintage Nectar for Great Taste of Pharloom quest; enter basement to collect it, beware of ants; collect Memory locket [11/20] at the right side of Halfway home (requieres Faydown cloak)" },
+            { "type": "step", "id": "ss_l03s23", "text": "2. Get Barbed Bracelet [21/51]" },
+            { "type": "step", "id": "ss_l03s24", "text": "3. Obtain Pickeled Muckmaggot after defeating Disgraced Chef Lugoli, open the right door for a shortcut before the fight." },
+            { "type": "step", "id": "ss_l03s25", "text": "4. If needed farm muckroaches for Roach Guts wish → Complete Roach Guts wish and obtain Tacks [22/51]" },
+            { "type": "step", "id": "ss_l03s26", "text": "5. open shortcut to Exhaust Organ → From Bilewater Station travel to Bellheart" },
+            { "type": "img", "src": "src/ss/photos/32.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 27 - Couriers Rasher",
+          "content": [
+            { "type": "step", "id": "ss_l03s27", "text": "In Bellheart, talk to the Couriers' brothers to start the delivery of the Couriers' Rasher. (This quest has a timer; when checking the route, make sure to pause the game.) Hits also take one line of the delivery for every mask lost. Falling from great heights and hitting a wall while sprinting also damages the package. Bellway and Ventrica stations will destroy the package" },
+            { "type": "img", "src": "src/ss/photos/33.png" },
+            { "type": "img", "src": "src/ss/photos/34.png" },
+            { "type": "step", "id": "ss_l03s28", "text": "Deliver the 5 ingredients to Loyal Mergwin and complete Great Taste of Pharloom wish to obtain Pale Oil → Return to Bellheart and talk to Pinmaster Plinney for Needle Upgrade [3/4]; Travel to Far Fields" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 28 - Far Fields",
+          "content": [
+            { "type": "step", "id": "ss_l03s29", "text": "1. Enter the secret passage behind Bellway Station; Rescue Lost Flea [23/30] at the end; open door to Mott Shop" },
+            { "type": "step", "id": "ss_l03s30", "text": "2. At Mott shop, buy Weigthed Belt [23/51], Tool Pouch Upgrade [3/4] and Memory Locket [12/20] (160 + 220 + 150=530 Rosaries)" },
+            { "type": "step", "id": "ss_l03s31", "text": "3. Beat Savage Beastfly for Savage Beastfly wish" },
+            { "type": "step", "id": "ss_l03s32", "text": "4. Enter needolin door and run fast to the end of the room for Silkspeed Anklets [24/51]; (optional) equip Flee Brew and Anklets and run again to unlock a secret room with a Rune Arp" },
+            { "type": "step", "id": "ss_l03s33", "text": "5. Get Mask Shard [11/20]" },
+            { "type": "step", "id": "ss_l03s34", "text": "6. Enter Deep Docks" },
+            { "type": "img", "src": "src/ss/photos/35.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 29 - Deep Docks",
+          "content": [
+            { "type": "step", "id": "ss_l03s35", "text": "1. Use Clawline to open the door → explode the glowing orb to enter the secret room with Spool Fragment [9/18]" },
+            { "type": "step", "id": "ss_l03s36", "text": "2. Complete Arena Battle → Rescue Lost Flea [24/30]" },
+            { "type": "step", "id": "ss_l03s37", "text": "3. Hit lever to open top part of room → Get Flintslate [25/51]" },
+            { "type": "step", "id": "ss_l03s38", "text": "4. Fight Signis & Gron; (optional) open door for access to forge daughter bench for easier runback from boss" },
+            { "type": "step", "id": "ss_l03s39", "text": "5. Get Memory Locket behind breakable wall [13/20]" },
+            { "type": "step", "id": "ss_l03s40", "text": "6. (optional) Buy Silkshot from Forge Daugther. At this point, you should decide on which version of the Slinkshot you prefer" },
+            { "type": "step", "id": "ss_l03s41", "text": "7. Get Fractured Mask [26/51] from Mottled Skarr corpse" },
+            { "type": "step", "id": "ss_l03s42", "text": "8. Get Curveclaw [27/51] after really short Arena Battle" },
+            { "type": "step", "id": "ss_l03s43", "text": "9. Return to Deep Docks Bellway Station and go to Bellheart; Turn in Savage Beasfly for Mask Shard [12/20]" },
+            { "type": "img", "src": "src/ss/photos/36.png" },
+            { "type": "img", "src": "src/ss/photos/0.png" }
+          ]
+        },
+        {
+          "title": "Leg 30 - Whiteward",
+          "content": [
+            { "type": "step", "id": "ss_l03s44", "text": "1. [INSERT TEXT HERE]" },
+            { "type": "step", "id": "ss_l03s45", "text": "2. [INSERT TEXT HERE]" },
+            { "type": "step", "id": "ss_l03s46", "text": "3. [INSERT TEXT HERE]" },
+            { "type": "step", "id": "ss_l03s47", "text": "4. [INSERT TEXT HERE]" },
+            { "type": "step", "id": "ss_l03s48", "text": "5. [INSERT TEXT HERE]" },
+            { "type": "step", "id": "ss_l03s49", "text": "6. [INSERT TEXT HERE]" },
+            { "type": "step", "id": "ss_l03s50", "text": "7. [INSERT TEXT HERE]" },
+            { "type": "img", "src": "src/ss/photos/37.png" }
           ]
         }
+        
       ]
     },
     {
-      "id": "act2_part3",
+      "id": "part4",
       "title": "Act 2 (Part 3)",
       "legs": [
         {
@@ -378,7 +479,7 @@
       ]
     },
     {
-      "id": "act2_part4",
+      "id": "part5",
       "title": "Act 2 (Part 4)",
       "legs": [
         {
