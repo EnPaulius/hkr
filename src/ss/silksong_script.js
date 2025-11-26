@@ -1,4 +1,4 @@
-// silksong_script.js 
+// silksong_script.js – Final Clean Version
 
 let routeData = [];
 const contentArea = document.getElementById('route-content');
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function loadRouteData() {
+    // Path to Silksong Data
     const jsonPath = 'src/ss/silksong_data.json'; 
 
     try {
@@ -32,26 +33,33 @@ async function loadRouteData() {
         setupScrollSpy();
         updateProgressBar();
         
+        // Apply collapse state on load
         if (localStorage.getItem('ssHideCompleted') === 'true') {
             checkAndCollapseLegs(true);
         }
 
-        setTimeout(() => { jumpToProgress(); }, 100);
+        // Auto-Jump to progress
+        setTimeout(() => {
+            jumpToProgress();
+        }, 100);
 
     } catch (error) {
         contentArea.innerHTML = `<h2 style="color:red; text-align:center">Error: ${error.message}</h2>`;
     }
 }
 
-// 2. Theme Manager
+// 2. Theme Manager (Pharloom vs Steam)
 function setupTheme() {
     const btnTheme = document.getElementById('btnThemeToggle');
     if(!btnTheme) return;
 
+    // Default is Pharloom (Red), Alternate is Steam (Blue/Black)
+    // If saved theme is 'theme-light' (legacy), reset to 'theme-pharloom'
     let savedTheme = localStorage.getItem('ssTheme');
     if (savedTheme === 'theme-light' || !savedTheme) {
         savedTheme = 'theme-pharloom';
     }
+    
     updateThemeUI(savedTheme);
 
     btnTheme.addEventListener('click', () => {
@@ -62,11 +70,16 @@ function setupTheme() {
 
     function updateThemeUI(themeName) {
         const isHidden = document.body.classList.contains('hide-completed');
-        document.body.classList.remove('theme-pharloom', 'theme-steam', 'theme-light');
+        
+        // Remove all possible theme classes
+        document.body.classList.remove('theme-pharloom', 'theme-light', 'theme-steam');
         document.body.classList.add(themeName);
+
         if(isHidden) document.body.classList.add('hide-completed');
+
         localStorage.setItem('ssTheme', themeName);
 
+        // Update Icon
         if (themeName === 'theme-pharloom') {
             btnTheme.textContent = '🎮'; 
             btnTheme.title = "Switch to Steam Theme";
@@ -97,6 +110,7 @@ function setupEyeToggle() {
             document.body.classList.remove('hide-completed');
             checkAndCollapseLegs(false);
         }
+        
         localStorage.setItem('ssHideCompleted', newState);
         updateEyeIcon(newState);
     });
@@ -122,7 +136,7 @@ function checkAndCollapseLegs(shouldCollapse) {
     });
 }
 
-// 4. Navigation
+// 4. Navigation Render
 function renderNavigation() {
     const existingLinks = document.getElementById('dynamic-links');
     if (existingLinks) existingLinks.remove();
@@ -178,6 +192,7 @@ function renderFullRoute() {
                     if (item.src.includes('hr.png')) html += `<div class="hr-divider"></div>`;
                     else html += `<div class="image-gallery"><img src="${item.src}" loading="lazy"></div>`;
                 } else if (item.type === 'note') {
+                    // New Note Type Support
                     html += `<div class="route-note">${item.text}</div>`;
                 }
             });
@@ -222,13 +237,16 @@ function updateProgressBar() {
     progressText.textContent = `${percent}% Completed`;
 }
 
-// 7. Simple Map Logic (Reverted)
+// 7. Map Modal (Simple Logic - No Wrappers)
 function setupMapModal() {
     const modal = document.getElementById("mapModal");
     const openBtn = document.getElementById("btnMapIcon");
     const closeBtn = document.getElementById("closeMapBtn");
     const viewport = document.getElementById("mapViewport");
-    const img = document.getElementById("mapImage"); // Targeting Image directly
+    
+    // Target Image Directly
+    const img = document.getElementById("mapImage");
+    
     const slider = document.getElementById("zoomSlider");
     const zoomLabel = document.getElementById("zoomLabel");
     const zoomIn = document.getElementById("zoomInBtn");
@@ -241,7 +259,9 @@ function setupMapModal() {
 
     function updateTransform() {
         scale = Math.min(Math.max(0.1, scale), 3);
+        // Apply logic directly to image
         img.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
+        
         if(slider) slider.value = scale;
         if(zoomLabel) zoomLabel.textContent = Math.round(scale * 100) + "%";
     }
@@ -262,7 +282,7 @@ function setupMapModal() {
     if (viewport) {
         viewport.addEventListener("wheel", (e) => {
             e.preventDefault();
-            const delta = -Math.sign(e.deltaY) * 0.2;
+            const delta = -Math.sign(e.deltaY) * 0.1;
             scale = Math.min(Math.max(0.1, scale + delta), 3);
             updateTransform();
         }, { passive: false });
@@ -272,16 +292,16 @@ function setupMapModal() {
             startX = e.clientX - pointX; startY = e.clientY - pointY;
             viewport.style.cursor = "grabbing";
         });
-        window.addEventListener("mouseup", () => {
-            isDragging = false; if(viewport) viewport.style.cursor = "grab";
+        window.addEventListener("mouseup", () => { 
+            isDragging = false; 
+            if(viewport) viewport.style.cursor = "grab"; 
         });
         window.addEventListener("mousemove", (e) => {
             if (!isDragging) return; e.preventDefault();
             pointX = e.clientX - startX; pointY = e.clientY - startY;
             updateTransform();
         });
-        
-        // Touch support
+
         viewport.addEventListener("touchstart", (e) => {
             if (e.touches.length === 1) {
                 isDragging = true;
@@ -343,6 +363,7 @@ function setupResetButton() {
     if (!btn) return;
     btn.addEventListener('click', () => {
         if (confirm('Reset ALL Silksong progress?')) {
+            // Only clear keys starting with ss_ or ssTheme
             Object.keys(localStorage).forEach(key => {
                 if (key.startsWith('ss_') || key.startsWith('ssTheme') || key.startsWith('ssHide')) {
                     localStorage.removeItem(key);
