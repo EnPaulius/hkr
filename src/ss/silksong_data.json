@@ -1,0 +1,44 @@
+{
+  "route": [
+    {
+      "id": "part1",
+      "title": "Act 1: Moss Grotto",
+      "legs": [
+        {
+          "title": "Leg 01 – The Descent",
+          "content": [
+            { "type": "step", "id": "ss_l01s1", "text": "1. Wake up in Moss Grotto (Tutorial Area)." },
+            { "type": "step", "id": "ss_l01s2", "text": "2. Break the webs to proceed. Collect Rosaries [10]." },
+            { "type": "step", "id": "ss_l01s3", "text": "3. Learn the Bind ability (Heal using Silk)." },
+            { "type": "img", "src": "src/silksong_photos/1.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
+          ]
+        },
+        {
+          "title": "Leg 02 - Moss Mother",
+          "content": [
+            { "type": "step", "id": "ss_l01s4", "text": "1. Proceed upwards to the bell tower." },
+            { "type": "step", "id": "ss_l01s5", "text": "2. Fight Moss Mother boss [1/???]." },
+            { "type": "step", "id": "ss_l01s6", "text": "3. Rescue the captured bug." },
+            { "type": "img", "src": "src/silksong_photos/2.jpg" },
+            { "type": "img", "src": "src/photos/hr.png" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "title": "Act 1: Deep Docks",
+      "legs": [
+        {
+          "title": "Leg 03 – To the Citadel",
+          "content": [
+            { "type": "step", "id": "ss_l02s1", "text": "1. Enter Deep Docks elevator." },
+            { "type": "step", "id": "ss_l02s2", "text": "2. Bench [150 Rosaries] -> Talk to Lace." },
+            { "type": "img", "src": "src/silksong_photos/3.jpg" }
+          ]
+        }
+      ]
+    }
+  ]
+}
