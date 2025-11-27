@@ -1,4 +1,4 @@
-// silksong_script.js – Final Clean Version
+// silksong_script.js – Interactive Map Version
 
 let routeData = [];
 const contentArea = document.getElementById('route-content');
@@ -48,13 +48,11 @@ async function loadRouteData() {
     }
 }
 
-// 2. Theme Manager (Pharloom vs Steam)
+// 2. Theme Manager
 function setupTheme() {
     const btnTheme = document.getElementById('btnThemeToggle');
     if(!btnTheme) return;
 
-    // Default is Pharloom (Red), Alternate is Steam (Blue/Black)
-    // If saved theme is 'theme-light' (legacy), reset to 'theme-pharloom'
     let savedTheme = localStorage.getItem('ssTheme');
     if (savedTheme === 'theme-light' || !savedTheme) {
         savedTheme = 'theme-pharloom';
@@ -70,16 +68,11 @@ function setupTheme() {
 
     function updateThemeUI(themeName) {
         const isHidden = document.body.classList.contains('hide-completed');
-        
-        // Remove all possible theme classes
         document.body.classList.remove('theme-pharloom', 'theme-light', 'theme-steam');
         document.body.classList.add(themeName);
-
         if(isHidden) document.body.classList.add('hide-completed');
-
         localStorage.setItem('ssTheme', themeName);
 
-        // Update Icon
         if (themeName === 'theme-pharloom') {
             btnTheme.textContent = '🎮'; 
             btnTheme.title = "Switch to Steam Theme";
@@ -192,7 +185,6 @@ function renderFullRoute() {
                     if (item.src.includes('hr.png')) html += `<div class="hr-divider"></div>`;
                     else html += `<div class="image-gallery"><img src="${item.src}" loading="lazy"></div>`;
                 } else if (item.type === 'note') {
-                    // New Note Type Support
                     html += `<div class="route-note">${item.text}</div>`;
                 }
             });
@@ -237,92 +229,45 @@ function updateProgressBar() {
     progressText.textContent = `${percent}% Completed`;
 }
 
-// 7. Map Modal (Simple Logic - No Wrappers)
+// 7. Interactive Map Modal
 function setupMapModal() {
     const modal = document.getElementById("mapModal");
     const openBtn = document.getElementById("btnMapIcon");
     const closeBtn = document.getElementById("closeMapBtn");
-    const viewport = document.getElementById("mapViewport");
+    const iframe = document.getElementById("mapIframe");
     
-    // Target Image Directly
-    const img = document.getElementById("mapImage");
-    
-    const slider = document.getElementById("zoomSlider");
-    const zoomLabel = document.getElementById("zoomLabel");
-    const zoomIn = document.getElementById("zoomInBtn");
-    const zoomOut = document.getElementById("zoomOutBtn");
+    const MAP_URL = "https://dinglemire.github.io/hk_maps/silksong/";
 
-    if (!modal || !img) return;
+    if (!modal || !openBtn || !closeBtn) return;
 
-    let scale = 0.5, pointX = 0, pointY = 0;
-    let isDragging = false, startX = 0, startY = 0;
-
-    function updateTransform() {
-        scale = Math.min(Math.max(0.1, scale), 3);
-        // Apply logic directly to image
-        img.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
-        
-        if(slider) slider.value = scale;
-        if(zoomLabel) zoomLabel.textContent = Math.round(scale * 100) + "%";
-    }
-
-    if (openBtn) openBtn.addEventListener("click", () => {
+    const openMap = () => {
         modal.style.display = "block";
-        document.body.style.overflow = "hidden";
-        updateTransform();
-    });
+        document.body.style.overflow = "hidden"; // Prevent background scroll
+        // Lazy load: Only set src if it hasn't been set yet
+        if (iframe && !iframe.getAttribute('src')) {
+            iframe.src = MAP_URL;
+        }
+    };
 
     const closeMap = () => {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
     };
 
-    if (closeBtn) closeBtn.addEventListener("click", closeMap);
+    openBtn.addEventListener("click", openMap);
+    closeBtn.addEventListener("click", closeMap);
 
-    if (viewport) {
-        viewport.addEventListener("wheel", (e) => {
-            e.preventDefault();
-            const delta = -Math.sign(e.deltaY) * 0.1;
-            scale = Math.min(Math.max(0.1, scale + delta), 3);
-            updateTransform();
-        }, { passive: false });
+    // Close on click outside iframe
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) closeMap();
+    });
 
-        viewport.addEventListener("mousedown", (e) => {
-            e.preventDefault(); isDragging = true;
-            startX = e.clientX - pointX; startY = e.clientY - pointY;
-            viewport.style.cursor = "grabbing";
-        });
-        window.addEventListener("mouseup", () => { 
-            isDragging = false; 
-            if(viewport) viewport.style.cursor = "grab"; 
-        });
-        window.addEventListener("mousemove", (e) => {
-            if (!isDragging) return; e.preventDefault();
-            pointX = e.clientX - startX; pointY = e.clientY - startY;
-            updateTransform();
-        });
-
-        viewport.addEventListener("touchstart", (e) => {
-            if (e.touches.length === 1) {
-                isDragging = true;
-                startX = e.touches[0].clientX - pointX; startY = e.touches[0].clientY - pointY;
-            }
-        }, { passive: false });
-
-        window.addEventListener("touchmove", (e) => {
-            if (isDragging && e.touches.length === 1) {
-                e.preventDefault();
-                pointX = e.touches[0].clientX - startX; pointY = e.touches[0].clientY - startY;
-                updateTransform();
-            }
-        }, { passive: false });
-
-        window.addEventListener("touchend", () => isDragging = false);
-    }
-
-    if(slider) slider.addEventListener("input", (e) => { scale = parseFloat(e.target.value); updateTransform(); });
-    if(zoomIn) zoomIn.addEventListener("click", () => { scale += 0.1; updateTransform(); });
-    if(zoomOut) zoomOut.addEventListener("click", () => { scale -= 0.1; updateTransform(); });
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.style.display === "block") {
+            closeMap();
+        }
+    });
 }
 
 // 8. Resume
@@ -358,17 +303,36 @@ function setupScrollSpy() {
     document.querySelectorAll('section.route-part-section').forEach(s => observer.observe(s));
 }
 
+// 9. Reset Function
 function setupResetButton() {
     const btn = document.getElementById('resetBtn');
     if (!btn) return;
+    
     btn.addEventListener('click', () => {
-        if (confirm('Reset ALL Silksong progress?')) {
-            // Only clear keys starting with ss_ or ssTheme
-            Object.keys(localStorage).forEach(key => {
-                if (key.startsWith('ss_') || key.startsWith('ssTheme') || key.startsWith('ssHide')) {
-                    localStorage.removeItem(key);
-                }
-            });
+        if (confirm('Reset ALL Silksong progress? This cannot be undone.')) {
+            // 1. Remove settings
+            localStorage.removeItem('ssTheme');
+            localStorage.removeItem('ssHideCompleted');
+
+            // 2. Remove all checklist items derived from the current JSON
+            // (This ensures we don't accidentally delete other site data)
+            if (routeData && routeData.length > 0) {
+                routeData.forEach(part => {
+                    part.legs.forEach(leg => {
+                        leg.content.forEach(item => {
+                            if (item.type === 'step' && item.id) {
+                                localStorage.removeItem(item.id);
+                            }
+                        });
+                    });
+                });
+            } else {
+                // Fallback: Clear keys starting with 'ss_' if routeData isn't loaded
+                Object.keys(localStorage).forEach(key => {
+                    if (key.startsWith('ss_')) localStorage.removeItem(key);
+                });
+            }
+            
             location.reload();
         }
     });
