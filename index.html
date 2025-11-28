@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Hollow Knight 112% Route</title>
-    <!-- CHANGED: Pointing to src folder -->
     <link rel="stylesheet" href="src/hk/style.css" />
 </head>
 <body class="theme-default">
@@ -19,46 +18,36 @@
     <!-- Navigation -->
     <nav id="navigation">
         <a href="silksong.html" class="game-switch-btn silksong-btn">
-        🦋 Go to Silksong
-    </a>
+            🦋 Go to Silksong
+        </a>
         <h3>Navigation</h3>
  
-        <!-- 1. TOP ICONS ROW -->
         <div class="top-icons">
             <button id="btnThemeToggle" class="icon-btn" title="Switch Theme">🎮</button>
             <button id="btnMapIcon" class="icon-btn" title="Open Map">🗺️</button>
             <button id="btnEyeToggle" class="icon-btn" title="Auto-Collapse Completed Legs">👁️</button>
         </div>
 
-        <!-- 2. Action Buttons -->
         <div class="nav-actions">
             <button id="resumeBtn" class="resume-btn" title="Jump to progress">Resume ⏩</button>
             <button id="resetBtn" class="reset-btn" title="Reset checklist">Reset</button>
         </div>
 
-        <!-- 3. Progress Bar -->
         <div class="progress-container" title="Checklist Progress">
             <div id="progressBar" class="progress-fill yellow"></div>
             <span id="progressText">0%</span>
         </div>
     </nav>
 
-    <!-- Map Modal -->
+    <!-- NEW MAP MODAL (Optimized for Iframe) -->
     <div id="mapModal" class="map-modal">
-        <button id="closeMapBtn" class="close-map-btn">← Back</button>
-        <div id="mapViewport" class="map-viewport">
-            <!-- Map image path remains src/... because index.html is in root -->
-            <img id="mapImage" src="src/hk/map.jpeg" alt="Hollow Knight Map">
-        </div>
-        <div class="map-controls">
-            <button id="zoomOutBtn">−</button>
-            <input type="range" id="zoomSlider" min="0.1" max="3" step="0.1" value="0.5">
-            <button id="zoomInBtn">+</button>
-            <span id="zoomLabel">50%</span>
+        <button id="closeMapBtn" class="close-map-btn">← Back to Checklist</button>
+        <div class="map-iframe-wrapper">
+            <!-- data-src ensures it doesn't slow down page load until opened -->
+            <iframe id="mapFrame" data-src="https://dinglemire.github.io/hk_maps/hollowknight/" allowfullscreen></iframe>
         </div>
     </div>
     
-    <!-- CHANGED: Pointing to src folder -->
     <script src="src/hk/script.js"></script>
 </body>
 </html>
