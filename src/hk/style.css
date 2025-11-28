@@ -248,59 +248,58 @@ body:not(.theme-steam) h1.part-title {
     #progressText { font-size: 0.65rem; line-height: 12px; }
 }
 
+/* ... existing CSS ... */
+
 /* -------------------------------------- */
-/* 6. MAP MODAL */
+/* 6. MAP MODAL (Updated) */
 /* -------------------------------------- */
 .map-modal {
-    display: none; position: fixed; top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background-color: #050505; z-index: 9999; overflow: hidden;
-}
-.map-viewport {
-    width: 100%; height: 100%; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-    cursor: grab; touch-action: none;
-}
-.map-viewport:active { cursor: grabbing; }
-#mapImage {
-    transform-origin: center center; transition: transform 0.1s linear;
-    max-width: none; pointer-events: none;
-}
-.close-map-btn {
-    position: absolute; top: 15px; left: 15px;
-    background: rgba(0,0,0,0.8); color: #fff;
-    border: 1px solid #555; padding: 8px 16px;
-    border-radius: 20px; z-index: 10000;
-}
-.map-controls {
-    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-    background: rgba(20,20,20,0.9); padding: 8px 15px; border-radius: 30px;
-    display: flex; gap: 10px; align-items: center;
-    border: 1px solid #555; z-index: 10000;
-}
-.map-controls button {
-    background: #333; color: #fff; border: none;
-    width: 28px; height: 28px; border-radius: 50%;
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100vw; 
+    height: 100vh;
+    background-color: #050505; 
+    z-index: 9999; 
 }
 
-/* Game Switcher Button */
-.game-switch-btn {
+.map-iframe-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#mapFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
     display: block;
-    padding: 10px;
-    margin-bottom: 15px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-    border: 1px solid rgba(255,255,255,0.1);
 }
 
-.game-switch-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+.close-map-btn {
+    position: absolute; 
+    top: 20px; 
+    left: 20px;
+    background: rgba(0, 0, 0, 0.85); 
+    color: #fff;
+    border: 1px solid #555; 
+    padding: 10px 20px;
+    border-radius: 4px; 
+    z-index: 10000;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: var(--font-main);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: background 0.2s;
 }
+
+.close-map-btn:hover {
+    background: #333;
+    border-color: var(--color-accent);
+}
+
+/* ... existing code ... */
 
 /* Specific Styles */
 .silksong-btn {
