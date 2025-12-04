@@ -407,7 +407,7 @@
           "content": [
             { "type": "step", "id": "l04s28", "text": "1. Pass through Dung Defender's room (Dung Defender encounter) -> use dive spell in room under bench to enter sub-area of Waterways -> beat Flukemarm boss for Flukenest charm [32/40]" },
             { "type": "step", "id": "l04s29", "text": "2. Return to broken elevator shaft to fall down into Ancient Basin; (Optional: Whispering Root for 35 Essence) -> Collect Wanderer’s Journal relic" },
-            { "type": "img", "src": "src/hk/photos5/part30.jpg" },
+            { "type": "img", "src": "src/hk/photos5/Part30.jpg" },
             { "type": "img", "src": "src/hk/photos/hr.png" }
           ]
         }
